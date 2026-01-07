@@ -1,0 +1,10 @@
+{
+  "name": "e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tests/e2e/src",
+  "projectType": "application",
+  "tags": [
+    "type:e2e"
+  ],
+  "targets": {}
+}
