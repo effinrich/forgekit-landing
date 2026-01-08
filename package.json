@@ -5,13 +5,15 @@
   "scripts": {
     "dev": "nx serve web",
     "build": "nx build web",
+    "test-web": "nx run web:test",
+    "test-ui": "nx run ui:test",
     "test": "nx run-many -t test",
     "lint": "nx run-many -t lint",
     "typecheck": "nx run-many -t typecheck",
     "e2e": "nx e2e e2e",
     "storybook": "nx storybook ui",
     "build-storybook": "nx build-storybook ui",
-    "test-storybook": "test-storybook",
+    "test-storybook": "nx run ui:test",
     "chromatic": "chromatic --exit-zero-on-changes",
     "prepare": "husky install",
     "forgekit": "forgekit"
@@ -76,5 +78,8 @@
     "*.{json,md,yml,yaml}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
