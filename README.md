@@ -2,7 +2,7 @@
 
 SPA with UI library, Storybook, and testing
 
-Generated with [Forgekit](https://forgekit.dev)
+Generated with [Forgekit](https://forgekit.cloud)
 
 ## Getting Started
 
