@@ -3,9 +3,13 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/web/src",
   "projectType": "application",
-  "tags": [
-    "type:app",
-    "scope:web"
-  ],
-  "targets": {}
+  "tags": ["type:app", "scope:web"],
+  "targets": {
+    "test": {
+      "command": "vitest",
+      "options": {
+        "cwd": "apps/web"
+      }
+    }
+  }
 }

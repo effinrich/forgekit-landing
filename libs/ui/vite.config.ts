@@ -22,7 +22,9 @@ export default defineConfig({
       external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
   },
-
+  // Vitest configuration moved to vite.config for compatibility
+  // See: https://vitest.dev/guide/#configuration
+  // @ts-expect-error: Vitest config requires 'test' at the top level, which is not part of the Vite UserConfig type.
   test: {
     globals: true,
     environment: 'jsdom',
@@ -32,6 +34,5 @@ export default defineConfig({
       reportsDirectory: '../../coverage/libs/ui',
       provider: 'v8',
     },
-    setupFiles: ['./src/test-setup.ts'],
   },
 })
