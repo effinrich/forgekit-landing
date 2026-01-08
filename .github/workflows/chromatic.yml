@@ -14,20 +14,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install --frozen-lockfile
 
       - name: Build Storybook
-        run: pnpm nx build-storybook ui
+        run: npm nx build-storybook ui
 
       - name: Publish to Chromatic
         uses: chromaui/action@latest
