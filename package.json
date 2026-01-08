@@ -76,5 +76,9 @@
     "*.{json,md,yml,yaml}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": "24.11.1",
+    "npm": "11.7.0"
   }
 }
