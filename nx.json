@@ -1,10 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",
       "!{projectRoot}/**/*.stories.tsx",
@@ -12,9 +9,7 @@
       "!{projectRoot}/**/*.spec.ts",
       "!{projectRoot}/.storybook/**/*"
     ],
-    "sharedGlobals": [
-      "{workspaceRoot}/tsconfig.base.json"
-    ]
+    "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json"]
   },
   "plugins": [
     {
@@ -26,18 +21,8 @@
         "serveTargetName": "serve"
       }
     },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
     {
       "plugin": "@nx/storybook/plugin",
       "options": {
@@ -47,24 +32,12 @@
     }
   ],
   "targetDefaults": {
-    "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "cache": true
-    },
-    "test": {
-      "cache": true
-    },
-    "lint": {
-      "cache": true
-    },
-    "e2e": {
-      "cache": true
-    },
-    "build-storybook": {
-      "cache": true
-    }
+    "build": { "dependsOn": ["^build"], "cache": true },
+    "test": { "cache": true },
+    "lint": { "cache": true },
+    "e2e": { "cache": true },
+    "build-storybook": { "cache": true }
   },
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "nxCloudAccessToken": "MzJjZTMxYjMtYTBhOC00NjNiLTlmNjItMzdjZDJlZTk2ZGQxfHJlYWQtd3JpdGU="
 }
