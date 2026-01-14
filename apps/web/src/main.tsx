@@ -1,17 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ChakraProvider } from '@chakra-ui/react'
-import { theme } from '@forgekit-landing/theme'
-import { App } from './app'
+import { Provider } from '@forgekit-landing/ui'
+import { theme } from '@forgekit-landing/ui'
+import { App } from './app/app'
 
 const root = document.getElementById('root')
 
 if (root) {
   createRoot(root).render(
     <StrictMode>
-      <ChakraProvider theme={theme}>
+      <Provider theme={theme}>
         <App />
-      </ChakraProvider>
+      </Provider>
     </StrictMode>
   )
 }

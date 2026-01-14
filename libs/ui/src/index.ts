@@ -14,4 +14,8 @@ export { Features, type FeaturesProps, type Feature } from './Features'
 export { Pricing, type PricingProps, type PricingPlan } from './Pricing'
 export { CTA, type CTAProps } from './CTA'
 export { Footer, type FooterProps, type FooterColumn, type FooterLink } from './Footer'
+export { ColorModeProvider, useColorMode } from './provider/color-mode'
+export { Provider } from './provider/provider'
+export { Tooltip, type TooltipProps } from './tooltip/tooltip'
+export { Toaster } from './toaster/toaster'
 
