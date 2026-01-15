@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Icon, VStack } from '@chakra-ui/react'
+import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 import { forwardRef, type ReactNode } from 'react'
 
 export interface FeatureCardProps {

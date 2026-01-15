@@ -1,13 +1,36 @@
 {
-  "name": "ui",
+  "name": "@forgekit-landing/ui",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "UI component library for Forgekit Landing built with React and Chakra UI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "scripts": {},
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "chakra-ui",
+    "forgekit"
+  ],
+  "author": "Rich Tillman",
   "license": "ISC",
-  "type": "module"
+  "peerDependencies": {
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "framer-motion": "^10.16.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
