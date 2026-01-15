@@ -1,5 +1,5 @@
 {
   "installCommand": "npm ci",
-  "buildCommand": "npx nx build web",
-  "outputDirectory": "apps/web/dist"
+  "buildCommand": "npx nx build landing",
+  "outputDirectory": "dist/apps/landing"
 }
