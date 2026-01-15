@@ -9,6 +9,16 @@ export default defineConfig({
 
   plugins: [react(), nxViteTsPaths()],
 
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/test-setup.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+    },
+  },
+
   build: {
     outDir: '../../dist/libs/ui',
     emptyOutDir: true,
