@@ -7,7 +7,9 @@
       "!{projectRoot}/**/*.stories.tsx",
       "!{projectRoot}/**/*.test.tsx",
       "!{projectRoot}/**/*.spec.ts",
-      "!{projectRoot}/.storybook/**/*"
+      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.js"
     ],
     "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json"]
   },
@@ -32,11 +34,27 @@
     }
   ],
   "targetDefaults": {
-    "build": { "dependsOn": ["^build"], "cache": true },
-    "test": { "cache": true },
-    "lint": { "cache": true },
-    "e2e": { "cache": true },
-    "build-storybook": { "cache": true }
+    "build": {
+      "dependsOn": ["^build"],
+      "cache": true
+    },
+    "test": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "e2e": {
+      "cache": true
+    },
+    "build-storybook": {
+      "cache": true
+    },
+    "@nx/esbuild:esbuild": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    }
   },
   "defaultBase": "main",
   "nxCloudAccessToken": "MzJjZTMxYjMtYTBhOC00NjNiLTlmNjItMzdjZDJlZTk2ZGQxfHJlYWQtd3JpdGU="

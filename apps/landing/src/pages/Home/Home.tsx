@@ -1,11 +1,5 @@
 import { Box } from '@chakra-ui/react'
-import {
-  Hero,
-  Features,
-  Pricing,
-  CTA,
-  Footer,
-} from '@forgekit-landing/ui'
+import { Hero, Features, Pricing, CTA, Footer } from '@forgekit-landing/ui'
 
 // Icons as simple SVG components
 const FigmaIcon = () => (
@@ -73,37 +67,43 @@ const features = [
   {
     icon: <FigmaIcon />,
     title: 'Figma to React',
-    description: 'Connect your Figma file and watch components materialize. Design tokens, components, and variants — all synced automatically.',
+    description:
+      'Connect your Figma file and watch components materialize. Design tokens, components, and variants — all synced automatically.',
     accentColor: '#8b5cf6',
   },
   {
     icon: <TestIcon />,
     title: 'Tests Included',
-    description: 'Every component ships with Vitest unit tests, Storybook interaction tests, and Playwright e2e tests. Production-ready from day one.',
+    description:
+      'Every component ships with Vitest unit tests, Storybook interaction tests, and Playwright e2e tests. Production-ready from day one.',
     accentColor: '#14b8a6',
   },
   {
     icon: <StorybookIcon />,
     title: 'Storybook Stories',
-    description: 'Full Storybook coverage with autodocs, interaction tests, and Chromatic visual regression testing built into CI.',
+    description:
+      'Full Storybook coverage with autodocs, interaction tests, and Chromatic visual regression testing built into CI.',
     accentColor: '#f97316',
   },
   {
     icon: <CodeIcon />,
     title: 'Clean Architecture',
-    description: 'Nx monorepo foundation scales from SPA to enterprise. TypeScript, ESLint, Prettier — all configured correctly.',
+    description:
+      'Nx monorepo foundation scales from SPA to enterprise. TypeScript, ESLint, Prettier — all configured correctly.',
     accentColor: '#8b5cf6',
   },
   {
     icon: <SyncIcon />,
     title: 'Live Sync',
-    description: 'Design changes in Figma? Run one command to sync. Your codebase stays in perfect harmony with your designs.',
+    description:
+      'Design changes in Figma? Run one command to sync. Your codebase stays in perfect harmony with your designs.',
     accentColor: '#14b8a6',
   },
   {
     icon: <RocketIcon />,
     title: 'Deploy Anywhere',
-    description: 'Vercel, Railway, or self-hosted with Dokploy. CI/CD pipelines included. Ship to production in minutes.',
+    description:
+      'Vercel, Railway, or self-hosted with Dokploy. CI/CD pipelines included. Ship to production in minutes.',
     accentColor: '#f97316',
   },
 ]
@@ -202,8 +202,8 @@ export function Home() {
         description="Stop recreating designs by hand. Forgekit transforms your Figma components into tested, documented, deployable React applications in minutes."
         primaryCta="Start Free Trial"
         secondaryCta="Watch Demo"
-        onPrimaryClick={() => window.location.href = '/signup'}
-        onSecondaryClick={() => window.location.href = '/demo'}
+        onPrimaryClick={() => (window.location.href = '/signup')}
+        onSecondaryClick={() => (window.location.href = '/demo')}
       />
 
       <Features
@@ -228,8 +228,8 @@ export function Home() {
         description="Join hundreds of developers shipping faster with Forgekit. Start your free trial today — no credit card required."
         primaryCta="Get Started Free"
         secondaryCta="Talk to Sales"
-        onPrimaryClick={() => window.location.href = '/signup'}
-        onSecondaryClick={() => window.location.href = '/contact'}
+        onPrimaryClick={() => (window.location.href = '/signup')}
+        onSecondaryClick={() => (window.location.href = '/contact')}
       />
 
       <Footer
