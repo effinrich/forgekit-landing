@@ -7,7 +7,9 @@
       "!{projectRoot}/**/*.stories.tsx",
       "!{projectRoot}/**/*.test.tsx",
       "!{projectRoot}/**/*.spec.ts",
-      "!{projectRoot}/.storybook/**/*"
+      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.js"
     ],
     "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json"]
   },
