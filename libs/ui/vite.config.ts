@@ -22,14 +22,4 @@ export default defineConfig({
       external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
   },
-  test: {
-    globals: true, // Optional: if you want global APIs like describe, test, etc.
-    environment: 'jsdom', // Specify the environment
-    coverage: {
-      all: true,
-      extensions: ['.ts', '.tsx'],
-      ignoreEmptyLines: false,
-      experimentalAstAwareRemapping: true,
-    },
-  },
 })
