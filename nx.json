@@ -23,18 +23,8 @@
         "serveTargetName": "serve"
       }
     },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
     {
       "plugin": "@nx/storybook/plugin",
       "options": {
@@ -66,5 +56,6 @@
       "inputs": ["production", "^production"]
     }
   },
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "nxCloudAccessToken": "MzJjZTMxYjMtYTBhOC00NjNiLTlmNjItMzdjZDJlZTk2ZGQxfHJlYWQtd3JpdGU="
 }
