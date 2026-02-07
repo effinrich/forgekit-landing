@@ -1,5 +1,5 @@
 {
-  "installCommand": "npm ci",
+  "installCommand": "npm install",
   "buildCommand": "npx nx build web",
   "outputDirectory": "dist/apps/web"
 }
