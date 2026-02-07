@@ -1,8 +1,0 @@
-# Disabled until Storybook build issues are resolved
-# name: Chromatic
-#
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
