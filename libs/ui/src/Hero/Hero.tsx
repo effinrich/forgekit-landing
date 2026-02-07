@@ -5,7 +5,6 @@ import {
   VStack,
   HStack,
   Button,
-  Flex,
 } from '@chakra-ui/react'
 import { forwardRef } from 'react'
 import { Container } from '../Container'
