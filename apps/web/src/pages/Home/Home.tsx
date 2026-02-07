@@ -110,6 +110,10 @@ const features = [
   },
 ]
 
+const handleEarlyAccess = (plan: string) => {
+  window.location.href = `mailto:hello@forgekit.dev?subject=Early Access Request - ${plan} Plan&body=Hi,%0D%0A%0D%0AI'm interested in early access to the ${plan} plan.%0D%0A%0D%0AThanks!`
+}
+
 const pricingPlans = [
   {
     name: 'Launch',
@@ -125,8 +129,9 @@ const pricingPlans = [
       'Chromatic CI workflow',
       'Vercel deployment',
     ],
-    ctaText: 'Start Building',
+    ctaText: 'Get Early Access',
     isPopular: false,
+    onCtaClick: () => handleEarlyAccess('Launch'),
   },
   {
     name: 'Scale',
@@ -142,8 +147,9 @@ const pricingPlans = [
       'Multi-app monorepo',
       'Priority support',
     ],
-    ctaText: 'Start Scaling',
+    ctaText: 'Get Early Access',
     isPopular: true,
+    onCtaClick: () => handleEarlyAccess('Scale'),
   },
   {
     name: 'Universal',
@@ -159,8 +165,9 @@ const pricingPlans = [
       'Cross-platform testing',
       'Dedicated support',
     ],
-    ctaText: 'Go Universal',
+    ctaText: 'Get Early Access',
     isPopular: false,
+    onCtaClick: () => handleEarlyAccess('Universal'),
   },
 ]
 
@@ -205,18 +212,18 @@ export function Home() {
     <Box bg="slate.950" minH="100vh">
       <Header
         links={navLinks}
-        ctaText="Start Free Trial"
-        onCtaClick={() => window.location.href = '/signup'}
+        ctaText="Get Early Access"
+        onCtaClick={() => handleEarlyAccess('ForgeKit')}
       />
       <Hero
-        badge="Now in Public Beta"
+        badge="Coming Soon"
         headline="From Figma to production-ready React"
         highlightedText="production-ready"
-        description="Stop recreating designs by hand. Forgekit transforms your Figma components into tested, documented, deployable React applications in minutes."
-        primaryCta="Start Free Trial"
-        secondaryCta="Watch Demo"
-        onPrimaryClick={() => window.location.href = '/signup'}
-        onSecondaryClick={() => window.location.href = '/demo'}
+        description="Stop recreating designs by hand. ForgeKit transforms your Figma components into tested, documented, deployable React applications in minutes."
+        primaryCta="Get Early Access"
+        secondaryCta="View Storybook MCP"
+        onPrimaryClick={() => handleEarlyAccess('ForgeKit')}
+        onSecondaryClick={() => window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'}
       />
 
       <Features
@@ -238,11 +245,11 @@ export function Home() {
       <CTA
         headline="Ready to transform your workflow?"
         highlightedText="transform"
-        description="Join hundreds of developers shipping faster with Forgekit. Start your free trial today — no credit card required."
-        primaryCta="Get Started Free"
-        secondaryCta="Talk to Sales"
-        onPrimaryClick={() => window.location.href = '/signup'}
-        onSecondaryClick={() => window.location.href = '/contact'}
+        description="Join developers shipping faster with ForgeKit. Get early access — we'll notify you when we launch."
+        primaryCta="Get Early Access"
+        secondaryCta="View Storybook MCP"
+        onPrimaryClick={() => handleEarlyAccess('ForgeKit')}
+        onSecondaryClick={() => window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'}
       />
 
       <Footer
