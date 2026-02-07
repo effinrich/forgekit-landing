@@ -20,7 +20,7 @@
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "forgekit-storybook-mcp": "^0.2.4",
+    "forgekit-storybook-mcp": "^0.2.5",
     "framer-motion": "^10.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
