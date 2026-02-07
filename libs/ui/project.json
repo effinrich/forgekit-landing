@@ -14,18 +14,18 @@
       }
     },
     "storybook": {
-      "executor": "@nx/storybook:storybook",
+      "executor": "nx:run-commands",
       "options": {
-        "port": 6006,
-        "configDir": ".storybook"
+        "command": "storybook dev -p 6006 -c .storybook",
+        "cwd": "{workspaceRoot}"
       }
     },
     "build-storybook": {
-      "executor": "@nx/storybook:build",
-      "outputs": ["{options.outputDir}"],
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/storybook/ui"],
       "options": {
-        "configDir": ".storybook",
-        "outputDir": "dist/storybook/ui"
+        "command": "storybook build -c .storybook -o dist/storybook/ui",
+        "cwd": "{workspaceRoot}"
       }
     }
   }

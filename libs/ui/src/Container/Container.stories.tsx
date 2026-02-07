@@ -44,11 +44,11 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-      <Container size="sm">sm</${analysis.name}>
-      <Container size="md">md</${analysis.name}>
-      <Container size="lg">lg</${analysis.name}>
-      <Container size="xl">xl</${analysis.name}>
-      <Container size="full">full</${analysis.name}>
+      <Container size="sm">sm</Container>
+      <Container size="md">md</Container>
+      <Container size="lg">lg</Container>
+      <Container size="xl">xl</Container>
+      <Container size="full">full</Container>
     </div>
   ),
 }
