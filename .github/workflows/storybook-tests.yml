@@ -12,26 +12,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
       - name: Build Storybook
-        run: pnpm nx build-storybook ui
+        run: npx nx build-storybook ui
 
       - name: Serve Storybook and run tests
         run: |
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
             "npx http-server dist/storybook/ui --port 6006 --silent" \
-            "npx wait-on tcp:127.0.0.1:6006 && pnpm test-storybook"
+            "npx wait-on tcp:127.0.0.1:6006 && npm run test-storybook"

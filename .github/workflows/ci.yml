@@ -17,22 +17,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install
 
       - uses: nrwl/nx-set-shas@v4
 
       - name: Run lint, test, build
-        run: pnpm nx affected -t lint test build --parallel=3
+        run: npx nx affected -t lint test build --parallel=3
 
   e2e:
     runs-on: ubuntu-latest
@@ -42,23 +38,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm install
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
       - name: Run e2e tests
-        run: pnpm nx e2e e2e
+        run: npx nx e2e e2e
 
       - uses: actions/upload-artifact@v4
         if: failure()
