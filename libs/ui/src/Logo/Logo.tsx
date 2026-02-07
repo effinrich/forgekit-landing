@@ -21,7 +21,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
   ({ variant = 'wordmark', size = 'md' }, ref) => {
     const { icon: iconSize, fontSize, gap } = sizes[size]
 
-    const LogoIcon = () => (
+    const _LogoIcon = () => (
       <svg
         width={iconSize}
         height={iconSize}

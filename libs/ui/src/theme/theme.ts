@@ -1,5 +1,5 @@
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
-import { colors, fonts, fontSizes, space, radii } from './tokens'
+import { colors, fontSizes, space, radii } from './tokens'
 
 const config: ThemeConfig = {
   initialColorMode: 'dark',
