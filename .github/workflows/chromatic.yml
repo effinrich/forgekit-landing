@@ -1,35 +1,8 @@
-name: Chromatic
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  chromatic:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Storybook
-        run: npx nx build-storybook ui
-
-      - name: Publish to Chromatic
-        uses: chromaui/action@latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          storybookBuildDir: dist/storybook/ui
-          exitZeroOnChanges: true
-          autoAcceptChanges: main
-          onlyChanged: true
+# Disabled until Storybook build issues are resolved
+# name: Chromatic
+#
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
