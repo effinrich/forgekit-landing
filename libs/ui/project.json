@@ -5,27 +5,11 @@
   "projectType": "library",
   "tags": ["type:ui", "scope:shared"],
   "targets": {
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{workspaceRoot}/coverage/libs/ui"],
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "config": "libs/ui/vite.config.ts",
-        "passWithNoTests": true
-      }
-    },
-    "storybook": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "storybook dev -p 6006 -c .storybook",
-        "cwd": "{workspaceRoot}"
-      }
-    },
-    "build-storybook": {
-      "executor": "nx:run-commands",
-      "outputs": ["{workspaceRoot}/dist/storybook/ui"],
-      "options": {
-        "command": "storybook build -c .storybook -o dist/storybook/ui",
-        "cwd": "{workspaceRoot}"
+        "outputPath": "dist/libs/ui"
       }
     }
   }
