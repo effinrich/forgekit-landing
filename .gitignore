@@ -43,3 +43,4 @@ test-results
 
 .nx/cache
 .nx/workspace-data
+vite.config.*.timestamp*
