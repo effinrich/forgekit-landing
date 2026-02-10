@@ -111,7 +111,13 @@ const features = [
 ]
 
 const handleEarlyAccess = (plan: string) => {
-  window.location.href = `mailto:hello@forgekit.dev?subject=Early Access Request - ${plan} Plan&body=Hi,%0D%0A%0D%0AI'm interested in early access to the ${plan} plan.%0D%0A%0D%0AThanks!`
+  const subject = `Early Access Request - ${plan} Plan`
+  const body = `Hi,\r\n\r\nI'm interested in early access to the ${plan} plan.\r\n\r\nThanks!`
+  const params = new URLSearchParams({
+    subject,
+    body,
+  })
+  window.location.href = `mailto:hello@forgekit.dev?${params.toString()}`
 }
 
 const pricingPlans = [
