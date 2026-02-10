@@ -1,55 +1,10 @@
-import { Box } from '@chakra-ui/react'
-import {
-  Header,
-  Hero,
-  Features,
-  Pricing,
-  CTA,
-  Footer,
-  Logo,
-} from '@forgekit-landing/ui'
+import { Box, Container, Heading, Text, VStack, Code, OrderedList, ListItem, Divider, Badge, Icon } from '@chakra-ui/react'
+import { Header, Footer, Logo } from '@forgekit-landing/ui'
 
-// Icons as simple SVG components
-const FigmaIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M5 5.5A3.5 3.5 0 018.5 2H12v7H8.5A3.5 3.5 0 015 5.5zM12 2h3.5a3.5 3.5 0 110 7H12V2z" />
-    <path d="M12 12.5a3.5 3.5 0 117 0 3.5 3.5 0 11-7 0z" />
-    <path d="M5 19.5A3.5 3.5 0 018.5 16H12v3.5a3.5 3.5 0 11-7 0zM5 12.5A3.5 3.5 0 018.5 9H12v7H8.5A3.5 3.5 0 015 12.5z" />
-  </svg>
-)
-
-const CodeIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <polyline points="16,18 22,12 16,6" />
-    <polyline points="8,6 2,12 8,18" />
-  </svg>
-)
-
-const TestIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M9 11l3 3L22 4" />
-    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
-  </svg>
-)
-
-const StorybookIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M16.71.243l-.12 2.71a.18.18 0 00.29.15l1.06-.8.9.7a.18.18 0 00.28-.14L19 0l1.86-.07a.5.5 0 01.52.5v22.14a.5.5 0 01-.47.5l-15.13.67a.5.5 0 01-.53-.5V.5a.5.5 0 01.47-.5l11-.24zm-2.87 9.07c0 .47 2.67.24 3.03-.04 0-2.87-1.54-4.37-4.36-4.37-2.82 0-4.4 1.53-4.4 3.83 0 3.98 5.37 4.05 5.37 6.23 0 .62-.29 1-.96 1-.87 0-1.22-.47-1.18-2.07 0-.36-3.1-.48-3.2 0-.26 3.34 1.83 4.32 4.42 4.32 2.5 0 4.46-1.33 4.46-3.74 0-4.27-5.46-4.16-5.46-6.27 0-.85.57-1 1.01-1 .48 0 1.12.1 1.08 2.06z" />
-  </svg>
-)
-
-const RocketIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z" />
-    <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z" />
-    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-  </svg>
-)
-
-const SyncIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2" />
+const CheckCircleIcon = () => (
+  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+    <polyline points="22 4 12 14.01 9 11.01" />
   </svg>
 )
 
@@ -71,118 +26,18 @@ const DiscordIcon = () => (
   </svg>
 )
 
-const features = [
-  {
-    icon: <FigmaIcon />,
-    title: 'Figma to React',
-    description: 'Connect your Figma file and watch components materialize. Design tokens, components, and variants — all synced automatically.',
-    accentColor: '#8b5cf6',
-  },
-  {
-    icon: <TestIcon />,
-    title: 'Tests Included',
-    description: 'Every component ships with Vitest unit tests, Storybook interaction tests, and Playwright e2e tests. Production-ready from day one.',
-    accentColor: '#14b8a6',
-  },
-  {
-    icon: <StorybookIcon />,
-    title: 'Storybook Stories',
-    description: 'Full Storybook coverage with autodocs, interaction tests, and Chromatic visual regression testing built into CI.',
-    accentColor: '#f97316',
-  },
-  {
-    icon: <CodeIcon />,
-    title: 'Clean Architecture',
-    description: 'Nx monorepo foundation scales from SPA to enterprise. TypeScript, ESLint, Prettier — all configured correctly.',
-    accentColor: '#8b5cf6',
-  },
-  {
-    icon: <SyncIcon />,
-    title: 'Live Sync',
-    description: 'Design changes in Figma? Run one command to sync. Your codebase stays in perfect harmony with your designs.',
-    accentColor: '#14b8a6',
-  },
-  {
-    icon: <RocketIcon />,
-    title: 'Deploy Anywhere',
-    description: 'Vercel, Railway, or self-hosted with Dokploy. CI/CD pipelines included. Ship to production in minutes.',
-    accentColor: '#f97316',
-  },
-]
-
-const handleEarlyAccess = (plan: string) => {
-  const subject = `Early Access Request - ${plan} Plan`
-  const body = `Hi,\r\n\r\nI'm interested in early access to the ${plan} plan.\r\n\r\nThanks!`
-  const params = new URLSearchParams({
-    subject,
-    body,
-  })
-  window.location.href = `mailto:hello@forgekit.dev?${params.toString()}`
-}
-
-const pricingPlans = [
-  {
-    name: 'Launch',
-    description: 'Perfect for indie developers and small projects',
-    monthlyPrice: '$149',
-    annualPrice: '$119',
-    features: [
-      'Figma design sync',
-      'React + Vite SPA',
-      'Chakra UI or shadcn/ui',
-      'Full Storybook coverage',
-      'Vitest + Playwright tests',
-      'Chromatic CI workflow',
-      'Vercel deployment',
-    ],
-    ctaText: 'Get Early Access',
-    isPopular: false,
-    onCtaClick: () => handleEarlyAccess('Launch'),
-  },
-  {
-    name: 'Scale',
-    description: 'For teams building production SaaS applications',
-    monthlyPrice: '$349',
-    annualPrice: '$279',
-    features: [
-      'Everything in Launch',
-      'tRPC backend API',
-      'Supabase integration',
-      'Authentication ready',
-      'Shared libs structure',
-      'Multi-app monorepo',
-      'Priority support',
-    ],
-    ctaText: 'Get Early Access',
-    isPopular: true,
-    onCtaClick: () => handleEarlyAccess('Scale'),
-  },
-  {
-    name: 'Universal',
-    description: 'Web + mobile from a single codebase',
-    monthlyPrice: '$499',
-    annualPrice: '$399',
-    features: [
-      'Everything in Scale',
-      'Expo React Native app',
-      'Tamagui universal UI',
-      'Shared component library',
-      'EAS deployment config',
-      'Cross-platform testing',
-      'Dedicated support',
-    ],
-    ctaText: 'Get Early Access',
-    isPopular: false,
-    onCtaClick: () => handleEarlyAccess('Universal'),
-  },
+const navLinks = [
+  { label: 'Features', href: '/#features' },
+  { label: 'Pricing', href: '/#pricing' },
+  { label: 'Docs', href: '/docs' },
 ]
 
 const footerColumns = [
   {
     title: 'Product',
     links: [
-      { label: 'Features', href: '#features' },
-      { label: 'Pricing', href: '#pricing' },
+      { label: 'Features', href: '/#features' },
+      { label: 'Pricing', href: '/#pricing' },
       { label: 'Changelog', href: '/changelog' },
       { label: 'Roadmap', href: '/roadmap' },
     ],
@@ -200,17 +55,11 @@ const footerColumns = [
     title: 'Company',
     links: [
       { label: 'About', href: '/about' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Contact', href: 'mailto:forgekit@pm.me' },
       { label: 'Twitter', href: 'https://twitter.com/forgekit' },
-      { label: 'GitHub', href: 'https://github.com/forgekit' },
+      { label: 'GitHub', href: 'https://github.com/effinrich' },
     ],
   },
-]
-
-const navLinks = [
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Docs', href: '/docs' },
 ]
 
 export function Success() {
@@ -218,45 +67,141 @@ export function Success() {
     <Box bg="slate.950" minH="100vh">
       <Header
         links={navLinks}
-        ctaText="Get Early Access"
-        onCtaClick={() => handleEarlyAccess('ForgeKit')}
-      />
-      <Hero
-        badge="Coming Soon"
-        headline="From Figma to production-ready React"
-        highlightedText="production-ready"
-        description="Stop recreating designs by hand. ForgeKit transforms your Figma components into tested, documented, deployable React applications in minutes."
-        primaryCta="Get Early Access"
-        secondaryCta="View Storybook MCP"
-        onPrimaryClick={() => handleEarlyAccess('ForgeKit')}
-        onSecondaryClick={() => window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'}
+        ctaText="npm Package"
+        onCtaClick={() => window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'}
       />
 
-      <Features
-        badge="Features"
-        headline="Everything you need to ship faster"
-        highlightedText="ship faster"
-        description="Forgekit generates production-ready code, not throwaway prototypes."
-        features={features}
-      />
+      <Container maxW="container.md" py={{ base: 24, md: 32 }} px={6}>
+        <VStack spacing={8} align="center" textAlign="center">
+          <CheckCircleIcon />
 
-      <Pricing
-        badge="Pricing"
-        headline="Simple pricing, powerful output"
-        highlightedText="Simple pricing"
-        description="Start free, upgrade when you're ready. No hidden fees."
-        plans={pricingPlans}
-      />
+          <Badge
+            colorScheme="teal"
+            px={4}
+            py={1}
+            borderRadius="full"
+            fontSize="sm"
+            textTransform="none"
+          >
+            Purchase Complete
+          </Badge>
 
-      <CTA
-        headline="Ready to transform your workflow?"
-        highlightedText="transform"
-        description="Join developers shipping faster with ForgeKit. Get early access — we'll notify you when we launch."
-        primaryCta="Get Early Access"
-        secondaryCta="View Storybook MCP"
-        onPrimaryClick={() => handleEarlyAccess('ForgeKit')}
-        onSecondaryClick={() => window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'}
-      />
+          <Heading
+            as="h1"
+            fontSize={{ base: '3xl', md: '4xl' }}
+            fontWeight="bold"
+            color="white"
+            lineHeight="tight"
+          >
+            Thanks for buying{' '}
+            <Text as="span" color="teal.400">
+              Storybook MCP Pro
+            </Text>
+            !
+          </Heading>
+
+          <Text color="gray.400" fontSize="lg" maxW="lg">
+            Your license key has been sent to your email. Follow the steps below to activate Pro features.
+          </Text>
+        </VStack>
+
+        <Divider my={10} borderColor="whiteAlpha.200" />
+
+        <VStack spacing={8} align="stretch">
+          <Heading as="h2" fontSize="xl" color="white">
+            Setup Instructions
+          </Heading>
+
+          <OrderedList spacing={6} color="gray.300" fontSize="md" pl={4}>
+            <ListItem>
+              <Text fontWeight="semibold" color="white" mb={2}>
+                Find your license key
+              </Text>
+              <Text color="gray.400">
+                Check your email for a message from Polar with your unique license key. It looks like a UUID:{' '}
+                <Code colorScheme="teal" fontSize="sm">XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</Code>
+              </Text>
+            </ListItem>
+
+            <ListItem>
+              <Text fontWeight="semibold" color="white" mb={2}>
+                Add the key to your project
+              </Text>
+              <Text color="gray.400" mb={3}>
+                Option A — In your <Code colorScheme="gray" fontSize="sm">storybook-mcp.config.json</Code>:
+              </Text>
+              <Code
+                display="block"
+                whiteSpace="pre"
+                p={4}
+                borderRadius="md"
+                bg="whiteAlpha.100"
+                color="teal.300"
+                fontSize="sm"
+                overflowX="auto"
+              >
+{`{
+  "licenseKey": "YOUR-LICENSE-KEY-HERE"
+}`}
+              </Code>
+              <Text color="gray.400" mt={3} mb={3}>
+                Option B — As an environment variable:
+              </Text>
+              <Code
+                display="block"
+                whiteSpace="pre"
+                p={4}
+                borderRadius="md"
+                bg="whiteAlpha.100"
+                color="teal.300"
+                fontSize="sm"
+              >
+                export STORYBOOK_MCP_LICENSE=YOUR-LICENSE-KEY-HERE
+              </Code>
+            </ListItem>
+
+            <ListItem>
+              <Text fontWeight="semibold" color="white" mb={2}>
+                Run the MCP server
+              </Text>
+              <Code
+                display="block"
+                whiteSpace="pre"
+                p={4}
+                borderRadius="md"
+                bg="whiteAlpha.100"
+                color="teal.300"
+                fontSize="sm"
+              >
+                npx forgekit-storybook-mcp
+              </Code>
+              <Text color="gray.400" mt={2}>
+                You should see: <Code colorScheme="teal" fontSize="sm">[storybook-mcp] License validated. Pro features enabled.</Code>
+              </Text>
+            </ListItem>
+
+            <ListItem>
+              <Text fontWeight="semibold" color="white" mb={2}>
+                Enjoy Pro features
+              </Text>
+              <Text color="gray.400">
+                Unlimited components, advanced templates, test generation, MDX docs, and full framework support are now unlocked.
+              </Text>
+            </ListItem>
+          </OrderedList>
+        </VStack>
+
+        <Divider my={10} borderColor="whiteAlpha.200" />
+
+        <VStack spacing={4} align="center" textAlign="center">
+          <Text color="gray.500" fontSize="sm">
+            Need help? Email us at{' '}
+            <Text as="a" href="mailto:forgekit@pm.me" color="teal.400" _hover={{ textDecoration: 'underline' }}>
+              forgekit@pm.me
+            </Text>
+          </Text>
+        </VStack>
+      </Container>
 
       <Footer
         logo={<Logo size="md" />}
@@ -264,7 +209,7 @@ export function Success() {
         columns={footerColumns}
         socialLinks={[
           { icon: <TwitterIcon />, href: 'https://twitter.com/forgekit', label: 'Twitter' },
-          { icon: <GitHubIcon />, href: 'https://github.com/forgekit', label: 'GitHub' },
+          { icon: <GitHubIcon />, href: 'https://github.com/effinrich', label: 'GitHub' },
           { icon: <DiscordIcon />, href: 'https://discord.gg/forgekit', label: 'Discord' },
         ]}
       />
