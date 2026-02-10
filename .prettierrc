@@ -5,21 +5,5 @@
   "trailingComma": "es5",
   "printWidth": 100,
   "bracketSpacing": true,
-  "arrowParens": "always",
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": [
-    "^react$",
-    "^react-native$",
-    "^expo(.*)$",
-    "^@react-navigation/(.*)$",
-    "^@tanstack/(.*)$",
-    "^@supabase/(.*)$",
-    "^@legendapp/(.*)$",
-    "^@gluestack-ui/(.*)$",
-    "<THIRD_PARTY_MODULES>",
-    "^@/(.*)$",
-    "^[./]"
-  ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "arrowParens": "always"
 }
