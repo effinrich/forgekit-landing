@@ -1,25 +1,25 @@
-import nx from '@nx/eslint-plugin'
-import tseslint from 'typescript-eslint';
+import nx from "@nx/eslint-plugin"
+import tseslint from "typescript-eslint"
 
 export default [
-  ...nx.configs['flat/base'],
-  ...nx.configs['flat/typescript'],
-  ...nx.configs['flat/javascript'],
+  ...nx.configs["flat/base"],
+  ...nx.configs["flat/typescript"],
+  ...nx.configs["flat/javascript"],
   {
-    ignores: ['**/dist', '**/node_modules', '**/.nx'],
+    ignores: ["**/dist", "**/node_modules", "**/.nx"],
   },
   {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
     rules: {
-      '@nx/enforce-module-boundaries': [
-        'error',
+      "@nx/enforce-module-boundaries": [
+        "error",
         {
           enforceBuildableLibDependency: true,
-          allow: ['^.*/eslint(\.base)?\.config\\.[cm]?js$'],
+          allow: ["^.*/eslint(\.base)?\.config\\.[cm]?js$"],
           depConstraints: [
             {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
+              sourceTag: "*",
+              onlyDependOnLibsWithTags: ["*"],
             },
           ],
         },
@@ -27,11 +27,11 @@ export default [
     },
   },
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ["**/*.ts", "**/*.tsx"],
     rules: {},
   },
   {
-    files: ['**/*.js', '**/*.jsx'],
+    files: ["**/*.js", "**/*.jsx"],
     rules: {},
   },
 ]
