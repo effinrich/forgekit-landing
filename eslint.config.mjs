@@ -1,12 +1,19 @@
 import nx from "@nx/eslint-plugin"
-import tseslint from "typescript-eslint"
 
 export default [
   ...nx.configs["flat/base"],
   ...nx.configs["flat/typescript"],
   ...nx.configs["flat/javascript"],
   {
-    ignores: ["**/dist", "**/node_modules", "**/.nx"],
+    ignores: [
+      "**/dist",
+      "**/out-tsc",
+      "**/build",
+      "**/.react-router",
+      "**/vite.config.*.timestamp*",
+      "**/vitest.config.*.timestamp*",
+      "**/test-output",
+    ],
   },
   {
     files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
@@ -15,7 +22,7 @@ export default [
         "error",
         {
           enforceBuildableLibDependency: true,
-          allow: ["^.*/eslint(\.base)?\.config\\.[cm]?js$"],
+          allow: ["^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$"],
           depConstraints: [
             {
               sourceTag: "*",
@@ -27,11 +34,17 @@ export default [
     },
   },
   {
-    files: ["**/*.ts", "**/*.tsx"],
-    rules: {},
-  },
-  {
-    files: ["**/*.js", "**/*.jsx"],
+    files: [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.cts",
+      "**/*.mts",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.cjs",
+      "**/*.mjs",
+    ],
+    // Override or add rules here
     rules: {},
   },
 ]
