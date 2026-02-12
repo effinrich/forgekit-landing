@@ -1,6 +1,7 @@
 {
   "mcpServers": {
-    "storybook": {
+    "forgekit-storybook": {
+      "type": "stdio",
       "command": "npx",
       "args": [
         "forgekit-storybook-mcp"
