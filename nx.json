@@ -20,6 +20,5 @@
     "build": { "dependsOn": ["^build"], "cache": true },
     "lint": { "cache": true }
   },
-  "defaultBase": "main",
-  "nxCloudAccessToken": "NjA2ODZmYzYtZTE2NC00NTJhLWExZWEtNmI4MzlmYWExYWMwfHJlYWQtd3JpdGU="
+  "defaultBase": "main"
 }
