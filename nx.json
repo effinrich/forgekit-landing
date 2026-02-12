@@ -20,5 +20,6 @@
     "build": { "dependsOn": ["^build"], "cache": true },
     "lint": { "cache": true }
   },
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "nxCloudId": "698791db89dc6113bff3b593"
 }
