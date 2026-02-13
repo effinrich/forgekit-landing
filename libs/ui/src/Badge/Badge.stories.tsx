@@ -5,7 +5,7 @@ import { Badge } from './Badge'
 const meta: Meta<typeof Badge> = {
   title: 'Ui/Badge',
   component: Badge,
-  tags: ['autodocs'],
+  tags: [],
   argTypes: {
     variant: {
         control: {

@@ -5,7 +5,7 @@ import { Container } from './Container'
 const meta: Meta<typeof Container> = {
   title: 'Ui/Container',
   component: Container,
-  tags: ['autodocs'],
+  tags: [],
   argTypes: {
     size: {
         control: {

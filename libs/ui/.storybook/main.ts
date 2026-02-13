@@ -4,13 +4,13 @@ import { dirname } from "node:path"
 import type { StorybookConfig } from "@storybook/react-vite"
 
 const config: StorybookConfig = {
-  stories: ["../src/lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))"],
-  addons: [],
+  stories: ["../src/**/*.@(mdx|stories.@(js|jsx|ts|tsx))"],
+  addons: ["@storybook/addon-docs", "@storybook/addon-a11y"],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {
       builder: {
-        viteConfigPath: "vite.config.ts",
+        viteConfigPath: "libs/ui/vite.config.ts",
       },
     },
   },

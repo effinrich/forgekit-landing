@@ -5,7 +5,7 @@ import { Button } from './Button'
 const meta: Meta<typeof Button> = {
   title: 'Ui/Button',
   component: Button,
-  tags: ['autodocs'],
+  tags: [],
   argTypes: {
     variant: {
         control: {

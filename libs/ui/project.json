@@ -35,9 +35,7 @@
     "storybook": {
       "executor": "@nx/storybook:storybook",
       "options": {
-        "config": "libs/ui/storybook.config.ts",
-        "outputPath": "dist/libs/ui/storybook",
-        "runStorybook": true
+        "configDir": "libs/ui/.storybook"
       }
     }
   }

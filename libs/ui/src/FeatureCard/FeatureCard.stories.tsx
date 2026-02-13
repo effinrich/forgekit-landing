@@ -5,7 +5,7 @@ import { FeatureCard } from "./FeatureCard"
 const meta: Meta<typeof FeatureCard> = {
   title: "Ui/FeatureCard",
   component: FeatureCard,
-  tags: ["autodocs"],
+  tags: [],
   argTypes: {
     title: {
       control: "text",

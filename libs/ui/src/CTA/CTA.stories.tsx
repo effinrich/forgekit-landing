@@ -5,7 +5,7 @@ import { CTA } from './CTA'
 const meta: Meta<typeof CTA> = {
   title: 'Ui/CTA',
   component: CTA,
-  tags: ['autodocs'],
+  tags: [],
   argTypes: {
     headline: {
         control: "text"
