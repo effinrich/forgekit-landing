@@ -54,9 +54,9 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-      <Button size="sm">sm</${analysis.name}>
-      <Button size="md">md</${analysis.name}>
-      <Button size="lg">lg</${analysis.name}>
+      <Button size="sm">sm</Button>
+      <Button size="md">md</Button>
+      <Button size="lg">lg</Button>
     </div>
   ),
 }
@@ -67,9 +67,9 @@ export const Sizes: Story = {
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem' }}>
-      <Button variant="solid">solid</${analysis.name}>
-      <Button variant="outline">outline</${analysis.name}>
-      <Button variant="ghost">ghost</${analysis.name}>
+      <Button variant="solid">solid</Button>
+      <Button variant="outline">outline</Button>
+      <Button variant="ghost">ghost</Button>
     </div>
   ),
 }

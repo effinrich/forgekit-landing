@@ -34,7 +34,7 @@ test.describe('CTA', () => {
     await page.keyboard.press(' ')
   })
 
-  test('meets accessibility standards', async ({ page }) => {
+  test('meets accessibility standards', async () => {
     // Install @axe-core/playwright for this test
     // const { injectAxe, checkA11y } = require('@axe-core/playwright')
     // await injectAxe(page)

@@ -55,9 +55,9 @@ export const Default: Story = {
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem' }}>
-      <Badge variant="solid">solid</${analysis.name}>
-      <Badge variant="outline">outline</${analysis.name}>
-      <Badge variant="subtle">subtle</${analysis.name}>
+      <Badge variant="solid">solid</Badge>
+      <Badge variant="outline">outline</Badge>
+      <Badge variant="subtle">subtle</Badge>
     </div>
   ),
 }
