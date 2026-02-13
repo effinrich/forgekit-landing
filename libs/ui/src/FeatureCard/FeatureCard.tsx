@@ -10,16 +10,19 @@ export interface FeatureCardProps {
   description: string
   /** Optional highlight color */
   accentColor?: string
+  /** Optional CSS class for the root element */
+  className?: string
 }
 
 /**
  * Card for displaying product features
  */
 export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
-  ({ icon, title, description, accentColor = 'brand.500' }, ref) => {
+  ({ icon, title, description, accentColor = 'brand.500', className }, ref) => {
     return (
       <Box
         ref={ref}
+        className={className}
         bg="slate.900"
         border="1px solid"
         borderColor="slate.800"
