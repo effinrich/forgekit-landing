@@ -1,0 +1,1 @@
+export { StorybookMcp } from './StorybookMcp'

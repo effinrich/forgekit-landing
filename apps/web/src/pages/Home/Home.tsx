@@ -314,7 +314,7 @@ export function Home() {
         primaryCta="Get Early Access"
         secondaryCta="View Storybook MCP"
         onPrimaryClick={() => handleEarlyAccess('ForgeKit')}
-        onSecondaryClick={() => { window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'; }}
+        onSecondaryClick={() => { window.location.href = '/storybook-mcp'; }}
       />
 
       <Features
@@ -341,7 +341,7 @@ export function Home() {
         secondaryCta="View Storybook MCP"
         onPrimaryClick={() => handleEarlyAccess('ForgeKit')}
         onSecondaryClick={() => {
-          window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp';
+          window.location.href = '/storybook-mcp';
         }}
       />
 
