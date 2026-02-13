@@ -1,13 +1,12 @@
-import type { Preview } from '@storybook/react';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import React from 'react';
+import React from "react"
+import type { Preview } from "@storybook/react"
+import { ChakraProvider /*, extendTheme*/ } from "@chakra-ui/react"
 
-// Import your theme if you have one
-// import { theme } from '../src/theme';
+import { theme } from "../src/theme/theme"
 
-const theme = extendTheme({
-  // Your theme customizations here
-});
+// const theme = extendTheme({
+//   // Your theme customizations here
+// });
 
 const preview: Preview = {
   parameters: {
@@ -25,6 +24,6 @@ const preview: Preview = {
       </ChakraProvider>
     ),
   ],
-};
+}
 
-export default preview;
+export default preview
