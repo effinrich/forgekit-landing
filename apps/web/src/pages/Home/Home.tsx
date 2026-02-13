@@ -195,7 +195,7 @@ const footerColumns = [
     links: [
       { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
-      { label: 'Twitter', href: 'https://twitter.com/forgekit' },
+      { label: 'X', href: 'https://x.com/forgekitdev' },
       { label: 'GitHub', href: 'https://github.com/forgekit' },
     ],
   },
@@ -257,9 +257,9 @@ export function Home() {
         tagline="Transform Figma designs into production-ready React applications."
         columns={footerColumns}
         socialLinks={[
-          { icon: <TwitterIcon />, href: 'https://twitter.com/forgekit', label: 'Twitter' },
+          { icon: <TwitterIcon />, href: 'https://x.com/forgekitdev', label: 'X' },
           { icon: <GitHubIcon />, href: 'https://github.com/forgekit', label: 'GitHub' },
-          { icon: <DiscordIcon />, href: 'https://discord.gg/forgekit', label: 'Discord' },
+          { icon: <DiscordIcon />, href: 'https://discord.gg/jqt9EhYe', label: 'Discord' },
         ]}
       />
     </Box>
