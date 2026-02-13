@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
   Box,
   Heading,
@@ -186,12 +187,32 @@ const footerColumns = [
 // --- Page ---
 
 export function StorybookMcp() {
+  useEffect(() => {
+    // Load Polar embedded checkout script
+    const existing = document.querySelector('script[data-polar-embed]')
+    if (!existing) {
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/@polar-sh/checkout@latest/dist/embed.global.js'
+      script.defer = true
+      script.setAttribute('data-auto-init', '')
+      script.setAttribute('data-polar-embed', '')
+      document.head.appendChild(script)
+    } else {
+      // Re-init if script already loaded (SPA navigation)
+      ;(window as any).PolarEmbedCheckout?.init?.()
+    }
+  }, [])
+
   return (
     <Box bg="slate.950" minH="100vh">
       <Header
         links={navLinks}
         ctaText="Get Pro — $49"
-        onCtaClick={() => { window.location.href = POLAR_CHECKOUT_URL }}
+        ctaHref={POLAR_CHECKOUT_URL}
+        ctaProps={{
+          'data-polar-checkout': true,
+          'data-polar-checkout-theme': 'dark',
+        }}
       />
 
       {/* Hero */}
@@ -266,13 +287,16 @@ export function StorybookMcp() {
 
             <HStack spacing={4} pt={2}>
               <Button
+                as="a"
+                href={POLAR_CHECKOUT_URL}
+                data-polar-checkout
+                data-polar-checkout-theme="dark"
                 size="lg"
                 bg="teal.500"
                 color="white"
-                _hover={{ bg: 'teal.400' }}
+                _hover={{ bg: 'teal.400', textDecoration: 'none' }}
                 px={8}
                 fontWeight="semibold"
-                onClick={() => { window.location.href = POLAR_CHECKOUT_URL }}
               >
                 Get Pro — $49
               </Button>
@@ -427,13 +451,16 @@ export function StorybookMcp() {
 
           <VStack spacing={4} pt={10}>
             <Button
+              as="a"
+              href={POLAR_CHECKOUT_URL}
+              data-polar-checkout
+              data-polar-checkout-theme="dark"
               size="lg"
               bg="teal.500"
               color="white"
-              _hover={{ bg: 'teal.400' }}
+              _hover={{ bg: 'teal.400', textDecoration: 'none' }}
               px={10}
               fontWeight="semibold"
-              onClick={() => { window.location.href = POLAR_CHECKOUT_URL }}
             >
               Get Pro License — $49
             </Button>
@@ -540,13 +567,16 @@ export function StorybookMcp() {
             </Text>
             <HStack spacing={4}>
               <Button
+                as="a"
+                href={POLAR_CHECKOUT_URL}
+                data-polar-checkout
+                data-polar-checkout-theme="dark"
                 size="lg"
                 bg="teal.500"
                 color="white"
-                _hover={{ bg: 'teal.400' }}
+                _hover={{ bg: 'teal.400', textDecoration: 'none' }}
                 px={8}
                 fontWeight="semibold"
-                onClick={() => { window.location.href = POLAR_CHECKOUT_URL }}
               >
                 Get Pro — $49
               </Button>

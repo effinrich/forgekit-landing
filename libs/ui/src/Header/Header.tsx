@@ -15,13 +15,17 @@ export interface HeaderProps {
   ctaText?: string
   /** CTA click handler */
   onCtaClick?: () => void
+  /** CTA link href (renders as anchor) */
+  ctaHref?: string
+  /** Extra props spread onto the CTA button */
+  ctaProps?: Record<string, unknown>
 }
 
 /**
  * Fixed header with logo and navigation
  */
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
-  ({ links = [], ctaText = 'Get Started', onCtaClick }, ref) => {
+  ({ links = [], ctaText = 'Get Started', onCtaClick, ctaHref, ctaProps }, ref) => {
     return (
       <Box
         ref={ref}
@@ -62,9 +66,13 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 
             {/* CTA */}
             <Button
+              as={ctaHref ? 'a' : undefined}
+              href={ctaHref}
               size="sm"
               variant="solid"
               onClick={onCtaClick}
+              _hover={{ textDecoration: 'none' }}
+              {...ctaProps}
             >
               {ctaText}
             </Button>
