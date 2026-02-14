@@ -26,10 +26,13 @@ const DiscordIcon = () => (
   </svg>
 )
 
+const NPM_URL = 'https://npmjs.com/package/forgekit-storybook-mcp'
+const GITHUB_URL = 'https://github.com/effinrich/storybook-mcp-v2'
+
 const navLinks = [
+  { label: 'ForgeKit', href: '/' },
   { label: 'Features', href: '/#features' },
   { label: 'Pricing', href: '/#pricing' },
-  { label: 'Docs', href: '/docs' },
 ]
 
 const footerColumns = [
@@ -38,26 +41,26 @@ const footerColumns = [
     links: [
       { label: 'Features', href: '/#features' },
       { label: 'Pricing', href: '/#pricing' },
-      { label: 'Changelog', href: '/changelog' },
-      { label: 'Roadmap', href: '/roadmap' },
+      { label: 'Changelog', href: GITHUB_URL + '/blob/master/CHANGELOG.md' },
+      { label: 'Roadmap', href: GITHUB_URL + '/blob/master/ROADMAP.md' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Documentation', href: '/docs' },
-      { label: 'API Reference', href: '/docs/api' },
-      { label: 'Examples', href: '/examples' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'npm', href: NPM_URL },
+      { label: 'GitHub', href: GITHUB_URL },
+      { label: 'README', href: NPM_URL + '#readme' },
+      { label: 'Issues', href: GITHUB_URL + '/issues' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/about' },
+      { label: 'ForgeKit', href: '/' },
       { label: 'Contact', href: 'mailto:forgekit@pm.me' },
-      { label: 'Twitter', href: 'https://twitter.com/forgekit' },
-      { label: 'GitHub', href: 'https://github.com/effinrich' },
+      { label: 'X', href: 'https://x.com/forgekitdev' },
+      { label: 'Discord', href: 'https://discord.gg/jqt9EhYe' },
     ],
   },
 ]
@@ -208,9 +211,9 @@ export function Success() {
         tagline="Transform Figma designs into production-ready React applications."
         columns={footerColumns}
         socialLinks={[
-          { icon: <TwitterIcon />, href: 'https://twitter.com/forgekit', label: 'Twitter' },
-          { icon: <GitHubIcon />, href: 'https://github.com/effinrich', label: 'GitHub' },
-          { icon: <DiscordIcon />, href: 'https://discord.gg/forgekit', label: 'Discord' },
+          { icon: <TwitterIcon />, href: 'https://x.com/forgekitdev', label: 'X' },
+          { icon: <GitHubIcon />, href: GITHUB_URL, label: 'GitHub' },
+          { icon: <DiscordIcon />, href: 'https://discord.gg/jqt9EhYe', label: 'Discord' },
         ]}
       />
     </Box>

@@ -262,32 +262,33 @@ const pricingPlans = [
   },
 ]
 
+const GITHUB_URL = 'https://github.com/effinrich/storybook-mcp-v2'
+const NPM_URL = 'https://npmjs.com/package/forgekit-storybook-mcp'
+
 const footerColumns = [
   {
     title: 'Product',
     links: [
       { label: 'Features', href: '#features' },
       { label: 'Pricing', href: '#pricing' },
-      { label: 'Changelog', href: '/changelog' },
-      { label: 'Roadmap', href: '/roadmap' },
+      { label: 'Storybook MCP', href: '/storybook-mcp' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Documentation', href: '/docs' },
-      { label: 'API Reference', href: '/docs/api' },
-      { label: 'Examples', href: '/examples' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'npm', href: NPM_URL },
+      { label: 'GitHub', href: GITHUB_URL },
+      { label: 'README', href: NPM_URL + '#readme' },
+      { label: 'Issues', href: GITHUB_URL + '/issues' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/about' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Contact', href: 'mailto:forgekit@pm.me' },
       { label: 'X', href: 'https://x.com/forgekitdev' },
-      { label: 'GitHub', href: 'https://github.com/forgekit' },
+      { label: 'Discord', href: 'https://discord.gg/jqt9EhYe' },
     ],
   },
 ]
@@ -295,7 +296,6 @@ const footerColumns = [
 const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'Docs', href: '/docs' },
 ]
 
 export function Home() {
@@ -351,7 +351,7 @@ export function Home() {
         columns={footerColumns}
         socialLinks={[
           { icon: <TwitterIcon />, href: 'https://x.com/forgekitdev', label: 'X' },
-          { icon: <GitHubIcon />, href: 'https://github.com/forgekit', label: 'GitHub' },
+          { icon: <GitHubIcon />, href: GITHUB_URL, label: 'GitHub' },
           { icon: <DiscordIcon />, href: 'https://discord.gg/jqt9EhYe', label: 'Discord' },
         ]}
       />
