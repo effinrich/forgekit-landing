@@ -1,0 +1,93 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as FooterStories from './Footer.stories'
+
+<Meta of={FooterStories} />
+
+# Footer
+
+The `Footer` component is a reusable UI element.
+
+## Usage
+
+### Basic Example
+
+<Canvas of={FooterStories.Default} />
+
+```tsx
+<Footer>
+  Content
+</Footer>
+```
+
+## Props
+
+<ArgTypes of={FooterStories} />
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `logo` | `React.ReactNode` | `-` | - |
+| `tagline` | `string` | `-` | - |
+| `columns` | `FooterColumn[]` | `-` | - |
+| `socialLinks` | `Array<{` | `-` | - |
+| `icon` | `React.ReactNode` | `-` | - |
+| `href` | `string` | `-` | - |
+| `label` | `string` | `-` | - |
+
+
+## Accessibility
+
+The `Footer` component follows WAI-ARIA guidelines:
+
+- Supports keyboard navigation
+- Includes proper ARIA attributes
+- Compatible with screen readers
+
+### Keyboard Interactions
+
+| Key | Description |
+|-----|-------------|
+| `Tab` | Moves focus to the component |
+| `Enter` | Activates the component |
+| `Space` | Activates the component |
+
+## Composition
+
+### With Other Components
+
+```tsx
+import { Stack } from '@chakra-ui/react'
+
+<Stack spacing={4}>
+  <Footer>
+    First item
+  </Footer>
+  <Footer>
+    Second item
+  </Footer>
+</Stack>
+```
+
+## Responsive Design
+
+Use responsive props for different screen sizes:
+
+```tsx
+<Footer
+  
+  width={{ base: '100%', md: 'auto' }}
+>
+  Responsive Footer
+</Footer>
+```
+
+## Best Practices
+
+1. **Accessibility**: Always provide meaningful content or aria-label
+4. **Composition**: Combine with other components using Stack or Flex for layouts
+5. **Performance**: Avoid creating new callback functions on each render
+
+## Related Components
+
+- [Box](/components/box) - Base layout component
+- [Stack](/components/stack) - Layout with spacing
+- [Flex](/components/flex) - Flexbox layout
