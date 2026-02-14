@@ -48,7 +48,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             </Link>
 
             {/* Navigation */}
-            <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
+            <HStack gap={8} display={{ base: 'none', md: 'flex' }}>
               {links.map((link, index) => (
                 <Link
                   key={index}
@@ -65,17 +65,28 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             </HStack>
 
             {/* CTA */}
-            <Button
-              as={ctaHref ? 'a' : undefined}
-              href={ctaHref}
-              size="sm"
-              variant="solid"
-              onClick={onCtaClick}
-              _hover={{ textDecoration: 'none' }}
-              {...ctaProps}
-            >
-              {ctaText}
-            </Button>
+            {ctaHref ? (
+              <Button
+                asChild
+                size="sm"
+                variant="solid"
+                _hover={{ textDecoration: 'none' }}
+                {...ctaProps}
+              >
+                <a href={ctaHref} onClick={onCtaClick}>
+                  {ctaText}
+                </a>
+              </Button>
+            ) : (
+              <Button
+                size="sm"
+                variant="solid"
+                onClick={onCtaClick}
+                {...ctaProps}
+              >
+                {ctaText}
+              </Button>
+            )}
           </HStack>
         </Container>
       </Box>

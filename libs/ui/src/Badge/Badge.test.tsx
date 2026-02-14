@@ -8,7 +8,7 @@ describe('Badge', () => {
     expect(screen.getByText('New')).toBeInTheDocument()
   })
 
-  it('defaults to subtle variant and brand colorScheme', () => {
+  it('defaults to subtle variant and brand colorPalette', () => {
     const { container } = render(<Badge>Default</Badge>)
     expect(container.firstChild).toBeInTheDocument()
   })

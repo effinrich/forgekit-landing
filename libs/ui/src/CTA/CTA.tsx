@@ -81,7 +81,7 @@ export const CTA = forwardRef<HTMLDivElement, CTAProps>(
         />
 
         <Container size="lg" position="relative" zIndex={1}>
-          <VStack spacing={8} textAlign="center">
+          <VStack gap={8} textAlign="center">
             <Heading
               fontSize={{ base: '2xl', md: '4xl', lg: '5xl' }}
               fontWeight="700"
@@ -100,14 +100,13 @@ export const CTA = forwardRef<HTMLDivElement, CTAProps>(
             </Text>
 
             <HStack
-              spacing={4}
+              gap={4}
               pt={4}
               flexDir={{ base: 'column', sm: 'row' }}
               w={{ base: '100%', sm: 'auto' }}
             >
               <Button
                 size="lg"
-                variant="accent"
                 onClick={onPrimaryClick}
                 w={{ base: '100%', sm: 'auto' }}
                 px={8}

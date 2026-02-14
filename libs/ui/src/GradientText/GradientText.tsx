@@ -23,7 +23,7 @@ export const GradientText = forwardRef<HTMLParagraphElement, GradientTextProps>(
         as="span"
         background={gradients[variant]}
         backgroundClip="text"
-        sx={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+        css={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
         {...props}
       >
         {children}

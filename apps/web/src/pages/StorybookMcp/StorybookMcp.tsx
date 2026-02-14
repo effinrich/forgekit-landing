@@ -9,11 +9,6 @@ import {
   SimpleGrid,
   Code,
   Badge,
-  Divider,
-  Icon,
-  List,
-  ListItem,
-  ListIcon,
 } from '@chakra-ui/react'
 import { Header, Footer, Logo, Container } from '@forgekit-landing/ui'
 
@@ -218,8 +213,8 @@ export function StorybookMcp() {
       {/* Hero */}
       <Box as="section" pt={{ base: 28, md: 36 }} pb={{ base: 16, md: 24 }}>
         <Container>
-          <VStack spacing={8} textAlign="center" maxW="3xl" mx="auto">
-            <HStack spacing={3}>
+          <VStack gap={8} textAlign="center" maxW="3xl" mx="auto">
+            <HStack gap={3}>
               <Badge
                 bg="whiteAlpha.100"
                 color="teal.300"
@@ -255,7 +250,7 @@ export function StorybookMcp() {
               letterSpacing="tight"
             >
               Stop writing{' '}
-              <Text as="span" bgGradient="linear(to-r, teal.400, purple.400)" bgClip="text">
+              <Text as="span" bgGradient="to-r" gradientFrom="teal.400" gradientTo="purple.400" bgClip="text">
                 Storybook boilerplate
               </Text>
             </Heading>
@@ -285,7 +280,7 @@ export function StorybookMcp() {
               </Code>
             </Box>
 
-            <HStack spacing={4} pt={2}>
+            <HStack gap={4} pt={2}>
               <Button
                 as="a"
                 href={POLAR_CHECKOUT_URL}
@@ -324,7 +319,7 @@ export function StorybookMcp() {
       {/* Features */}
       <Box as="section" id="features" py={{ base: 16, md: 24 }}>
         <Container>
-          <VStack spacing={4} textAlign="center" mb={16}>
+          <VStack gap={4} textAlign="center" mb={16}>
             <Badge
               bg="whiteAlpha.100"
               color="teal.300"
@@ -344,7 +339,7 @@ export function StorybookMcp() {
             </Text>
           </VStack>
 
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
             {features.map((f) => (
               <Box
                 key={f.title}
@@ -372,7 +367,7 @@ export function StorybookMcp() {
       {/* Pricing Comparison */}
       <Box as="section" id="pricing" py={{ base: 16, md: 24 }}>
         <Container>
-          <VStack spacing={4} textAlign="center" mb={16}>
+          <VStack gap={4} textAlign="center" mb={16}>
             <Badge
               bg="whiteAlpha.100"
               color="teal.300"
@@ -449,7 +444,7 @@ export function StorybookMcp() {
             </HStack>
           </Box>
 
-          <VStack spacing={4} pt={10}>
+          <VStack gap={4} pt={10}>
             <Button
               as="a"
               href={POLAR_CHECKOUT_URL}
@@ -474,7 +469,7 @@ export function StorybookMcp() {
       {/* Quick Start */}
       <Box as="section" py={{ base: 16, md: 24 }}>
         <Container>
-          <VStack spacing={4} textAlign="center" mb={12}>
+          <VStack gap={4} textAlign="center" mb={12}>
             <Badge
               bg="whiteAlpha.100"
               color="teal.300"
@@ -491,7 +486,7 @@ export function StorybookMcp() {
             </Heading>
           </VStack>
 
-          <VStack spacing={6} maxW="2xl" mx="auto">
+          <VStack gap={6} maxW="2xl" mx="auto">
             {[
               { step: '1', label: 'Install', code: 'npm install forgekit-storybook-mcp' },
               { step: '2', label: 'Add to MCP config', code: '{ "mcpServers": { "storybook": { "command": "npx", "args": ["forgekit-storybook-mcp"] } } }' },
@@ -505,7 +500,7 @@ export function StorybookMcp() {
                 borderColor="whiteAlpha.100"
                 borderRadius="lg"
                 p={6}
-                spacing={5}
+                gap={5}
                 align="flex-start"
               >
                 <Box
@@ -523,7 +518,7 @@ export function StorybookMcp() {
                 >
                   {s.step}
                 </Box>
-                <VStack align="start" spacing={2}>
+                <VStack align="start" gap={2}>
                   <Text color="white" fontWeight="semibold">{s.label}</Text>
                   <Code
                     bg="whiteAlpha.100"
@@ -548,7 +543,7 @@ export function StorybookMcp() {
       <Box as="section" py={{ base: 16, md: 24 }}>
         <Container>
           <VStack
-            spacing={6}
+            gap={6}
             textAlign="center"
             bg="whiteAlpha.50"
             border="1px solid"
@@ -565,7 +560,7 @@ export function StorybookMcp() {
             <Text color="gray.400" fontSize="lg" maxW="xl">
               Stop writing boilerplate. Start shipping components with full coverage.
             </Text>
-            <HStack spacing={4}>
+            <HStack gap={4}>
               <Button
                 as="a"
                 href={POLAR_CHECKOUT_URL}

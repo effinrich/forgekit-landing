@@ -90,9 +90,9 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
         />
 
         <Container size="xl" position="relative" zIndex={1}>
-          <VStack spacing={{ base: 6, md: 8 }} textAlign="center" maxW="4xl" mx="auto">
+          <VStack gap={{ base: 6, md: 8 }} textAlign="center" maxW="4xl" mx="auto">
             {badge && (
-              <Badge variant="subtle" colorScheme="brand">
+              <Badge variant="subtle" colorPalette="brand">
                 {badge}
               </Badge>
             )}
@@ -119,7 +119,7 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
             </Text>
 
             <HStack
-              spacing={4}
+              gap={4}
               pt={4}
               flexDir={{ base: 'column', sm: 'row' }}
               w={{ base: '100%', sm: 'auto' }}
@@ -138,9 +138,9 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
                   size="lg"
                   variant="ghost"
                   onClick={onSecondaryClick}
-                  leftIcon={<PlayIcon />}
                   w={{ base: '100%', sm: 'auto' }}
                 >
+                  <PlayIcon />
                   {secondaryCta}
                 </Button>
               )}
@@ -148,7 +148,7 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
 
             {/* Social proof */}
             <HStack
-              spacing={8}
+              gap={8}
               pt={8}
               color="slate.500"
               fontSize="sm"

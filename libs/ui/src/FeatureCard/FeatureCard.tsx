@@ -47,13 +47,13 @@ export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
           opacity: 0,
           transition: 'opacity 0.3s ease',
         }}
-        sx={{
+        css={{
           '&:hover::before': {
             opacity: 1,
           },
         }}
       >
-        <VStack align="start" spacing={4}>
+        <VStack align="start" gap={4}>
           <Box
             p={3}
             bg="slate.800"
@@ -62,7 +62,7 @@ export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
           >
             {icon}
           </Box>
-          <Heading size="md" color="white">
+          <Heading fontSize="md" color="white">
             {title}
           </Heading>
           <Text color="slate.400" lineHeight="tall">
