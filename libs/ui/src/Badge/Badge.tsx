@@ -4,20 +4,20 @@ import { forwardRef } from 'react'
 export interface BadgeProps extends ChakraBadgeProps {
   /** Badge variant */
   variant?: 'solid' | 'outline' | 'subtle'
-  /** Color scheme */
-  colorScheme?: 'brand' | 'accent' | 'success' | 'slate'
+  /** Color palette */
+  colorPalette?: 'brand' | 'accent' | 'success' | 'slate'
 }
 
 /**
  * Badge for labels, tags, and status indicators
  */
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ variant = 'subtle', colorScheme = 'brand', children, ...props }, ref) => {
+  ({ variant = 'subtle', colorPalette = 'brand', children, ...props }, ref) => {
     return (
       <ChakraBadge
         ref={ref}
         variant={variant}
-        colorScheme={colorScheme}
+        colorPalette={colorPalette}
         px={3}
         py={1}
         borderRadius="full"

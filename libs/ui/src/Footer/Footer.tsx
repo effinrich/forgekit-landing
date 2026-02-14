@@ -5,7 +5,7 @@ import {
   HStack,
   SimpleGrid,
   Link,
-  Divider,
+  Separator,
 } from '@chakra-ui/react'
 import { forwardRef } from 'react'
 import { Container } from '../Container'
@@ -49,10 +49,10 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
         <Container size="xl" py={{ base: 12, md: 16 }}>
           <SimpleGrid
             columns={{ base: 1, md: 2, lg: 5 }}
-            spacing={{ base: 8, md: 12 }}
+            gap={{ base: 8, md: 12 }}
           >
             {/* Brand column */}
-            <VStack align={{ base: 'center', md: 'start' }} spacing={4} gridColumn={{ lg: 'span 2' }}>
+            <VStack align={{ base: 'center', md: 'start' }} gap={4} gridColumn={{ lg: 'span 2' }}>
               <Box fontSize="2xl" fontWeight="700" color="white">
                 {logo}
               </Box>
@@ -62,12 +62,13 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
                 </Text>
               )}
               {socialLinks && (
-                <HStack spacing={4} pt={2}>
+                <HStack gap={4} pt={2}>
                   {socialLinks.map((social, index) => (
                     <Link
                       key={index}
                       href={social.href}
-                      isExternal
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={social.label}
                       color="slate.500"
                       _hover={{ color: 'white' }}
@@ -85,7 +86,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
               <VStack
                 key={index}
                 align={{ base: 'center', md: 'start' }}
-                spacing={4}
+                gap={4}
               >
                 <Text
                   fontWeight="600"
@@ -96,7 +97,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
                 >
                   {column.title}
                 </Text>
-                <VStack align={{ base: 'center', md: 'start' }} spacing={3}>
+                <VStack align={{ base: 'center', md: 'start' }} gap={3}>
                   {column.links.map((link, linkIndex) => (
                     <Link
                       key={linkIndex}
@@ -114,17 +115,17 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
             ))}
           </SimpleGrid>
 
-          <Divider borderColor="slate.900" my={8} />
+          <Separator borderColor="slate.900" my={8} />
 
           <HStack
             justify="space-between"
             flexDir={{ base: 'column', sm: 'row' }}
-            spacing={4}
+            gap={4}
           >
             <Text color="slate.600" fontSize="sm">
               {copyright || `© ${currentYear} Forgekit. All rights reserved.`}
             </Text>
-            <HStack spacing={6}>
+            <HStack gap={6}>
               <Link href="/privacy" color="slate.600" fontSize="sm" _hover={{ color: 'slate.400' }}>
                 Privacy Policy
               </Link>

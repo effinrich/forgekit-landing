@@ -1,0 +1,87 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as HeaderStories from './Header.stories'
+
+<Meta of={HeaderStories} />
+
+# Header
+
+The `Header` component is a reusable UI element.
+
+## Usage
+
+### Basic Example
+
+<Canvas of={HeaderStories.Default} />
+
+```tsx
+<Header>
+  Content
+</Header>
+```
+
+## Props
+
+<ArgTypes of={HeaderStories} />
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `links` | `Array<{ label: string` | `-` | - |
+
+
+## Accessibility
+
+The `Header` component follows WAI-ARIA guidelines:
+
+- Supports keyboard navigation
+- Includes proper ARIA attributes
+- Compatible with screen readers
+
+### Keyboard Interactions
+
+| Key | Description |
+|-----|-------------|
+| `Tab` | Moves focus to the component |
+| `Enter` | Activates the component |
+| `Space` | Activates the component |
+
+## Composition
+
+### With Other Components
+
+```tsx
+import { Stack } from '@chakra-ui/react'
+
+<Stack spacing={4}>
+  <Header>
+    First item
+  </Header>
+  <Header>
+    Second item
+  </Header>
+</Stack>
+```
+
+## Responsive Design
+
+Use responsive props for different screen sizes:
+
+```tsx
+<Header
+  
+  width={{ base: '100%', md: 'auto' }}
+>
+  Responsive Header
+</Header>
+```
+
+## Best Practices
+
+1. **Accessibility**: Always provide meaningful content or aria-label
+4. **Composition**: Combine with other components using Stack or Flex for layouts
+5. **Performance**: Avoid creating new callback functions on each render
+
+## Related Components
+
+- [Box](/components/box) - Base layout component
+- [Stack](/components/stack) - Layout with spacing
+- [Flex](/components/flex) - Flexbox layout

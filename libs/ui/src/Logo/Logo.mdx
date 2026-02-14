@@ -1,0 +1,114 @@
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks'
+import * as LogoStories from './Logo.stories'
+
+<Meta of={LogoStories} />
+
+# Logo
+
+The `Logo` component provides multiple visual variants, configurable sizes.
+
+## Usage
+
+### Basic Example
+
+<Canvas of={LogoStories.Default} />
+
+```tsx
+<Logo variant="icon" size="md">
+  Content
+</Logo>
+```
+
+### Variants
+
+The `Logo` supports 2 visual variants:
+
+<Canvas of={LogoStories.Variants} />
+
+```tsx
+<Logo variant="icon">icon</Logo>
+<Logo variant="wordmark">wordmark</Logo>
+```
+
+### Sizes
+
+Available in 3 sizes:
+
+<Canvas of={LogoStories.Sizes} />
+
+```tsx
+<Logo size="sm">sm</Logo>
+<Logo size="md">md</Logo>
+<Logo size="lg">lg</Logo>
+```
+
+## Props
+
+<ArgTypes of={LogoStories} />
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'icon' \| 'wordmark'` | `-` | - |
+| `size` | `'sm' \| 'md' \| 'lg'` | `-` | - |
+| `colorScheme` | `'dark' \| 'light'` | `-` | - |
+
+
+## Accessibility
+
+The `Logo` component follows WAI-ARIA guidelines:
+
+- Supports keyboard navigation
+- Includes proper ARIA attributes
+- Compatible with screen readers
+
+### Keyboard Interactions
+
+| Key | Description |
+|-----|-------------|
+| `Tab` | Moves focus to the component |
+| `Enter` | Activates the component |
+| `Space` | Activates the component |
+
+## Composition
+
+### With Other Components
+
+```tsx
+import { Stack } from '@chakra-ui/react'
+
+<Stack spacing={4}>
+  <Logo variant="icon">
+    First item
+  </Logo>
+  <Logo variant="wordmark">
+    Second item
+  </Logo>
+</Stack>
+```
+
+## Responsive Design
+
+Use responsive props for different screen sizes:
+
+```tsx
+<Logo
+  size={{ base: 'sm', md: 'md' }}
+  width={{ base: '100%', md: 'auto' }}
+>
+  Responsive Logo
+</Logo>
+```
+
+## Best Practices
+
+1. **Accessibility**: Always provide meaningful content or aria-label
+2. **Variants**: Choose the appropriate variant for the context (e.g., primary actions vs secondary)
+3. **Sizing**: Use consistent sizes within the same section of your UI
+4. **Composition**: Combine with other components using Stack or Flex for layouts
+5. **Performance**: Avoid creating new callback functions on each render
+
+## Related Components
+
+- [Box](/components/box) - Base layout component
+- [Stack](/components/stack) - Layout with spacing
+- [Flex](/components/flex) - Flexbox layout

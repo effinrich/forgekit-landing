@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Text, VStack, Code, OrderedList, ListItem, Divider, Badge, Icon } from '@chakra-ui/react'
+import { Box, Container, Heading, Text, VStack, Code, Separator, Badge } from '@chakra-ui/react'
 import { Header, Footer, Logo } from '@forgekit-landing/ui'
 
 const CheckCircleIcon = () => (
@@ -26,10 +26,13 @@ const DiscordIcon = () => (
   </svg>
 )
 
+const NPM_URL = 'https://npmjs.com/package/forgekit-storybook-mcp'
+const GITHUB_URL = 'https://github.com/effinrich/storybook-mcp-v2'
+
 const navLinks = [
+  { label: 'ForgeKit', href: '/' },
   { label: 'Features', href: '/#features' },
   { label: 'Pricing', href: '/#pricing' },
-  { label: 'Docs', href: '/docs' },
 ]
 
 const footerColumns = [
@@ -38,26 +41,26 @@ const footerColumns = [
     links: [
       { label: 'Features', href: '/#features' },
       { label: 'Pricing', href: '/#pricing' },
-      { label: 'Changelog', href: '/changelog' },
-      { label: 'Roadmap', href: '/roadmap' },
+      { label: 'Changelog', href: GITHUB_URL + '/blob/master/CHANGELOG.md' },
+      { label: 'Roadmap', href: GITHUB_URL + '/blob/master/ROADMAP.md' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Documentation', href: '/docs' },
-      { label: 'API Reference', href: '/docs/api' },
-      { label: 'Examples', href: '/examples' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'npm', href: NPM_URL },
+      { label: 'GitHub', href: GITHUB_URL },
+      { label: 'README', href: NPM_URL + '#readme' },
+      { label: 'Issues', href: GITHUB_URL + '/issues' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/about' },
+      { label: 'ForgeKit', href: '/' },
       { label: 'Contact', href: 'mailto:forgekit@pm.me' },
-      { label: 'Twitter', href: 'https://twitter.com/forgekit' },
-      { label: 'GitHub', href: 'https://github.com/effinrich' },
+      { label: 'X', href: 'https://x.com/forgekitdev' },
+      { label: 'Discord', href: 'https://discord.gg/jqt9EhYe' },
     ],
   },
 ]
@@ -72,11 +75,11 @@ export function Success() {
       />
 
       <Container maxW="container.md" py={{ base: 24, md: 32 }} px={6}>
-        <VStack spacing={8} align="center" textAlign="center">
+        <VStack gap={8} align="center" textAlign="center">
           <CheckCircleIcon />
 
           <Badge
-            colorScheme="teal"
+            colorPalette="teal"
             px={4}
             py={1}
             borderRadius="full"
@@ -105,30 +108,30 @@ export function Success() {
           </Text>
         </VStack>
 
-        <Divider my={10} borderColor="whiteAlpha.200" />
+        <Separator my={10} borderColor="whiteAlpha.200" />
 
-        <VStack spacing={8} align="stretch">
+        <VStack gap={8} align="stretch">
           <Heading as="h2" fontSize="xl" color="white">
             Setup Instructions
           </Heading>
 
-          <OrderedList spacing={6} color="gray.300" fontSize="md" pl={4}>
-            <ListItem>
+          <Box as="ol" listStyleType="decimal" color="gray.300" fontSize="md" pl={4} display="flex" flexDirection="column" gap={6}>
+            <Box as="li">
               <Text fontWeight="semibold" color="white" mb={2}>
                 Find your license key
               </Text>
               <Text color="gray.400">
                 Check your email for a message from Polar with your unique license key. It looks like a UUID:{' '}
-                <Code colorScheme="teal" fontSize="sm">XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</Code>
+                <Code colorPalette="teal" fontSize="sm">XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</Code>
               </Text>
-            </ListItem>
+            </Box>
 
-            <ListItem>
+            <Box as="li">
               <Text fontWeight="semibold" color="white" mb={2}>
                 Add the key to your project
               </Text>
               <Text color="gray.400" mb={3}>
-                Option A — In your <Code colorScheme="gray" fontSize="sm">storybook-mcp.config.json</Code>:
+                Option A — In your <Code colorPalette="gray" fontSize="sm">storybook-mcp.config.json</Code>:
               </Text>
               <Code
                 display="block"
@@ -158,9 +161,9 @@ export function Success() {
               >
                 export STORYBOOK_MCP_LICENSE=YOUR-LICENSE-KEY-HERE
               </Code>
-            </ListItem>
+            </Box>
 
-            <ListItem>
+            <Box as="li">
               <Text fontWeight="semibold" color="white" mb={2}>
                 Run the MCP server
               </Text>
@@ -176,24 +179,24 @@ export function Success() {
                 npx forgekit-storybook-mcp
               </Code>
               <Text color="gray.400" mt={2}>
-                You should see: <Code colorScheme="teal" fontSize="sm">[storybook-mcp] License validated. Pro features enabled.</Code>
+                You should see: <Code colorPalette="teal" fontSize="sm">[storybook-mcp] License validated. Pro features enabled.</Code>
               </Text>
-            </ListItem>
+            </Box>
 
-            <ListItem>
+            <Box as="li">
               <Text fontWeight="semibold" color="white" mb={2}>
                 Enjoy Pro features
               </Text>
               <Text color="gray.400">
                 Unlimited components, advanced templates, test generation, MDX docs, and full framework support are now unlocked.
               </Text>
-            </ListItem>
-          </OrderedList>
+            </Box>
+          </Box>
         </VStack>
 
-        <Divider my={10} borderColor="whiteAlpha.200" />
+        <Separator my={10} borderColor="whiteAlpha.200" />
 
-        <VStack spacing={4} align="center" textAlign="center">
+        <VStack gap={4} align="center" textAlign="center">
           <Text color="gray.500" fontSize="sm">
             Need help? Email us at{' '}
             <Text as="a" href="mailto:forgekit@pm.me" color="teal.400" _hover={{ textDecoration: 'underline' }}>
@@ -208,9 +211,9 @@ export function Success() {
         tagline="Transform Figma designs into production-ready React applications."
         columns={footerColumns}
         socialLinks={[
-          { icon: <TwitterIcon />, href: 'https://twitter.com/forgekit', label: 'Twitter' },
-          { icon: <GitHubIcon />, href: 'https://github.com/effinrich', label: 'GitHub' },
-          { icon: <DiscordIcon />, href: 'https://discord.gg/forgekit', label: 'Discord' },
+          { icon: <TwitterIcon />, href: 'https://x.com/forgekitdev', label: 'X' },
+          { icon: <GitHubIcon />, href: GITHUB_URL, label: 'GitHub' },
+          { icon: <DiscordIcon />, href: 'https://discord.gg/jqt9EhYe', label: 'Discord' },
         ]}
       />
     </Box>

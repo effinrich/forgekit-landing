@@ -10,16 +10,19 @@ export interface FeatureCardProps {
   description: string
   /** Optional highlight color */
   accentColor?: string
+  /** Optional CSS class for the root element */
+  className?: string
 }
 
 /**
  * Card for displaying product features
  */
 export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
-  ({ icon, title, description, accentColor = 'brand.500' }, ref) => {
+  ({ icon, title, description, accentColor = 'brand.500', className }, ref) => {
     return (
       <Box
         ref={ref}
+        className={className}
         bg="slate.900"
         border="1px solid"
         borderColor="slate.800"
@@ -44,13 +47,13 @@ export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
           opacity: 0,
           transition: 'opacity 0.3s ease',
         }}
-        sx={{
+        css={{
           '&:hover::before': {
             opacity: 1,
           },
         }}
       >
-        <VStack align="start" spacing={4}>
+        <VStack align="start" gap={4}>
           <Box
             p={3}
             bg="slate.800"
@@ -59,7 +62,7 @@ export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
           >
             {icon}
           </Box>
-          <Heading size="md" color="white">
+          <Heading fontSize="md" color="white">
             {title}
           </Heading>
           <Text color="slate.400" lineHeight="tall">
