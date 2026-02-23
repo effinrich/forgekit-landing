@@ -1,8 +1,8 @@
-import { Box, Heading, Text, SimpleGrid, VStack } from '@chakra-ui/react'
-import { forwardRef, type ReactNode } from 'react'
-import { Container } from '../Container'
-import { GradientText } from '../GradientText'
-import { FeatureCard } from '../FeatureCard'
+import { Box, Heading, Text, SimpleGrid, VStack } from "@chakra-ui/react"
+import { forwardRef, type ReactNode } from "react"
+import { Container } from "../Container"
+import { GradientText } from "../GradientText"
+import { FeatureCard } from "../FeatureCard"
 
 export interface Feature {
   icon: ReactNode
@@ -45,9 +45,9 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
     return (
       <Box ref={ref} py={{ base: 16, md: 24 }} bg="slate.950">
         <Container size="xl">
-          <VStack spacing={{ base: 12, md: 16 }}>
+          <VStack gap={{ base: 12, md: 16 }}>
             {/* Section header */}
-            <VStack spacing={4} textAlign="center" maxW="2xl">
+            <VStack gap={4} textAlign="center" maxW="2xl">
               {badge && (
                 <Text
                   color="brand.400"
@@ -59,11 +59,7 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
                   {badge}
                 </Text>
               )}
-              <Heading
-                fontSize={{ base: '2xl', md: '4xl' }}
-                fontWeight="700"
-                lineHeight="tight"
-              >
+              <Heading fontSize={{ base: "2xl", md: "4xl" }} fontWeight="700" lineHeight="tight">
                 {renderHeadline()}
               </Heading>
               {description && (
@@ -74,14 +70,10 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
             </VStack>
 
             {/* Features grid */}
-            <SimpleGrid
-              columns={{ base: 1, md: 2, lg: 3 }}
-              spacing={{ base: 6, md: 8 }}
-              w="100%"
-            >
-              {features.map((feature, index) => (
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={{ base: 6, md: 8 }} w="100%">
+              {features.map((feature) => (
                 <FeatureCard
-                  key={index}
+                  key={feature.title}
                   icon={feature.icon}
                   title={feature.title}
                   description={feature.description}
@@ -96,4 +88,4 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
   }
 )
 
-Features.displayName = 'Features'
+Features.displayName = "Features"

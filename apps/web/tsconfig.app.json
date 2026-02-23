@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "outDir": "../../dist/out-tsc",
     "types": [
       "vite/client"
@@ -12,8 +13,13 @@
     "src/**/*.spec.tsx",
     "src/**/*.test.tsx"
   ],
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
+   "include": ["src/**/*.ts", "src/**/*.tsx"],
+   "references": [
+    {
+      "path": "../../libs/ui/tsconfig.json"
+    },
+    {
+      "path": "../../libs/theme/tsconfig.json"
+    }
   ]
 }

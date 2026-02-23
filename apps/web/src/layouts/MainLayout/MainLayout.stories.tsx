@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { MainLayout } from './MainLayout'
 
 const meta: Meta<typeof MainLayout> = {
-  title: 'Layouts/MainLayout',
+  title: "Layouts/MainLayout",
   component: MainLayout,
   decorators: [
     (Story) => (
@@ -13,7 +13,7 @@ const meta: Meta<typeof MainLayout> = {
     ),
   ],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 }
 

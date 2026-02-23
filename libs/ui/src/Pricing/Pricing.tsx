@@ -64,9 +64,9 @@ export const Pricing = forwardRef<HTMLDivElement, PricingProps>(
         />
 
         <Container size="xl" position="relative" zIndex={1}>
-          <VStack spacing={{ base: 12, md: 16 }}>
+          <VStack gap={{ base: 12, md: 16 }}>
             {/* Section header */}
-            <VStack spacing={4} textAlign="center" maxW="2xl">
+            <VStack gap={4} textAlign="center" maxW="2xl">
               {badge && (
                 <Text
                   color="brand.400"
@@ -92,20 +92,25 @@ export const Pricing = forwardRef<HTMLDivElement, PricingProps>(
               )}
 
               {/* Billing toggle */}
-              <HStack spacing={4} pt={4}>
+              <HStack gap={4} pt={4}>
                 <Text
                   color={!isAnnual ? 'white' : 'slate.500'}
                   fontWeight={!isAnnual ? '600' : '400'}
                 >
                   Monthly
                 </Text>
-                <Switch
-                  isChecked={isAnnual}
-                  onChange={() => setIsAnnual(!isAnnual)}
-                  colorScheme="brand"
+                <Switch.Root
+                  checked={isAnnual}
+                  onCheckedChange={(e) => setIsAnnual(e.checked)}
+                  colorPalette="brand"
                   size="lg"
-                />
-                <HStack spacing={2}>
+                >
+                  <Switch.HiddenInput />
+                  <Switch.Control>
+                    <Switch.Thumb />
+                  </Switch.Control>
+                </Switch.Root>
+                <HStack gap={2}>
                   <Text
                     color={isAnnual ? 'white' : 'slate.500'}
                     fontWeight={isAnnual ? '600' : '400'}
@@ -130,7 +135,7 @@ export const Pricing = forwardRef<HTMLDivElement, PricingProps>(
             {/* Pricing cards */}
             <SimpleGrid
               columns={{ base: 1, lg: 3 }}
-              spacing={{ base: 6, md: 8 }}
+              gap={{ base: 6, md: 8 }}
               w="100%"
               maxW="5xl"
               mx="auto"

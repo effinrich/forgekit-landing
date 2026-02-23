@@ -1,126 +1,94 @@
-import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
-import { colors, fontSizes, space, radii } from './tokens'
+import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
+import { colors } from './tokens'
 
-const config: ThemeConfig = {
-  initialColorMode: 'dark',
-  useSystemColorMode: false,
-}
-
-export const theme = extendTheme({
-  config,
-  colors: {
-    brand: colors.primary,
-    accent: colors.accent,
-    success: colors.success,
-    slate: colors.slate,
-  },
-  fonts: {
-    heading: '"Cal Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    body: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    mono: '"JetBrains Mono", "Fira Code", Consolas, monospace',
-  },
-  fontSizes,
-  space,
-  radii,
-  styles: {
-    global: {
-      'html, body': {
-        bg: 'slate.950',
-        color: 'slate.100',
-      },
-      '::selection': {
-        bg: 'brand.500',
-        color: 'white',
-      },
-    },
-  },
-  components: {
-    Button: {
-      baseStyle: {
-        fontWeight: '600',
-        borderRadius: 'lg',
-      },
-      variants: {
-        solid: {
-          bg: 'brand.500',
-          color: 'white',
-          _hover: {
-            bg: 'brand.600',
-            transform: 'translateY(-2px)',
-            boxShadow: '0 10px 40px -10px rgba(139, 92, 246, 0.5)',
-          },
-          _active: {
-            bg: 'brand.700',
-            transform: 'translateY(0)',
-          },
-          transition: 'all 0.2s ease',
+const config = defineConfig({
+  theme: {
+    tokens: {
+      colors: {
+        brand: {
+          50: { value: colors.primary[50] },
+          100: { value: colors.primary[100] },
+          200: { value: colors.primary[200] },
+          300: { value: colors.primary[300] },
+          400: { value: colors.primary[400] },
+          500: { value: colors.primary[500] },
+          600: { value: colors.primary[600] },
+          700: { value: colors.primary[700] },
+          800: { value: colors.primary[800] },
+          900: { value: colors.primary[900] },
+          950: { value: colors.primary[950] },
         },
         accent: {
-          bg: 'accent.500',
-          color: 'white',
-          _hover: {
-            bg: 'accent.600',
-            transform: 'translateY(-2px)',
-            boxShadow: '0 10px 40px -10px rgba(249, 115, 22, 0.5)',
-          },
-          _active: {
-            bg: 'accent.700',
-            transform: 'translateY(0)',
-          },
-          transition: 'all 0.2s ease',
+          50: { value: colors.accent[50] },
+          100: { value: colors.accent[100] },
+          200: { value: colors.accent[200] },
+          300: { value: colors.accent[300] },
+          400: { value: colors.accent[400] },
+          500: { value: colors.accent[500] },
+          600: { value: colors.accent[600] },
+          700: { value: colors.accent[700] },
+          800: { value: colors.accent[800] },
+          900: { value: colors.accent[900] },
         },
-        outline: {
-          borderColor: 'brand.500',
-          color: 'brand.400',
-          _hover: {
-            bg: 'brand.500',
-            color: 'white',
-            transform: 'translateY(-2px)',
-          },
-          transition: 'all 0.2s ease',
+        success: {
+          50: { value: colors.success[50] },
+          100: { value: colors.success[100] },
+          200: { value: colors.success[200] },
+          300: { value: colors.success[300] },
+          400: { value: colors.success[400] },
+          500: { value: colors.success[500] },
+          600: { value: colors.success[600] },
+          700: { value: colors.success[700] },
+          800: { value: colors.success[800] },
+          900: { value: colors.success[900] },
         },
-        ghost: {
-          color: 'slate.300',
-          _hover: {
-            bg: 'slate.800',
-            color: 'white',
-          },
+        slate: {
+          50: { value: colors.slate[50] },
+          100: { value: colors.slate[100] },
+          200: { value: colors.slate[200] },
+          300: { value: colors.slate[300] },
+          400: { value: colors.slate[400] },
+          500: { value: colors.slate[500] },
+          600: { value: colors.slate[600] },
+          700: { value: colors.slate[700] },
+          800: { value: colors.slate[800] },
+          900: { value: colors.slate[900] },
+          950: { value: colors.slate[950] },
         },
       },
-      defaultProps: {
-        variant: 'solid',
+      fonts: {
+        heading: { value: '"Cal Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' },
+        body: { value: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' },
+        mono: { value: '"JetBrains Mono", "Fira Code", Consolas, monospace' },
       },
     },
-    Heading: {
-      baseStyle: {
-        color: 'white',
-        fontWeight: '700',
-        letterSpacing: '-0.02em',
-      },
-    },
-    Text: {
-      baseStyle: {
-        color: 'slate.300',
-      },
-    },
-    Link: {
-      baseStyle: {
-        color: 'brand.400',
-        _hover: {
-          color: 'brand.300',
-          textDecoration: 'none',
+    semanticTokens: {
+      colors: {
+        brand: {
+          solid: { value: '{colors.brand.500}' },
+          contrast: { value: '{colors.brand.100}' },
+          fg: { value: '{colors.brand.700}' },
+          muted: { value: '{colors.brand.100}' },
+          subtle: { value: '{colors.brand.200}' },
+          emphasized: { value: '{colors.brand.300}' },
+          focusRing: { value: '{colors.brand.500}' },
         },
       },
     },
-    Card: {
-      baseStyle: {
-        container: {
-          bg: 'slate.900',
-          borderColor: 'slate.800',
-          borderWidth: '1px',
-          borderRadius: 'xl',
-        },
-      },
+  },
+  globalCss: {
+    'html, body': {
+      bg: 'slate.950',
+      color: 'slate.100',
+    },
+    '::selection': {
+      bg: 'brand.500',
+      color: 'white',
     },
   },
 })
+
+export const system = createSystem(defaultConfig, config)
+
+// Keep `theme` export name for backward compat with index.ts re-export
+export const theme = system
