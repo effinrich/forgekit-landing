@@ -40,6 +40,7 @@ test-results
 
 # Generated
 *.generated.ts
+.storybook-mcp-cache.json
 
 .nx/cache
 .nx/workspace-data
