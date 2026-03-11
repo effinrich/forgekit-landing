@@ -38,6 +38,9 @@ test-results
 # Chromatic
 .chromatic-cache
 
+# Storybook
+.storybook-mcp-cache.json
+
 # Generated
 *.generated.ts
 .storybook-mcp-cache.json
