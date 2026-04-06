@@ -1,5 +1,22 @@
-import { Box, Container, Heading, Text, VStack, Code, OrderedList, ListItem, Divider, Badge, Icon } from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  VStack,
+  HStack,
+  Code,
+  OrderedList,
+  ListItem,
+  Divider,
+  Badge,
+  Link,
+  Button,
+} from '@chakra-ui/react'
 import { Header, Footer, Logo } from '@forgekit-landing/ui'
+
+const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
+const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
 
 const CheckCircleIcon = () => (
   <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -28,7 +45,7 @@ const DiscordIcon = () => (
 
 const navLinks = [
   { label: 'Features', href: '/#features' },
-  { label: 'Pricing', href: '/#pricing' },
+  { label: 'Open source', href: '/#open-source' },
   { label: 'Docs', href: '/docs' },
 ]
 
@@ -37,7 +54,7 @@ const footerColumns = [
     title: 'Product',
     links: [
       { label: 'Features', href: '/#features' },
-      { label: 'Pricing', href: '/#pricing' },
+      { label: 'Open source', href: '/#open-source' },
       { label: 'Changelog', href: '/changelog' },
       { label: 'Roadmap', href: '/roadmap' },
     ],
@@ -57,7 +74,7 @@ const footerColumns = [
       { label: 'About', href: '/about' },
       { label: 'Contact', href: 'mailto:forgekit@pm.me' },
       { label: 'Twitter', href: 'https://twitter.com/forgekit' },
-      { label: 'GitHub', href: 'https://github.com/effinrich' },
+      { label: 'GitHub', href: GH_MCP },
     ],
   },
 ]
@@ -67,8 +84,10 @@ export function Success() {
     <Box bg="slate.950" minH="100vh">
       <Header
         links={navLinks}
-        ctaText="npm Package"
-        onCtaClick={() => window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'}
+        ctaText="Install on npm"
+        onCtaClick={() => {
+          window.location.href = NPM_MCP
+        }}
       />
 
       <Container maxW="container.md" py={{ base: 24, md: 32 }} px={6}>
@@ -83,7 +102,7 @@ export function Success() {
             fontSize="sm"
             textTransform="none"
           >
-            Purchase Complete
+            Welcome
           </Badge>
 
           <Heading
@@ -93,42 +112,54 @@ export function Success() {
             color="white"
             lineHeight="tight"
           >
-            Thanks for buying{' '}
+            You&apos;re in —{' '}
             <Text as="span" color="teal.400">
-              Storybook MCP Pro
-            </Text>
-            !
+              forgekit-storybook-mcp
+            </Text>{' '}
+            is MIT open source
           </Heading>
 
           <Text color="gray.400" fontSize="lg" maxW="lg">
-            Your license key has been sent to your email. Follow the steps below to activate Pro features.
+            No license keys, no tiers. Install from npm, add a config file, and connect the MCP in your editor.
+            This is the same flow documented in the project README.
           </Text>
+
+          <HStack spacing={4} flexWrap="wrap" justify="center">
+            <Button
+              as={Link}
+              href={NPM_MCP}
+              isExternal
+              colorScheme="teal"
+              size="lg"
+            >
+              Open on npm
+            </Button>
+            <Button
+              as={Link}
+              href={GH_MCP}
+              isExternal
+              variant="outline"
+              borderColor="whiteAlpha.300"
+              color="white"
+              size="lg"
+              _hover={{ bg: 'whiteAlpha.100' }}
+            >
+              Star on GitHub
+            </Button>
+          </HStack>
         </VStack>
 
         <Divider my={10} borderColor="whiteAlpha.200" />
 
         <VStack spacing={8} align="stretch">
           <Heading as="h2" fontSize="xl" color="white">
-            Setup Instructions
+            Quick start
           </Heading>
 
           <OrderedList spacing={6} color="gray.300" fontSize="md" pl={4}>
             <ListItem>
               <Text fontWeight="semibold" color="white" mb={2}>
-                Find your license key
-              </Text>
-              <Text color="gray.400">
-                Check your email for a message from Polar with your unique license key. It looks like a UUID:{' '}
-                <Code colorScheme="teal" fontSize="sm">XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</Code>
-              </Text>
-            </ListItem>
-
-            <ListItem>
-              <Text fontWeight="semibold" color="white" mb={2}>
-                Add the key to your project
-              </Text>
-              <Text color="gray.400" mb={3}>
-                Option A — In your <Code colorScheme="gray" fontSize="sm">storybook-mcp.config.json</Code>:
+                Install the package
               </Text>
               <Code
                 display="block"
@@ -140,24 +171,18 @@ export function Success() {
                 fontSize="sm"
                 overflowX="auto"
               >
-{`{
-  "licenseKey": "YOUR-LICENSE-KEY-HERE"
-}`}
+                npm install forgekit-storybook-mcp
               </Code>
-              <Text color="gray.400" mt={3} mb={3}>
-                Option B — As an environment variable:
+            </ListItem>
+
+            <ListItem>
+              <Text fontWeight="semibold" color="white" mb={2}>
+                Add configuration
               </Text>
-              <Code
-                display="block"
-                whiteSpace="pre"
-                p={4}
-                borderRadius="md"
-                bg="whiteAlpha.100"
-                color="teal.300"
-                fontSize="sm"
-              >
-                export STORYBOOK_MCP_LICENSE=YOUR-LICENSE-KEY-HERE
-              </Code>
+              <Text color="gray.400" mb={3}>
+                Create <Code colorScheme="gray" fontSize="sm">storybook-mcp.config.json</Code> in your project root
+                (see the README on GitHub for all options).
+              </Text>
             </ListItem>
 
             <ListItem>
@@ -176,16 +201,16 @@ export function Success() {
                 npx forgekit-storybook-mcp
               </Code>
               <Text color="gray.400" mt={2}>
-                You should see: <Code colorScheme="teal" fontSize="sm">[storybook-mcp] License validated. Pro features enabled.</Code>
+                You should see startup logs on stderr; stdout stays clean for MCP JSON-RPC.
               </Text>
             </ListItem>
 
             <ListItem>
               <Text fontWeight="semibold" color="white" mb={2}>
-                Enjoy Pro features
+                Ship stories with your whole team
               </Text>
               <Text color="gray.400">
-                Unlimited components, advanced templates, test generation, MDX docs, and full framework support are now unlocked.
+                Stories, tests, docs, sync, and Figma Code Connect are available to everyone under the MIT License.
               </Text>
             </ListItem>
           </OrderedList>
@@ -195,7 +220,7 @@ export function Success() {
 
         <VStack spacing={4} align="center" textAlign="center">
           <Text color="gray.500" fontSize="sm">
-            Need help? Email us at{' '}
+            Questions? Email{' '}
             <Text as="a" href="mailto:forgekit@pm.me" color="teal.400" _hover={{ textDecoration: 'underline' }}>
               forgekit@pm.me
             </Text>
@@ -205,11 +230,11 @@ export function Success() {
 
       <Footer
         logo={<Logo size="md" />}
-        tagline="Transform Figma designs into production-ready React applications."
+        tagline="ForgeKit and forgekit-storybook-mcp — MIT open source."
         columns={footerColumns}
         socialLinks={[
           { icon: <TwitterIcon />, href: 'https://twitter.com/forgekit', label: 'Twitter' },
-          { icon: <GitHubIcon />, href: 'https://github.com/effinrich', label: 'GitHub' },
+          { icon: <GitHubIcon />, href: GH_MCP, label: 'GitHub' },
           { icon: <DiscordIcon />, href: 'https://discord.gg/forgekit', label: 'Discord' },
         ]}
       />

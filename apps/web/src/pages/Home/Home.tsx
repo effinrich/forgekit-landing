@@ -1,13 +1,25 @@
-import { Box } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Container,
+  Heading,
+  HStack,
+  Link,
+  SimpleGrid,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
 import {
   Header,
   Hero,
   Features,
-  Pricing,
   CTA,
   Footer,
   Logo,
 } from '@forgekit-landing/ui'
+
+const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
+const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
 
 // Icons as simple SVG components
 const FigmaIcon = () => (
@@ -53,6 +65,12 @@ const SyncIcon = () => (
   </svg>
 )
 
+const McpIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+  </svg>
+)
+
 const TwitterIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -73,110 +91,60 @@ const DiscordIcon = () => (
 
 const features = [
   {
-    icon: <FigmaIcon />,
-    title: 'Figma to React',
-    description: 'Connect your Figma file and watch components materialize. Design tokens, components, and variants — all synced automatically.',
+    icon: <McpIcon />,
+    title: 'Model Context Protocol',
+    description:
+      'A real MCP server for Storybook: story generation, component analysis, validation, and tools your editor can call — the same ideas as the forgekit-storybook-mcp README.',
     accentColor: '#8b5cf6',
   },
   {
-    icon: <TestIcon />,
-    title: 'Tests Included',
-    description: 'Every component ships with Vitest unit tests, Storybook interaction tests, and Playwright e2e tests. Production-ready from day one.',
-    accentColor: '#14b8a6',
-  },
-  {
     icon: <StorybookIcon />,
-    title: 'Storybook Stories',
-    description: 'Full Storybook coverage with autodocs, interaction tests, and Chromatic visual regression testing built into CI.',
+    title: 'Stories, tests, docs',
+    description:
+      'Auto-sync on startup, templates, Vitest and Playwright-oriented output, MDX docs, and Figma Code Connect — all MIT, no feature gates.',
     accentColor: '#f97316',
   },
   {
     icon: <CodeIcon />,
-    title: 'Clean Architecture',
-    description: 'Nx monorepo foundation scales from SPA to enterprise. TypeScript, ESLint, Prettier — all configured correctly.',
+    title: 'Framework-aware',
+    description:
+      'Auto-detects Chakra UI, shadcn/ui, Tamagui, and Gluestack UI. Any React project works; unrecognized setups get sensible vanilla defaults.',
+    accentColor: '#14b8a6',
+  },
+  {
+    icon: <FigmaIcon />,
+    title: 'Figma in the loop',
+    description:
+      'Connect designs to code with Code Connect and the broader ForgeKit story — from file to components without reinventing your design system.',
     accentColor: '#8b5cf6',
   },
   {
     icon: <SyncIcon />,
-    title: 'Live Sync',
-    description: 'Design changes in Figma? Run one command to sync. Your codebase stays in perfect harmony with your designs.',
+    title: 'Live sync',
+    description:
+      'Watch component folders, debounced rescans, and periodic catch-up so your stories stay aligned as files change.',
     accentColor: '#14b8a6',
   },
   {
     icon: <RocketIcon />,
-    title: 'Deploy Anywhere',
-    description: 'Vercel, Railway, or self-hosted with Dokploy. CI/CD pipelines included. Ship to production in minutes.',
+    title: 'ForgeKit + npm',
+    description:
+      'ForgeKit is the Nx / app / UI / Storybook generator suite. The package is forgekit-storybook-mcp because @forgekit on npm was taken — fully standalone, install with npm.',
     accentColor: '#f97316',
   },
 ]
 
-const handleEarlyAccess = (plan: string) => {
-  window.location.href = `mailto:forgekit@pm.me?subject=Early Access Request - ${plan} Plan&body=Hi,%0D%0A%0D%0AI'm interested in early access to the ${plan} plan.%0D%0A%0D%0AThanks!`
+const handleForgeKitWaitlist = () => {
+  window.location.href =
+    "mailto:forgekit@pm.me?subject=ForgeKit%20generator%20interest&body=Hi!%20I'm%20interested%20in%20news%20about%20the%20ForgeKit%20monorepo%20generator."
 }
-
-const pricingPlans = [
-  {
-    name: 'Launch',
-    description: 'Perfect for indie developers and small projects',
-    monthlyPrice: '$149',
-    annualPrice: '$119',
-    features: [
-      'Figma design sync',
-      'React + Vite SPA',
-      'Chakra UI or shadcn/ui',
-      'Full Storybook coverage',
-      'Vitest + Playwright tests',
-      'Chromatic CI workflow',
-      'Vercel deployment',
-    ],
-    ctaText: 'Get Early Access',
-    isPopular: false,
-    onCtaClick: () => handleEarlyAccess('Launch'),
-  },
-  {
-    name: 'Scale',
-    description: 'For teams building production SaaS applications',
-    monthlyPrice: '$349',
-    annualPrice: '$279',
-    features: [
-      'Everything in Launch',
-      'tRPC backend API',
-      'Supabase integration',
-      'Authentication ready',
-      'Shared libs structure',
-      'Multi-app monorepo',
-      'Priority support',
-    ],
-    ctaText: 'Get Early Access',
-    isPopular: true,
-    onCtaClick: () => handleEarlyAccess('Scale'),
-  },
-  {
-    name: 'Universal',
-    description: 'Web + mobile from a single codebase',
-    monthlyPrice: '$499',
-    annualPrice: '$399',
-    features: [
-      'Everything in Scale',
-      'Expo React Native app',
-      'Tamagui universal UI',
-      'Shared component library',
-      'EAS deployment config',
-      'Cross-platform testing',
-      'Dedicated support',
-    ],
-    ctaText: 'Get Early Access',
-    isPopular: false,
-    onCtaClick: () => handleEarlyAccess('Universal'),
-  },
-]
 
 const footerColumns = [
   {
     title: 'Product',
     links: [
       { label: 'Features', href: '#features' },
-      { label: 'Pricing', href: '#pricing' },
+      { label: 'Open source', href: '#open-source' },
       { label: 'Changelog', href: '/changelog' },
       { label: 'Roadmap', href: '/roadmap' },
     ],
@@ -196,14 +164,14 @@ const footerColumns = [
       { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
       { label: 'X', href: 'https://x.com/forgekitdev' },
-      { label: 'GitHub', href: 'https://github.com/forgekit' },
+      { label: 'GitHub', href: GH_MCP },
     ],
   },
 ]
 
 const navLinks = [
   { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Open source', href: '#open-source' },
   { label: 'Docs', href: '/docs' },
 ]
 
@@ -212,53 +180,165 @@ export function Home() {
     <Box bg="slate.950" minH="100vh">
       <Header
         links={navLinks}
-        ctaText="Get Early Access"
-        onCtaClick={() => handleEarlyAccess('ForgeKit')}
+        ctaText="Install on npm"
+        onCtaClick={() => {
+          window.location.href = NPM_MCP
+        }}
       />
       <Hero
-        badge="Coming Soon"
-        headline="From Figma to production-ready React"
-        highlightedText="production-ready"
-        description="Stop recreating designs by hand. ForgeKit transforms your Figma components into tested, documented, deployable React applications in minutes."
-        primaryCta="Get Early Access"
-        secondaryCta="View Storybook MCP"
-        onPrimaryClick={() => handleEarlyAccess('ForgeKit')}
-        onSecondaryClick={() => window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'}
+        badge="MIT · open source"
+        headline="ForgeKit and Storybook MCP, fully open source"
+        highlightedText="fully open source"
+        description="A Model Context Protocol (MCP) server for Storybook — story generation, tests, docs, sync, and Figma Code Connect. Published as forgekit-storybook-mcp (the @forgekit scope was taken on npm). Use it standalone or alongside ForgeKit when you scaffold the full monorepo."
+        primaryCta="Install on npm"
+        secondaryCta="View on GitHub"
+        onPrimaryClick={() => {
+          window.location.href = NPM_MCP
+        }}
+        onSecondaryClick={() => {
+          window.location.href = GH_MCP
+        }}
       />
 
       <Features
-        badge="Features"
-        headline="Everything you need to ship faster"
-        highlightedText="ship faster"
-        description="Forgekit generates production-ready code, not throwaway prototypes."
+        badge="Why it exists"
+        headline="Everything you need to document components"
+        highlightedText="document components"
+        description="forgekit-storybook-mcp matches the README: one MIT package, full tool surface, no paywall."
         features={features}
       />
 
-      <Pricing
-        badge="Pricing"
-        headline="Simple pricing, powerful output"
-        highlightedText="Simple pricing"
-        description="Start free, upgrade when you're ready. No hidden fees."
-        plans={pricingPlans}
-      />
+      <Box id="open-source" py={{ base: 16, md: 24 }} scrollMarginTop="80px">
+        <Container maxW="container.xl">
+          <VStack spacing={{ base: 10, md: 14 }}>
+            <VStack spacing={4} textAlign="center" maxW="3xl">
+              <Text
+                color="brand.400"
+                fontWeight="600"
+                fontSize="sm"
+                textTransform="uppercase"
+                letterSpacing="wider"
+              >
+                Open source
+              </Text>
+              <Heading
+                as="h2"
+                fontSize={{ base: '2xl', md: '4xl' }}
+                fontWeight="bold"
+                color="white"
+                lineHeight="tight"
+              >
+                Celebrate shipping:{' '}
+                <Text as="span" color="teal.400">
+                  npm install
+                </Text>{' '}
+                and go
+              </Heading>
+              <Text color="gray.400" fontSize={{ base: 'md', md: 'lg' }}>
+                The Storybook MCP is MIT-licensed — stories, tests, templates, sync, and Code Connect for everyone.
+                Star the repo, file issues, and share what you build.
+              </Text>
+            </VStack>
+
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full">
+              <Box
+                borderWidth="1px"
+                borderColor="whiteAlpha.200"
+                borderRadius="xl"
+                p={{ base: 6, md: 8 }}
+                bg="whiteAlpha.50"
+                _hover={{ borderColor: 'teal.500', transition: 'border-color 0.2s' }}
+              >
+                <VStack align="stretch" spacing={4}>
+                  <Text fontWeight="700" color="white" fontSize="xl">
+                    forgekit-storybook-mcp
+                  </Text>
+                  <Text color="gray.400">
+                    The package on npm. CLI commands forgekit-storybook-mcp and storybook-mcp — same README you know,
+                    zero license keys.
+                  </Text>
+                  <HStack spacing={3} flexWrap="wrap">
+                    <Button
+                      as={Link}
+                      href={NPM_MCP}
+                      isExternal
+                      colorScheme="teal"
+                      size="md"
+                    >
+                      npm package
+                    </Button>
+                    <Button
+                      as={Link}
+                      href={GH_MCP}
+                      isExternal
+                      variant="outline"
+                      colorScheme="gray"
+                      borderColor="whiteAlpha.300"
+                      color="white"
+                      _hover={{ bg: 'whiteAlpha.100' }}
+                      size="md"
+                    >
+                      Source on GitHub
+                    </Button>
+                  </HStack>
+                </VStack>
+              </Box>
+
+              <Box
+                borderWidth="1px"
+                borderColor="whiteAlpha.200"
+                borderRadius="xl"
+                p={{ base: 6, md: 8 }}
+                bg="whiteAlpha.50"
+              >
+                <VStack align="stretch" spacing={4}>
+                  <Text fontWeight="700" color="white" fontSize="xl">
+                    ForgeKit generator
+                  </Text>
+                  <Text color="gray.400">
+                    The broader ForgeKit vision: Nx monorepos, Figma-driven UI libraries, Storybook, and deployment
+                    patterns — rolling out over time. Want word on the generator? Say hello.
+                  </Text>
+                  <Button
+                    onClick={handleForgeKitWaitlist}
+                    variant="outline"
+                    colorScheme="gray"
+                    borderColor="whiteAlpha.300"
+                    color="white"
+                    _hover={{ bg: 'whiteAlpha.100' }}
+                    size="md"
+                    alignSelf="flex-start"
+                  >
+                    Email the team
+                  </Button>
+                </VStack>
+              </Box>
+            </SimpleGrid>
+          </VStack>
+        </Container>
+      </Box>
 
       <CTA
-        headline="Ready to transform your workflow?"
-        highlightedText="transform"
-        description="Join developers shipping faster with ForgeKit. Get early access — we'll notify you when we launch."
-        primaryCta="Get Early Access"
-        secondaryCta="View Storybook MCP"
-        onPrimaryClick={() => handleEarlyAccess('ForgeKit')}
-        onSecondaryClick={() => window.location.href = 'https://npmjs.com/package/forgekit-storybook-mcp'}
+        headline="Ready to wire Storybook into your agent workflow?"
+        highlightedText="agent workflow"
+        description="Install from npm, add storybook-mcp.config.json, and connect the MCP in Cursor or Claude Desktop — same flow as the project README."
+        primaryCta="Install on npm"
+        secondaryCta="Repository"
+        onPrimaryClick={() => {
+          window.location.href = NPM_MCP
+        }}
+        onSecondaryClick={() => {
+          window.location.href = GH_MCP
+        }}
       />
 
       <Footer
         logo={<Logo size="md" />}
-        tagline="Transform Figma designs into production-ready React applications."
+        tagline="ForgeKit and forgekit-storybook-mcp — MIT open source. Figma to components, Storybook to truth."
         columns={footerColumns}
         socialLinks={[
           { icon: <TwitterIcon />, href: 'https://x.com/forgekitdev', label: 'X' },
-          { icon: <GitHubIcon />, href: 'https://github.com/forgekit', label: 'GitHub' },
+          { icon: <GitHubIcon />, href: GH_MCP, label: 'GitHub' },
           { icon: <DiscordIcon />, href: 'https://discord.gg/jqt9EhYe', label: 'Discord' },
         ]}
       />
