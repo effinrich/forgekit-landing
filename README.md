@@ -58,6 +58,11 @@ forgekit-landing/
 | `npm run lint` | Lint code |
 | `npm run typecheck` | TypeScript type checking |
 
+## Docs & ops playbooks
+
+- **[Deploy Storybook MCP docs to docs.forgekit.cloud](docs/DEPLOY_DOCS_FORGEKIT_CLOUD.md)** (Mintlify + DNS)
+- **[Repo consolidation & Figma repo rename](docs/REPO_CONSOLIDATION_AND_NAMING.md)**
+
 ## Deployment (Vercel)
 
 The repo includes `vercel.json` so builds use the Nx + Vite output at **`dist/apps/web`** (not `dist` at the repo root).

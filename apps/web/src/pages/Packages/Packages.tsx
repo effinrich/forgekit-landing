@@ -11,7 +11,10 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { Header, Footer, Logo } from '@forgekit-landing/ui'
-import { FORGEKIT_PACKAGES } from '../../data/forgekitPackages'
+import {
+  FORGEKIT_PACKAGES,
+  type PackageIntegration,
+} from '../../data/forgekitPackages'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
 const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
@@ -76,6 +79,19 @@ function docTierBadge(tier: (typeof FORGEKIT_PACKAGES)[number]['docTier']) {
   }
 }
 
+function integrationBadge(integration: PackageIntegration) {
+  switch (integration) {
+    case 'mcp-server':
+      return { label: 'Integration: MCP', colorScheme: 'cyan' as const }
+    case 'nx-plugin':
+      return { label: 'Integration: Nx', colorScheme: 'orange' as const }
+    case 'node-cli':
+      return { label: 'Integration: CLI', colorScheme: 'pink' as const }
+    default:
+      return { label: 'Integration', colorScheme: 'gray' as const }
+  }
+}
+
 export function Packages() {
   return (
     <Box bg="slate.950" minH="100vh">
@@ -112,6 +128,7 @@ export function Packages() {
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6}>
             {FORGEKIT_PACKAGES.map(pkg => {
               const badge = docTierBadge(pkg.docTier)
+              const intBadge = integrationBadge(pkg.integration)
               return (
                 <Box
                   key={pkg.npmName}
@@ -126,12 +143,20 @@ export function Packages() {
                       <Heading as="h2" fontSize="xl" color="white">
                         {pkg.title}
                       </Heading>
-                      <Badge colorScheme={badge.colorScheme} textTransform="none">
-                        {badge.label}
-                      </Badge>
+                      <HStack flexWrap="wrap" gap={2}>
+                        <Badge colorScheme={intBadge.colorScheme} textTransform="none">
+                          {intBadge.label}
+                        </Badge>
+                        <Badge colorScheme={badge.colorScheme} textTransform="none">
+                          {badge.label}
+                        </Badge>
+                      </HStack>
                     </HStack>
                     <Text fontFamily="mono" fontSize="sm" color="teal.300">
                       {pkg.npmName}
+                    </Text>
+                    <Text fontSize="xs" color="gray.500" fontWeight="500">
+                      {pkg.integrationLabel}
                     </Text>
                     <Text fontSize="sm" color="gray.500">
                       {pkg.audience}
@@ -190,11 +215,17 @@ export function Packages() {
           >
             <Text color="gray.400" fontSize="sm">
               <Text as="span" fontWeight="600" color="gray.300">
-                Note on repositories:
+                Repositories &amp; docs:
               </Text>{' '}
-              npm is authoritative for which GitHub repo backs a package (e.g.{' '}
-              <code>forgekit-figma-mcp</code> currently lists <code>chakra-figma-mcp</code>). Rename or align repos
-              when you consolidate — the links above match today&apos;s registry.
+              GitHub links target{' '}
+              <Text as="span" fontFamily="mono" fontSize="xs">
+                effinrich/forgekit-figma-mcp
+              </Text>{' '}
+              (rename from <code>chakra-figma-mcp</code> per{' '}
+              <code>docs/REPO_CONSOLIDATION_AND_NAMING.md</code>). Update npm{' '}
+              <code>repository</code> after renaming. Storybook MCP docs: follow{' '}
+              <code>docs/DEPLOY_DOCS_FORGEKIT_CLOUD.md</code> — until{' '}
+              <code>docs.forgekit.cloud</code> is live, that link may not resolve.
             </Text>
           </Box>
         </VStack>
