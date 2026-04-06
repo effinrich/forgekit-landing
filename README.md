@@ -58,6 +58,14 @@ forgekit-landing/
 | `npm run lint` | Lint code |
 | `npm run typecheck` | TypeScript type checking |
 
+## Deployment (Vercel)
+
+The repo includes `vercel.json` so builds use the Nx + Vite output at **`dist/apps/web`** (not `dist` at the repo root).
+
+In the Vercel project, set **Root Directory** to **`.`** (repository root, where `package.json` runs `nx build web`). If Root Directory is `apps/web`, installs/builds will fail or deploy stale output.
+
+After pushing, open the deployment log: a failed build leaves the previous production deployment unchanged.
+
 ## Configuration
 
 Copy `.env.example` to `.env.local` and configure:
