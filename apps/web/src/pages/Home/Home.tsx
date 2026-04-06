@@ -152,10 +152,8 @@ const footerColumns = [
   {
     title: 'Resources',
     links: [
-      { label: 'Documentation', href: '/docs' },
-      { label: 'API Reference', href: '/docs/api' },
-      { label: 'Examples', href: '/examples' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'Packages', href: '/packages' },
+      { label: 'Storybook MCP repo', href: GH_MCP },
     ],
   },
   {
@@ -171,8 +169,8 @@ const footerColumns = [
 
 const navLinks = [
   { label: 'Features', href: '#features' },
+  { label: 'Packages', href: '/packages' },
   { label: 'Open source', href: '#open-source' },
-  { label: 'Docs', href: '/docs' },
 ]
 
 export function Home() {

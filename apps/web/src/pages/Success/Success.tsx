@@ -44,9 +44,9 @@ const DiscordIcon = () => (
 )
 
 const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Packages', href: '/packages' },
   { label: 'Features', href: '/#features' },
-  { label: 'Open source', href: '/#open-source' },
-  { label: 'Docs', href: '/docs' },
 ]
 
 const footerColumns = [
