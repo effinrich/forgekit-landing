@@ -56,6 +56,6 @@
   "analytics": true,
   "useLegacyCache": true,
   "migrate": {
-    "agentic": "codex"
+    "agentic": "opencode"
   }
 }
