@@ -15,5 +15,10 @@
     {
       "path": "./libs/theme"
     }
-  ]
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

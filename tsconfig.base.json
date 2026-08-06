@@ -27,8 +27,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "paths": {
-      "@forgekit-landing/ui": ["libs/ui/src/index.ts"],
-      "@forgekit-landing/theme": ["libs/theme/src/index.ts"]
+      "@forgekit-landing/theme": [
+        "libs/theme/src/index.ts"
+      ],
+      "@forgekit-landing/ui": [
+        "libs/ui/src/index.ts"
+      ]
     }
   },
   "exclude": [

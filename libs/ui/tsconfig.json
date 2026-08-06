@@ -11,5 +11,15 @@
     "src/**/*.ts",
     "src/**/*.tsx"
   ],
-  "references": []
+  "references": [
+    {
+      "path": "./tsconfig.storybook.json"
+    }
+  ],
+  "exclude": [
+    "**/*.stories.ts",
+    "**/*.stories.js",
+    "**/*.stories.jsx",
+    "**/*.stories.tsx"
+  ]
 }
