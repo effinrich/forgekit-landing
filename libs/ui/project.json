@@ -5,11 +5,44 @@
   "projectType": "library",
   "tags": ["type:ui", "scope:shared"],
   "targets": {
+    "test": {
+      "executor": "vitest:test",
+      "options": {
+        "testMatch": "**/*.test.tsx",
+        "coverage": true
+      }
+    },  
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/ui"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["libs/ui/src/**/*.tsx"]
+      }
+    },
+    "typecheck": {
+      "executor": "@nx/typescript:type-check",
+      "options": {
+        "tsConfig": "libs/ui/tsconfig.json",
+        "skipLibCheck": true
+      }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 6006,
+        "configDir": "libs/ui/.storybook"
+      }
+    },
+    "storybook:build": {
+      "executor": "@nx/storybook:build",
+      "options": {
+        "outputPath": "dist/libs/ui/storybook"
       }
     }
   }
