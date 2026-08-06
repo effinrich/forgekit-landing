@@ -56,6 +56,6 @@
   "analytics": true,
   "useLegacyCache": true,
   "migrate": {
-    "agentic": "claude-code"
+    "agentic": "codex"
   }
 }
