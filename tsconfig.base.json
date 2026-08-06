@@ -26,7 +26,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": ".",
     "paths": {
       "@forgekit-landing/ui": ["libs/ui/src/index.ts"],
       "@forgekit-landing/theme": ["libs/theme/src/index.ts"]

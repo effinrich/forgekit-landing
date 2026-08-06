@@ -1,13 +1,13 @@
+import type { ComponentType } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
 import { MainLayout } from './MainLayout'
-import { JSX } from 'react/jsx-runtime'
 
 const meta: Meta<typeof MainLayout> = {
   title: 'Layouts/MainLayout',
   component: MainLayout,
   decorators: [
-    (Story: JSX.IntrinsicAttributes) => (
+    (Story: ComponentType) => (
       <MemoryRouter>
         <Story />
       </MemoryRouter>
