@@ -17,7 +17,7 @@ These instructions guide you through migrating an Nx workspace from Vite 7 to Vi
    - Search for `vite.config.{ts,js,mts,mjs,cts,cjs}`
    - Check `project.json` files for inline Vite-related options
 
-3. **Cypress Component Testing**: Cypress >= 15.14.0 supports Vite 8. The `nx migrate` step bumps Cypress automatically. If you have explicitly pinned Cypress below 15.14.0, upgrade it before bumping Vite.
++3. **Cypress Component Testing**: Cypress >= 15.14.0 supports Vite 8. The `nx migrate` step does not automatically upgrade Cypress — that is handled by a separate `@nx/cypress` migration that may not run during a Vite-only update. Explicitly check your Cypress version and upgrade it to >= 15.14.0 before bumping Vite if you have it pinned below that.
 
 ## Migration Steps by Category
 
