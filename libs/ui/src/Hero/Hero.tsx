@@ -145,20 +145,6 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
                 </Button>
               )}
             </HStack>
-
-            {/* Social proof */}
-            <HStack
-              spacing={8}
-              pt={8}
-              color="slate.500"
-              fontSize="sm"
-              flexWrap="wrap"
-              justify="center"
-            >
-              <Text>✓ No credit card required</Text>
-              <Text>✓ 14-day free trial</Text>
-              <Text>✓ Cancel anytime</Text>
-            </HStack>
           </VStack>
         </Container>
       </Box>

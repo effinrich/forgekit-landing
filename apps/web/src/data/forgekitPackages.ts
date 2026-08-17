@@ -4,6 +4,9 @@
  *
  * Docs: see /docs/DEPLOY_DOCS_FORGEKIT_CLOUD.md and /docs/REPO_CONSOLIDATION_AND_NAMING.md
  */
+import { DOCS_STORYBOOK_MCP } from '../seo/site'
+
+export { DOCS_STORYBOOK_MCP }
 export type PackageDocTier = 'mintlify-in-repo' | 'readme' | 'readme-only'
 
 /** How the tool integrates — avoids mistaking packages for duplicates */
@@ -27,8 +30,6 @@ export interface ForgekitPackageMeta {
   docTier: PackageDocTier
   lastPublishedNote?: string
 }
-
-export const DOCS_STORYBOOK_MCP = 'https://docs.forgekit.cloud'
 
 export const FORGEKIT_PACKAGES: ForgekitPackageMeta[] = [
   {

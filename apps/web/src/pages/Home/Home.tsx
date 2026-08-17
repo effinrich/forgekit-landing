@@ -17,6 +17,7 @@ import {
   Footer,
   Logo,
 } from '@forgekit-landing/ui'
+import { Seo, homeJsonLd } from '../../seo/Seo'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
 const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
@@ -152,6 +153,7 @@ const footerColumns = [
   {
     title: 'Resources',
     links: [
+      { label: 'Documentation', href: '/docs' },
       { label: 'Packages', href: '/packages' },
       { label: 'Storybook MCP repo', href: GH_MCP },
     ],
@@ -170,12 +172,19 @@ const footerColumns = [
 const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'Packages', href: '/packages' },
+  { label: 'Docs', href: '/docs' },
   { label: 'Open source', href: '#open-source' },
 ]
 
 export function Home() {
   return (
     <Box bg="slate.950" minH="100vh">
+      <Seo
+        title="ForgeKit · Storybook MCP (MIT)"
+        description="MIT open-source ForgeKit: forgekit-storybook-mcp MCP server for Storybook — stories, tests, docs, sync, Figma Code Connect. Packages include Figma token MCP, Nx plugin, and CLI."
+        path="/"
+        jsonLd={homeJsonLd}
+      />
       <Header
         links={navLinks}
         ctaText="Install on npm"
@@ -189,12 +198,12 @@ export function Home() {
         highlightedText="fully open source"
         description="A Model Context Protocol (MCP) server for Storybook — story generation, tests, docs, sync, and Figma Code Connect. Published as forgekit-storybook-mcp (the @forgekit scope was taken on npm). Use it standalone or alongside ForgeKit when you scaffold the full monorepo."
         primaryCta="Install on npm"
-        secondaryCta="View on GitHub"
+        secondaryCta="Documentation"
         onPrimaryClick={() => {
           window.location.href = NPM_MCP
         }}
         onSecondaryClick={() => {
-          window.location.href = GH_MCP
+          window.location.href = '/docs'
         }}
       />
 
@@ -321,12 +330,12 @@ export function Home() {
         highlightedText="agent workflow"
         description="Install from npm, add storybook-mcp.config.json, and connect the MCP in Cursor or Claude Desktop — same flow as the project README."
         primaryCta="Install on npm"
-        secondaryCta="Repository"
+        secondaryCta="Browse packages"
         onPrimaryClick={() => {
           window.location.href = NPM_MCP
         }}
         onSecondaryClick={() => {
-          window.location.href = GH_MCP
+          window.location.href = '/packages'
         }}
       />
 

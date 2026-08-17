@@ -50,3 +50,8 @@ test-results
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
 .nx/migrate-runs
+.nx/polygraph
+.claude/worktrees
+.claude/settings.local.json
+.vercel
+.env*

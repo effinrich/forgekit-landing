@@ -11,6 +11,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { Header, Footer, Logo } from '@forgekit-landing/ui'
+import { Seo } from '../../seo/Seo'
 import {
   FORGEKIT_PACKAGES,
   type PackageIntegration,
@@ -40,6 +41,7 @@ const DiscordIcon = () => (
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Packages', href: '/packages' },
+  { label: 'Docs', href: '/docs' },
   { label: 'Features', href: '/#features' },
 ]
 
@@ -55,6 +57,7 @@ const footerColumns = [
   {
     title: 'Resources',
     links: [
+      { label: 'Documentation', href: '/docs' },
       { label: 'Packages', href: '/packages' },
       { label: 'Storybook MCP repo', href: GH_MCP },
     ],
@@ -87,14 +90,17 @@ function integrationBadge(integration: PackageIntegration) {
       return { label: 'Integration: Nx', colorScheme: 'orange' as const }
     case 'node-cli':
       return { label: 'Integration: CLI', colorScheme: 'pink' as const }
-    default:
-      return { label: 'Integration', colorScheme: 'gray' as const }
   }
 }
 
 export function Packages() {
   return (
     <Box bg="slate.950" minH="100vh">
+      <Seo
+        title="Packages — ForgeKit npm ecosystem"
+        description="forgekit-storybook-mcp, forgekit-figma-mcp, ForgeKit Nx Storybook plugin, and CLI plugin: MCP vs Nx vs CLI integrations, npm and GitHub links."
+        path="/packages"
+      />
       <Header
         links={navLinks}
         ctaText="Install Storybook MCP"

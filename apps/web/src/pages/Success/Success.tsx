@@ -14,6 +14,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { Header, Footer, Logo } from '@forgekit-landing/ui'
+import { Seo } from '../../seo/Seo'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
 const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
@@ -46,6 +47,7 @@ const DiscordIcon = () => (
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Packages', href: '/packages' },
+  { label: 'Docs', href: '/docs' },
   { label: 'Features', href: '/#features' },
 ]
 
@@ -53,27 +55,23 @@ const footerColumns = [
   {
     title: 'Product',
     links: [
+      { label: 'Documentation', href: '/docs' },
+      { label: 'Packages', href: '/packages' },
       { label: 'Features', href: '/#features' },
-      { label: 'Open source', href: '/#open-source' },
-      { label: 'Changelog', href: '/changelog' },
-      { label: 'Roadmap', href: '/roadmap' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { label: 'Documentation', href: '/docs' },
-      { label: 'API Reference', href: '/docs/api' },
-      { label: 'Examples', href: '/examples' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'Storybook MCP repo', href: GH_MCP },
+      { label: 'npm', href: NPM_MCP },
     ],
   },
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/about' },
       { label: 'Contact', href: 'mailto:forgekit@pm.me' },
-      { label: 'Twitter', href: 'https://twitter.com/forgekit' },
+      { label: 'X', href: 'https://x.com/forgekitdev' },
       { label: 'GitHub', href: GH_MCP },
     ],
   },
@@ -82,6 +80,12 @@ const footerColumns = [
 export function Success() {
   return (
     <Box bg="slate.950" minH="100vh">
+      <Seo
+        title="Welcome"
+        description="Quick start for forgekit-storybook-mcp — MIT open source. Install from npm and connect the MCP in your editor."
+        path="/success"
+        noindex
+      />
       <Header
         links={navLinks}
         ctaText="Install on npm"
@@ -233,7 +237,7 @@ export function Success() {
         tagline="ForgeKit and forgekit-storybook-mcp — MIT open source."
         columns={footerColumns}
         socialLinks={[
-          { icon: <TwitterIcon />, href: 'https://twitter.com/forgekit', label: 'Twitter' },
+          { icon: <TwitterIcon />, href: 'https://x.com/forgekitdev', label: 'X' },
           { icon: <GitHubIcon />, href: GH_MCP, label: 'GitHub' },
           { icon: <DiscordIcon />, href: 'https://discord.gg/forgekit', label: 'Discord' },
         ]}
