@@ -6,7 +6,7 @@
   "tags": ["type:ui", "scope:shared"],
   "targets": {
     "test": {
-      "executor": "vitest:test",
+      "executor": "@nx/vitest:test",
       "options": {
         "testMatch": "**/*.test.tsx",
         "coverage": true
@@ -26,10 +26,9 @@
       }
     },
     "typecheck": {
-      "executor": "@nx/typescript:type-check",
+      "executor": "nx:run-commands",
       "options": {
-        "tsConfig": "libs/ui/tsconfig.json",
-        "skipLibCheck": true
+        "command": "tsc --noEmit --skipLibCheck -p libs/ui/tsconfig.json"
       }
     },
     "storybook": {
