@@ -71,7 +71,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
     }
 
     return (
-      <HStack ref={ref} spacing={gap} align="center">
+      <HStack ref={ref} gap={gap} align="center">
         <LogoIconLight />
         <Text
           fontSize={fontSize}
