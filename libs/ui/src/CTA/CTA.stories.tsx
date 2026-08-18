@@ -33,6 +33,11 @@ type Story = StoryObj<typeof CTA>
  * Default CTA
  */
 export const Default: Story = {
+  args: {
+    headline: 'Ready to get started?',
+    description: 'Build something amazing today with our powerful toolkit.',
+    primaryCta: 'Get Started',
+  },
 }
 
 /**
