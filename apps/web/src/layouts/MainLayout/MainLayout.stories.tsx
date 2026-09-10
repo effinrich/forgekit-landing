@@ -1,3 +1,4 @@
+import type { ComponentType } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { MemoryRouter } from 'react-router-dom'
 import { MainLayout } from './MainLayout'
@@ -6,7 +7,7 @@ const meta: Meta<typeof MainLayout> = {
   title: 'Layouts/MainLayout',
   component: MainLayout,
   decorators: [
-    (Story) => (
+    (Story: ComponentType) => (
       <MemoryRouter>
         <Story />
       </MemoryRouter>
