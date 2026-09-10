@@ -8,7 +8,6 @@
     "test": {
       "executor": "@nx/vitest:test",
       "options": {
-        "testMatch": "**/*.test.tsx",
         "coverage": true
       }
     },  

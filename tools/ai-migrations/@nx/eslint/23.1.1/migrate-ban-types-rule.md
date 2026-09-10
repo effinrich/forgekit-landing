@@ -24,6 +24,4 @@ changes and stop:
 In every ESLint flat config (`eslint.config.{mjs,cjs,js,cts,ts,mts}`) that sets
 `@typescript-eslint/ban-types`, replace that single entry with the three rules
 above. The options do not map 1:1: if the old entry was just `'error'`/`'warn'`,
-set all three to that level; if it customized `types`/`extendDefaults`, translate
-the intent to whichever successor rule covers each banned type and drop anything
-with no equivalent. Then run `nx run-many -t lint` and confirm the configs load.
+set all three to that level; if it customized `types`/`extendDefaults`, translate each entry to whichever successor rule covers it: built-in banned types map to the three rules above, and project-specific entries map to `@typescript-eslint/no-restricted-types`. Then run `nx run-many -t lint` and confirm the configs load.
