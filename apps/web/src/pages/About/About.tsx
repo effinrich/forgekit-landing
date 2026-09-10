@@ -23,14 +23,14 @@ export function About() {
       />
 
       <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={8} align="stretch">
-          <VStack spacing={3} align="flex-start">
+        <VStack gap={8} align="stretch">
+          <VStack gap={3} align="flex-start">
             <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
               About
             </Heading>
           </VStack>
 
-          <VStack spacing={5} align="flex-start" color="gray.400" fontSize="lg" lineHeight="tall">
+          <VStack gap={5} align="flex-start" color="gray.400" fontSize="lg" lineHeight="tall">
             <Text>
               ForgeKit is built by Rich Tillman, a frontend engineer who spends most of his time at the
               intersection of design systems and developer tooling — the handoff between a Figma file and the
@@ -63,5 +63,5 @@ export function About() {
         ]}
       />
     </Box>
-  )
+  );
 }

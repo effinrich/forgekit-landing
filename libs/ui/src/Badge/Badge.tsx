@@ -17,7 +17,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
       <ChakraBadge
         ref={ref}
         variant={variant}
-        colorScheme={colorScheme}
+        colorPalette={colorScheme}
         px={3}
         py={1}
         borderRadius="full"
@@ -29,7 +29,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
       >
         {children}
       </ChakraBadge>
-    )
+    );
   }
 )
 

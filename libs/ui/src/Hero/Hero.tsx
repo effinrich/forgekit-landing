@@ -90,7 +90,7 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
         />
 
         <Container size="xl" position="relative" zIndex={1}>
-          <VStack spacing={{ base: 6, md: 8 }} textAlign="center" maxW="4xl" mx="auto">
+          <VStack gap={{ base: 6, md: 8 }} textAlign="center" maxW="4xl" mx="auto">
             {badge && (
               <Badge variant="subtle" colorScheme="brand">
                 {badge}
@@ -119,7 +119,7 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
             </Text>
 
             <HStack
-              spacing={4}
+              gap={4}
               pt={4}
               flexDir={{ base: 'column', sm: 'row' }}
               w={{ base: '100%', sm: 'auto' }}
@@ -148,7 +148,7 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
           </VStack>
         </Container>
       </Box>
-    )
+    );
   }
 )
 

@@ -20,8 +20,8 @@ export function Terms() {
       />
 
       <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={6} align="stretch" color="gray.400" fontSize="md" lineHeight="tall">
-          <VStack spacing={2} align="flex-start">
+        <VStack gap={6} align="stretch" color="gray.400" fontSize="md" lineHeight="tall">
+          <VStack gap={2} align="flex-start">
             <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
               Terms of Service
             </Heading>
@@ -84,5 +84,5 @@ export function Terms() {
         ]}
       />
     </Box>
-  )
+  );
 }

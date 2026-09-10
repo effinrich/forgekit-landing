@@ -1,4 +1,4 @@
-import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
+import { type ThemeConfig, createSystem, defaultConfig } from '@chakra-ui/react';
 import { colors, fonts, fontSizes, space, radii } from './tokens'
 
 const config: ThemeConfig = {
@@ -6,34 +6,53 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 }
 
-export const theme = extendTheme({
-  config,
-  colors: {
-    brand: colors.primary,
-    accent: colors.accent,
-    success: colors.success,
-    slate: colors.slate,
-  },
-  fonts: {
-    heading: '"Cal Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    body: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    mono: '"JetBrains Mono", "Fira Code", Consolas, monospace',
-  },
-  fontSizes,
-  space,
-  radii,
-  styles: {
-    global: {
-      'html, body': {
-        bg: 'slate.950',
-        color: 'slate.100',
-      },
-      '::selection': {
-        bg: 'brand.500',
-        color: 'white',
-      },
+export const system = createSystem(defaultConfig, {
+  globalCss: {
+    'html, body': {
+      bg: 'slate.950',
+      color: 'slate.100',
+    },
+    '::selection': {
+      bg: 'brand.500',
+      color: 'white',
     },
   },
+
+  theme: {
+    tokens: {
+      colors: {
+        brand: {
+          value: colors.primary,
+        },
+        accent: {
+          value: colors.accent,
+        },
+        success: {
+          value: colors.success,
+        },
+        slate: {
+          value: colors.slate,
+        },
+      },
+
+      fonts: {
+        heading: {
+          value: '"Cal Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+        },
+        body: {
+          value: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+        },
+        mono: {
+          value: '"JetBrains Mono", "Fira Code", Consolas, monospace',
+        },
+      },
+
+      fontSizes,
+      space,
+      radii,
+    },
+  },
+
   components: {
     Button: {
       baseStyle: {

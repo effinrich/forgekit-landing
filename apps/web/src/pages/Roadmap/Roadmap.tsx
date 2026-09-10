@@ -24,8 +24,8 @@ export function Roadmap() {
       />
 
       <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={8} align="stretch">
-          <VStack spacing={3} align="flex-start">
+        <VStack gap={8} align="stretch">
+          <VStack gap={3} align="flex-start">
             <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
               Roadmap
             </Heading>
@@ -57,7 +57,7 @@ export function Roadmap() {
             </Text>
           </Box>
 
-          <VStack align="flex-start" spacing={2} pt={4}>
+          <VStack align="flex-start" gap={2} pt={4}>
             <Text color="gray.400">Want to weigh in or track specific work?</Text>
             <Link href={ISSUES_URL} isExternal color="teal.300">
               Open an issue or check existing ones on GitHub →
@@ -77,5 +77,5 @@ export function Roadmap() {
         ]}
       />
     </Box>
-  )
+  );
 }

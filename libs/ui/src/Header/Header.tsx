@@ -44,7 +44,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             </Link>
 
             {/* Navigation */}
-            <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
+            <HStack gap={8} display={{ base: 'none', md: 'flex' }}>
               {links.map((link, index) => (
                 <Link
                   key={index}
@@ -71,7 +71,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
           </HStack>
         </Container>
       </Box>
-    )
+    );
   }
 )
 

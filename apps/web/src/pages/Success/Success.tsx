@@ -95,11 +95,11 @@ export function Success() {
       />
 
       <Container maxW="container.md" py={{ base: 24, md: 32 }} px={6}>
-        <VStack spacing={8} align="center" textAlign="center">
+        <VStack gap={8} align="center" textAlign="center">
           <CheckCircleIcon />
 
           <Badge
-            colorScheme="teal"
+            colorPalette="teal"
             px={4}
             py={1}
             borderRadius="full"
@@ -128,12 +128,12 @@ export function Success() {
             This is the same flow documented in the project README.
           </Text>
 
-          <HStack spacing={4} flexWrap="wrap" justify="center">
+          <HStack gap={4} flexWrap="wrap" justify="center">
             <Button
               as={Link}
               href={NPM_MCP}
               isExternal
-              colorScheme="teal"
+              colorPalette="teal"
               size="lg"
             >
               Open on npm
@@ -155,12 +155,12 @@ export function Success() {
 
         <Divider my={10} borderColor="whiteAlpha.200" />
 
-        <VStack spacing={8} align="stretch">
+        <VStack gap={8} align="stretch">
           <Heading as="h2" fontSize="xl" color="white">
             Quick start
           </Heading>
 
-          <OrderedList spacing={6} color="gray.300" fontSize="md" pl={4}>
+          <OrderedList gap={6} color="gray.300" fontSize="md" pl={4}>
             <ListItem>
               <Text fontWeight="semibold" color="white" mb={2}>
                 Install the package
@@ -184,7 +184,7 @@ export function Success() {
                 Add configuration
               </Text>
               <Text color="gray.400" mb={3}>
-                Create <Code colorScheme="gray" fontSize="sm">storybook-mcp.config.json</Code> in your project root
+                Create <Code colorPalette="gray" fontSize="sm">storybook-mcp.config.json</Code> in your project root
                 (see the README on GitHub for all options).
               </Text>
             </ListItem>
@@ -222,7 +222,7 @@ export function Success() {
 
         <Divider my={10} borderColor="whiteAlpha.200" />
 
-        <VStack spacing={4} align="center" textAlign="center">
+        <VStack gap={4} align="center" textAlign="center">
           <Text color="gray.500" fontSize="sm">
             Questions? Email{' '}
             <Text as="a" href="mailto:forgekit@pm.me" color="teal.400" _hover={{ textDecoration: 'underline' }}>
@@ -243,5 +243,5 @@ export function Success() {
         ]}
       />
     </Box>
-  )
+  );
 }

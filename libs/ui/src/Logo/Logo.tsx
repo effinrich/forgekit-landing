@@ -71,7 +71,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
     }
 
     return (
-      <HStack ref={ref} spacing={gap} align="center">
+      <HStack ref={ref} gap={gap} align="center">
         <LogoIconLight />
         <Text
           fontSize={fontSize}
@@ -82,7 +82,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
           Forge<Text as="span" color="orange.400">Kit</Text>
         </Text>
       </HStack>
-    )
+    );
   }
 )
 

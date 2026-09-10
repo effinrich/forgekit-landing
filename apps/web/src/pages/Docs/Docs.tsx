@@ -82,8 +82,8 @@ export function Docs() {
       />
 
       <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={10} align="stretch">
-          <VStack spacing={3} align="flex-start">
+        <VStack gap={10} align="stretch">
+          <VStack gap={3} align="flex-start">
             <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
               Documentation
             </Heading>
@@ -112,7 +112,7 @@ export function Docs() {
               as={Link}
               href={DOCS_STORYBOOK_MCP}
               isExternal
-              colorScheme="teal"
+              colorPalette="teal"
               size="md"
             >
               Open docs.forgekit.cloud
@@ -123,7 +123,7 @@ export function Docs() {
             <Heading as="h2" fontSize="lg" color="white" mb={4}>
               All packages (quick links)
             </Heading>
-            <VStack align="stretch" spacing={3}>
+            <VStack align="stretch" gap={3}>
               {FORGEKIT_PACKAGES.map(pkg => (
                 <Link
                   key={pkg.npmName}
@@ -171,5 +171,5 @@ export function Docs() {
         ]}
       />
     </Box>
-  )
+  );
 }

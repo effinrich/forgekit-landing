@@ -110,8 +110,8 @@ export function Packages() {
       />
 
       <Container maxW="container.xl" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={10} align="stretch">
-          <VStack spacing={4} textAlign="center" maxW="3xl" mx="auto">
+        <VStack gap={10} align="stretch">
+          <VStack gap={4} textAlign="center" maxW="3xl" mx="auto">
             <Text
               color="brand.400"
               fontWeight="600"
@@ -131,7 +131,7 @@ export function Packages() {
             </Text>
           </VStack>
 
-          <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6}>
+          <SimpleGrid columns={{ base: 1, lg: 2 }} gap={6}>
             {FORGEKIT_PACKAGES.map(pkg => {
               const badge = docTierBadge(pkg.docTier)
               const intBadge = integrationBadge(pkg.integration)
@@ -144,16 +144,16 @@ export function Packages() {
                   p={{ base: 6, md: 8 }}
                   bg="whiteAlpha.50"
                 >
-                  <VStack align="stretch" spacing={4}>
+                  <VStack align="stretch" gap={4}>
                     <HStack justify="space-between" align="flex-start" flexWrap="wrap" gap={2}>
                       <Heading as="h2" fontSize="xl" color="white">
                         {pkg.title}
                       </Heading>
                       <HStack flexWrap="wrap" gap={2}>
-                        <Badge colorScheme={intBadge.colorScheme} textTransform="none">
+                        <Badge colorPalette={intBadge.colorScheme} textTransform="none">
                           {intBadge.label}
                         </Badge>
-                        <Badge colorScheme={badge.colorScheme} textTransform="none">
+                        <Badge colorPalette={badge.colorScheme} textTransform="none">
                           {badge.label}
                         </Badge>
                       </HStack>
@@ -173,12 +173,12 @@ export function Packages() {
                         {pkg.lastPublishedNote}
                       </Text>
                     )}
-                    <HStack spacing={3} flexWrap="wrap" pt={2}>
+                    <HStack gap={3} flexWrap="wrap" pt={2}>
                       <Button
                         as={Link}
                         href={pkg.npmUrl}
                         isExternal
-                        colorScheme="teal"
+                        colorPalette="teal"
                         size="sm"
                       >
                         npm
@@ -208,7 +208,7 @@ export function Packages() {
                     </HStack>
                   </VStack>
                 </Box>
-              )
+              );
             })}
           </SimpleGrid>
 
@@ -248,5 +248,5 @@ export function Packages() {
         ]}
       />
     </Box>
-  )
+  );
 }

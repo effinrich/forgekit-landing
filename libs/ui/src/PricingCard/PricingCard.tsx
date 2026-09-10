@@ -93,7 +93,7 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
           </Box>
         )}
 
-        <VStack align="stretch" spacing={6}>
+        <VStack align="stretch" gap={6}>
           <Box>
             <Heading size="lg" color="white" mb={2}>
               {name}
@@ -103,7 +103,7 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
             </Text>
           </Box>
 
-          <HStack align="baseline" spacing={1}>
+          <HStack align="baseline" gap={1}>
             <Text fontSize="4xl" fontWeight="700" color="white">
               {price}
             </Text>
@@ -112,7 +112,7 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
             </Text>
           </HStack>
 
-          <List spacing={3}>
+          <List gap={3}>
             {features.map((feature, index) => (
               <ListItem
                 key={index}
@@ -140,7 +140,7 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
           </Button>
         </VStack>
       </Box>
-    )
+    );
   }
 )
 

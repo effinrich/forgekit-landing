@@ -24,8 +24,8 @@ export function Contact() {
       />
 
       <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={8} align="stretch">
-          <VStack spacing={3} align="flex-start">
+        <VStack gap={8} align="stretch">
+          <VStack gap={3} align="flex-start">
             <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
               Contact
             </Heading>
@@ -44,7 +44,7 @@ export function Contact() {
             <Button
               as={Link}
               href={`mailto:${CONTACT_EMAIL}`}
-              colorScheme="teal"
+              colorPalette="teal"
               size="md"
               _hover={{ textDecoration: 'none' }}
             >
@@ -65,7 +65,7 @@ export function Contact() {
               href="https://github.com/effinrich/storybook-mcp/issues"
               isExternal
               variant="outline"
-              colorScheme="gray"
+              colorPalette="gray"
               borderColor="whiteAlpha.300"
               color="white"
               _hover={{ bg: 'whiteAlpha.100', textDecoration: 'none' }}
@@ -87,7 +87,7 @@ export function Contact() {
               href="https://discord.gg/jqt9EhYe"
               isExternal
               variant="outline"
-              colorScheme="gray"
+              colorPalette="gray"
               borderColor="whiteAlpha.300"
               color="white"
               _hover={{ bg: 'whiteAlpha.100', textDecoration: 'none' }}
@@ -110,5 +110,5 @@ export function Contact() {
         ]}
       />
     </Box>
-  )
+  );
 }

@@ -21,7 +21,7 @@ export interface FeaturesProps {
   /** Section description */
   description?: string
   /** Features to display */
-  features: Feature[]
+  features: Array<Feature>
 }
 
 /**
@@ -45,9 +45,9 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
     return (
       <Box ref={ref} py={{ base: 16, md: 24 }} bg="slate.950">
         <Container size="xl">
-          <VStack spacing={{ base: 12, md: 16 }}>
+          <VStack gap={{ base: 12, md: 16 }}>
             {/* Section header */}
-            <VStack spacing={4} textAlign="center" maxW="2xl">
+            <VStack gap={4} textAlign="center" maxW="2xl">
               {badge && (
                 <Text
                   color="brand.400"
@@ -76,7 +76,7 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
             {/* Features grid */}
             <SimpleGrid
               columns={{ base: 1, md: 2, lg: 3 }}
-              spacing={{ base: 6, md: 8 }}
+              gap={{ base: 6, md: 8 }}
               w="100%"
             >
               {features.map((feature, index) => (
@@ -92,7 +92,7 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
           </VStack>
         </Container>
       </Box>
-    )
+    );
   }
 )
 

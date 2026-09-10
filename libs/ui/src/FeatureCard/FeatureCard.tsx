@@ -50,7 +50,7 @@ export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
           },
         }}
       >
-        <VStack align="start" spacing={4}>
+        <VStack align="start" gap={4}>
           <Box
             p={3}
             bg="slate.800"
@@ -67,7 +67,7 @@ export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
           </Text>
         </VStack>
       </Box>
-    )
+    );
   }
 )
 
