@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
 
 import { PricingCard } from './PricingCard'
 
@@ -9,7 +9,7 @@ import { PricingCard } from './PricingCard'
 
 describe('PricingCard', () => {
   it('renders correctly', () => {
-    render(<ChakraProvider><PricingCard name="Test name" description="Test description" price="$100" features={["Test feature"]} /></ChakraProvider>)
+    render(<ChakraProvider value={defaultSystem}><PricingCard name="Test name" description="Test description" price="$100" features={["Test feature"]} /></ChakraProvider>)
     
     expect(document.querySelector('[class]')).not.toBeNull()
   })
@@ -18,7 +18,7 @@ describe('PricingCard', () => {
     const user = userEvent.setup()
     const handleEvent = vi.fn()
 
-    const { container } = render(<ChakraProvider><PricingCard name="Test name" description="Test description" price="$100" features={["Test feature"]} onCtaClick={handleEvent} /></ChakraProvider>)
+    const { container } = render(<ChakraProvider value={defaultSystem}><PricingCard name="Test name" description="Test description" price="$100" features={["Test feature"]} onCtaClick={handleEvent} /></ChakraProvider>)
 
     // Find the root element (first child of container)
     const element = container.firstChild as HTMLElement

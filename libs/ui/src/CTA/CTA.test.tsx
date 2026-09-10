@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
 
 import { CTA } from './CTA'
 
@@ -9,7 +9,7 @@ import { CTA } from './CTA'
 
 describe('CTA', () => {
   it('renders correctly', () => {
-    render(<ChakraProvider><CTA headline="Test headline" description="Test description" primaryCta="Test primaryCta" /></ChakraProvider>)
+    render(<ChakraProvider value={defaultSystem}><CTA headline="Test headline" description="Test description" primaryCta="Test primaryCta" /></ChakraProvider>)
     
     expect(document.querySelector('[class]')).not.toBeNull()
   })
@@ -18,7 +18,7 @@ describe('CTA', () => {
     const user = userEvent.setup()
     const handleEvent = vi.fn()
 
-    const { container } = render(<ChakraProvider><CTA onPrimaryClick={handleEvent} headline={''} description={''} primaryCta={''} /></ChakraProvider>)
+    const { container } = render(<ChakraProvider value={defaultSystem}><CTA onPrimaryClick={handleEvent} headline={''} description={''} primaryCta={''} /></ChakraProvider>)
 
     // Find the root element (first child of container)
     const element = container.firstChild as HTMLElement
@@ -32,7 +32,7 @@ describe('CTA', () => {
     const user = userEvent.setup()
     const handleEvent = vi.fn()
 
-    const { container } = render(<ChakraProvider><CTA onSecondaryClick={handleEvent} headline={''} description={''} primaryCta={''} /></ChakraProvider>)
+    const { container } = render(<ChakraProvider value={defaultSystem}><CTA onSecondaryClick={handleEvent} headline={''} description={''} primaryCta={''} /></ChakraProvider>)
 
     // Find the root element (first child of container)
     const element = container.firstChild as HTMLElement

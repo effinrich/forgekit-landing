@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
 
 import { Footer } from './Footer'
 
@@ -8,7 +8,7 @@ import { Footer } from './Footer'
 
 describe('Footer', () => {
   it('renders correctly', () => {
-    render(<ChakraProvider><Footer logo="test" columns={[{ title: "Test title", links: [{ href: "Test href", label: "Test label" }] }]} /></ChakraProvider>)
+    render(<ChakraProvider value={defaultSystem}><Footer logo="test" columns={[{ title: "Test title", links: [{ href: "Test href", label: "Test label" }] }]} /></ChakraProvider>)
     
     expect(document.querySelector('[class]')).not.toBeNull()
   })

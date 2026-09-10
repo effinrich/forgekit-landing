@@ -5,8 +5,6 @@ import {
   VStack,
   HStack,
   List,
-  ListItem,
-  ListIcon,
   Button,
 } from '@chakra-ui/react'
 import { forwardRef } from 'react'
@@ -93,7 +91,7 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
           </Box>
         )}
 
-        <VStack align="stretch" spacing={6}>
+        <VStack align="stretch" gap={6}>
           <Box>
             <Heading size="lg" color="white" mb={2}>
               {name}
@@ -103,7 +101,7 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
             </Text>
           </Box>
 
-          <HStack align="baseline" spacing={1}>
+          <HStack align="baseline" gap={1}>
             <Text fontSize="4xl" fontWeight="700" color="white">
               {price}
             </Text>
@@ -112,23 +110,24 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
             </Text>
           </HStack>
 
-          <List spacing={3}>
+          <List.Root variant="plain" gap={3}>
             {features.map((feature, index) => (
-              <ListItem
+              <List.Item
                 key={index}
                 display="flex"
                 alignItems="center"
                 color="slate.300"
               >
-                <ListIcon
-                  as={() => <CheckIcon />}
+                <List.Indicator
                   color={isPopular ? 'brand.400' : 'success.400'}
                   mr={3}
-                />
+                >
+                  <CheckIcon />
+                </List.Indicator>
                 {feature}
-              </ListItem>
+              </List.Item>
             ))}
-          </List>
+          </List.Root>
 
           <Button
             size="lg"
