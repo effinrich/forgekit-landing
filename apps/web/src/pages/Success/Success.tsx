@@ -6,13 +6,12 @@ import {
   VStack,
   HStack,
   Code,
-  OrderedList,
-  ListItem,
-  Divider,
   Badge,
   Link,
   Button,
-} from '@chakra-ui/react'
+  Separator,
+  List,
+} from '@chakra-ui/react';
 import { Header, Footer, Logo } from '@forgekit-landing/ui'
 import { Seo } from '../../seo/Seo'
 
@@ -153,15 +152,15 @@ export function Success() {
           </HStack>
         </VStack>
 
-        <Divider my={10} borderColor="whiteAlpha.200" />
+        <Separator my={10} borderColor="whiteAlpha.200" />
 
         <VStack gap={8} align="stretch">
           <Heading as="h2" fontSize="xl" color="white">
             Quick start
           </Heading>
 
-          <OrderedList gap={6} color="gray.300" fontSize="md" pl={4}>
-            <ListItem>
+          <List.Root as='ol' gap={6} color="gray.300" fontSize="md" pl={4}>
+            <List.Item>
               <Text fontWeight="semibold" color="white" mb={2}>
                 Install the package
               </Text>
@@ -177,9 +176,9 @@ export function Success() {
               >
                 npm install forgekit-storybook-mcp
               </Code>
-            </ListItem>
+            </List.Item>
 
-            <ListItem>
+            <List.Item>
               <Text fontWeight="semibold" color="white" mb={2}>
                 Add configuration
               </Text>
@@ -187,9 +186,9 @@ export function Success() {
                 Create <Code colorPalette="gray" fontSize="sm">storybook-mcp.config.json</Code> in your project root
                 (see the README on GitHub for all options).
               </Text>
-            </ListItem>
+            </List.Item>
 
-            <ListItem>
+            <List.Item>
               <Text fontWeight="semibold" color="white" mb={2}>
                 Run the MCP server
               </Text>
@@ -207,20 +206,20 @@ export function Success() {
               <Text color="gray.400" mt={2}>
                 You should see startup logs on stderr; stdout stays clean for MCP JSON-RPC.
               </Text>
-            </ListItem>
+            </List.Item>
 
-            <ListItem>
+            <List.Item>
               <Text fontWeight="semibold" color="white" mb={2}>
                 Ship stories with your whole team
               </Text>
               <Text color="gray.400">
                 Stories, tests, docs, sync, and Figma Code Connect are available to everyone under the MIT License.
               </Text>
-            </ListItem>
-          </OrderedList>
+            </List.Item>
+          </List.Root>
         </VStack>
 
-        <Divider my={10} borderColor="whiteAlpha.200" />
+        <Separator my={10} borderColor="whiteAlpha.200" />
 
         <VStack gap={4} align="center" textAlign="center">
           <Text color="gray.500" fontSize="sm">

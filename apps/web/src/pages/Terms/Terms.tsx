@@ -34,7 +34,11 @@ export function Terms() {
           <Text>
             <code>forgekit-storybook-mcp</code> is MIT-licensed. You can use, modify, and redistribute it under
             the terms of the MIT license included in the{' '}
-            <Link href="https://github.com/effinrich/storybook-mcp/blob/master/LICENSE" isExternal color="teal.300">
+            <Link
+              href="https://github.com/effinrich/storybook-mcp/blob/master/LICENSE"
+              color="teal.300"
+              target='_blank'
+              rel='noopener noreferrer'>
               repository
             </Link>
             . There are no license keys, no paid tiers, and no usage limits.

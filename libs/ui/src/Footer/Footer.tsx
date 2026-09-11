@@ -5,7 +5,7 @@ import {
   HStack,
   SimpleGrid,
   Link,
-  Divider,
+  Separator,
 } from '@chakra-ui/react'
 import { forwardRef } from 'react'
 import { Container } from '../Container'
@@ -67,12 +67,12 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
                     <Link
                       key={index}
                       href={social.href}
-                      isExternal
                       aria-label={social.label}
                       color="slate.500"
                       _hover={{ color: 'white' }}
                       transition="color 0.2s"
-                    >
+                      target='_blank'
+                      rel='noopener noreferrer'>
                       {social.icon}
                     </Link>
                   ))}
@@ -114,7 +114,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
             ))}
           </SimpleGrid>
 
-          <Divider borderColor="slate.900" my={8} />
+          <Separator borderColor="slate.900" my={8} />
 
           <HStack
             justify="space-between"

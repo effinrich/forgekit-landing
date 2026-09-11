@@ -44,10 +44,10 @@ export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
           opacity: 0,
           transition: 'opacity 0.3s ease',
         }}
-        sx={{
-          '&:hover::before': {
+        css={{
+          '& &:hover::before': {
             opacity: 1,
-          },
+          }
         }}
       >
         <VStack align="start" gap={4}>

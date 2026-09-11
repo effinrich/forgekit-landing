@@ -1,14 +1,4 @@
-import {
-  Box,
-  Heading,
-  Text,
-  VStack,
-  HStack,
-  List,
-  ListItem,
-  ListIcon,
-  Button,
-} from '@chakra-ui/react'
+import { Box, Heading, Text, VStack, HStack, List, Button } from '@chakra-ui/react';
 import { forwardRef } from 'react'
 
 export interface PricingCardProps {
@@ -112,23 +102,23 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
             </Text>
           </HStack>
 
-          <List gap={3}>
+          <List.Root gap={3}>
             {features.map((feature, index) => (
-              <ListItem
+              <List.Item
                 key={index}
                 display="flex"
                 alignItems="center"
                 color="slate.300"
               >
-                <ListIcon
+                <List.Indicator
                   as={() => <CheckIcon />}
                   color={isPopular ? 'brand.400' : 'success.400'}
                   mr={3}
                 />
                 {feature}
-              </ListItem>
+              </List.Item>
             ))}
-          </List>
+          </List.Root>
 
           <Button
             size="lg"

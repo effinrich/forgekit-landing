@@ -9,8 +9,7 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "types": [
-      "vite/client",
-      "vitest"
+      "vite/client"
     ]
   },
   "files": [],

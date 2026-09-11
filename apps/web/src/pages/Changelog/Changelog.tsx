@@ -99,7 +99,12 @@ export function Changelog() {
               Release history for <code>forgekit-storybook-mcp</code>. Full history, including patch releases,
               is in the repo.
             </Text>
-            <Link href={CHANGELOG_URL} isExternal color="teal.300" fontSize="sm">
+            <Link
+              href={CHANGELOG_URL}
+              color="teal.300"
+              fontSize="sm"
+              target='_blank'
+              rel='noopener noreferrer'>
               View full CHANGELOG.md on GitHub →
             </Link>
           </VStack>
@@ -118,9 +123,9 @@ export function Changelog() {
                     <Text fontWeight="700" color="white" fontFamily="mono">
                       v{entry.version}
                     </Text>
-                    <Tag size="sm" colorPalette={KIND_COLOR[entry.kind]}>
+                    <Tag.Root size="sm" colorPalette={KIND_COLOR[entry.kind]}>
                       {entry.kind}
-                    </Tag>
+                    </Tag.Root>
                     <Text color="gray.600" fontSize="sm">
                       {entry.date}
                     </Text>

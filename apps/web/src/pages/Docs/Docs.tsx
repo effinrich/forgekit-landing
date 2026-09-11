@@ -128,11 +128,11 @@ export function Docs() {
                 <Link
                   key={pkg.npmName}
                   href={pkg.docsUrl}
-                  isExternal
                   color="teal.300"
                   fontSize="sm"
                   _hover={{ textDecoration: 'underline' }}
-                >
+                  target='_blank'
+                  rel='noopener noreferrer'>
                   <Text as="span" fontFamily="mono">
                     {pkg.npmName}
                   </Text>
@@ -144,7 +144,7 @@ export function Docs() {
             <Button
               as={RouterLink}
               to="/packages"
-              variant="link"
+              variant='plain'
               color="gray.400"
               mt={6}
               fontSize="sm"

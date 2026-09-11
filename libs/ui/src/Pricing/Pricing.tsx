@@ -100,8 +100,8 @@ export const Pricing = forwardRef<HTMLDivElement, PricingProps>(
                   Monthly
                 </Text>
                 <Switch
-                  isChecked={isAnnual}
-                  onChange={() => setIsAnnual(!isAnnual)}
+                  checked={isAnnual}
+                  onValueChange={() => setIsAnnual(!isAnnual)}
                   colorPalette="brand"
                   size="lg"
                 />

@@ -138,11 +138,7 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>(
                   size="lg"
                   variant="ghost"
                   onClick={onSecondaryClick}
-                  leftIcon={<PlayIcon />}
-                  w={{ base: '100%', sm: 'auto' }}
-                >
-                  {secondaryCta}
-                </Button>
+                  w={{ base: '100%', sm: 'auto' }}><PlayIcon />{secondaryCta}</Button>
               )}
             </HStack>
           </VStack>

@@ -50,7 +50,11 @@ export function Privacy() {
           <Text>
             <code>forgekit-storybook-mcp</code> runs locally in your own environment via stdio — it does not send
             your component code, design files, or project data to any server we operate. See the{' '}
-            <Link href="https://github.com/effinrich/storybook-mcp" isExternal color="teal.300">
+            <Link
+              href="https://github.com/effinrich/storybook-mcp"
+              color="teal.300"
+              target='_blank'
+              rel='noopener noreferrer'>
               source
             </Link>{' '}
             if you want to verify that yourself.
