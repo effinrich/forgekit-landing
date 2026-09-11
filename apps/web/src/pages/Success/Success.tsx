@@ -6,13 +6,12 @@ import {
   VStack,
   HStack,
   Code,
-  OrderedList,
-  ListItem,
-  Divider,
   Badge,
   Link,
   Button,
-} from '@chakra-ui/react'
+  Separator,
+  List,
+} from '@chakra-ui/react';
 import { Header, Footer, Logo } from '@forgekit-landing/ui'
 import { Seo } from '../../seo/Seo'
 
@@ -20,7 +19,7 @@ const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
 const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
 
 const CheckCircleIcon = () => (
-  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#F65A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
     <polyline points="22 4 12 14.01 9 11.01" />
   </svg>
@@ -79,7 +78,7 @@ const footerColumns = [
 
 export function Success() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo
         title="Welcome"
         description="Quick start for forgekit-storybook-mcp — MIT open source. Install from npm and connect the MCP in your editor."
@@ -95,11 +94,11 @@ export function Success() {
       />
 
       <Container maxW="container.md" py={{ base: 24, md: 32 }} px={6}>
-        <VStack spacing={8} align="center" textAlign="center">
+        <VStack gap={8} align="center" textAlign="center">
           <CheckCircleIcon />
 
           <Badge
-            colorScheme="teal"
+            colorPalette="ember"
             px={4}
             py={1}
             borderRadius="full"
@@ -112,57 +111,65 @@ export function Success() {
           <Heading
             as="h1"
             fontSize={{ base: '3xl', md: '4xl' }}
-            fontWeight="bold"
-            color="white"
+            fontWeight="semibold"
+            color="fg"
             lineHeight="tight"
           >
             You&apos;re in —{' '}
-            <Text as="span" color="teal.400">
+            <Text as="span" color="accent">
               forgekit-storybook-mcp
             </Text>{' '}
             is MIT open source
           </Heading>
 
-          <Text color="gray.400" fontSize="lg" maxW="lg">
+          <Text color="fg.muted" fontSize="lg" maxW="lg">
             No license keys, no tiers. Install from npm, add a config file, and connect the MCP in your editor.
             This is the same flow documented in the project README.
           </Text>
 
-          <HStack spacing={4} flexWrap="wrap" justify="center">
-            <Button
-              as={Link}
-              href={NPM_MCP}
-              isExternal
-              colorScheme="teal"
+          <HStack gap={4} flexWrap="wrap" justify="center">
+                        <Button
+              colorPalette="ember"
               size="lg"
+              asChild
             >
-              Open on npm
+              <Link
+                href={NPM_MCP}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open on npm
+              </Link>
             </Button>
-            <Button
-              as={Link}
-              href={GH_MCP}
-              isExternal
+                        <Button
               variant="outline"
-              borderColor="whiteAlpha.300"
-              color="white"
+              borderColor="border"
+              color="fg"
               size="lg"
-              _hover={{ bg: 'whiteAlpha.100' }}
+              _hover={{ bg: 'bg.sunken' }}
+              asChild
             >
-              Star on GitHub
+              <Link
+                href={GH_MCP}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Star on GitHub
+              </Link>
             </Button>
           </HStack>
         </VStack>
 
-        <Divider my={10} borderColor="whiteAlpha.200" />
+        <Separator my={10} borderColor="border" />
 
-        <VStack spacing={8} align="stretch">
-          <Heading as="h2" fontSize="xl" color="white">
+        <VStack gap={8} align="stretch">
+          <Heading as="h2" fontSize="xl" color="fg">
             Quick start
           </Heading>
 
-          <OrderedList spacing={6} color="gray.300" fontSize="md" pl={4}>
-            <ListItem>
-              <Text fontWeight="semibold" color="white" mb={2}>
+          <List.Root as='ol' gap={6} color="fg" fontSize="md" pl={4}>
+            <List.Item>
+              <Text fontWeight="semibold" color="fg" mb={2}>
                 Install the package
               </Text>
               <Code
@@ -170,27 +177,27 @@ export function Success() {
                 whiteSpace="pre"
                 p={4}
                 borderRadius="md"
-                bg="whiteAlpha.100"
-                color="teal.300"
+                bg="bg.sunken"
+                color="accent"
                 fontSize="sm"
                 overflowX="auto"
               >
                 npm install forgekit-storybook-mcp
               </Code>
-            </ListItem>
+            </List.Item>
 
-            <ListItem>
-              <Text fontWeight="semibold" color="white" mb={2}>
+            <List.Item>
+              <Text fontWeight="semibold" color="fg" mb={2}>
                 Add configuration
               </Text>
-              <Text color="gray.400" mb={3}>
-                Create <Code colorScheme="gray" fontSize="sm">storybook-mcp.config.json</Code> in your project root
+              <Text color="fg.muted" mb={3}>
+                Create <Code colorPalette="ember" fontSize="sm">storybook-mcp.config.json</Code> in your project root
                 (see the README on GitHub for all options).
               </Text>
-            </ListItem>
+            </List.Item>
 
-            <ListItem>
-              <Text fontWeight="semibold" color="white" mb={2}>
+            <List.Item>
+              <Text fontWeight="semibold" color="fg" mb={2}>
                 Run the MCP server
               </Text>
               <Code
@@ -198,36 +205,36 @@ export function Success() {
                 whiteSpace="pre"
                 p={4}
                 borderRadius="md"
-                bg="whiteAlpha.100"
-                color="teal.300"
+                bg="bg.sunken"
+                color="accent"
                 fontSize="sm"
               >
                 npx forgekit-storybook-mcp
               </Code>
-              <Text color="gray.400" mt={2}>
+              <Text color="fg.muted" mt={2}>
                 You should see startup logs on stderr; stdout stays clean for MCP JSON-RPC.
               </Text>
-            </ListItem>
+            </List.Item>
 
-            <ListItem>
-              <Text fontWeight="semibold" color="white" mb={2}>
+            <List.Item>
+              <Text fontWeight="semibold" color="fg" mb={2}>
                 Ship stories with your whole team
               </Text>
-              <Text color="gray.400">
+              <Text color="fg.muted">
                 Stories, tests, docs, sync, and Figma Code Connect are available to everyone under the MIT License.
               </Text>
-            </ListItem>
-          </OrderedList>
+            </List.Item>
+          </List.Root>
         </VStack>
 
-        <Divider my={10} borderColor="whiteAlpha.200" />
+        <Separator my={10} borderColor="border" />
 
-        <VStack spacing={4} align="center" textAlign="center">
-          <Text color="gray.500" fontSize="sm">
+        <VStack gap={4} align="center" textAlign="center">
+          <Text color="fg.muted" fontSize="sm">
             Questions? Email{' '}
-            <Text as="a" href="mailto:forgekit@pm.me" color="teal.400" _hover={{ textDecoration: 'underline' }}>
+            <Link href="mailto:forgekit@pm.me" color="accent" _hover={{ textDecoration: 'underline' }}>
               forgekit@pm.me
-            </Text>
+            </Link>
           </Text>
         </VStack>
       </Container>
@@ -243,5 +250,5 @@ export function Success() {
         ]}
       />
     </Box>
-  )
+  );
 }

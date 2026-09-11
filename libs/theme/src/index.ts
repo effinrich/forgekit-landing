@@ -1,2 +1,2 @@
-export { theme } from './theme'
+export { system, theme } from './theme'
 export * from './tokens'

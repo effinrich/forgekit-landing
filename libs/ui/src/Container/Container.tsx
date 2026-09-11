@@ -15,7 +15,7 @@ const maxWidths = {
 }
 
 /**
- * Responsive container for consistent page layouts
+ * Page container: 1280px max, 32px horizontal pad (system.css .container).
  */
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ size = 'xl', children, ...props }, ref) => {
@@ -25,7 +25,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
         w="100%"
         maxW={maxWidths[size]}
         mx="auto"
-        px={{ base: 4, md: 6, lg: 8 }}
+        px="8"
         {...props}
       >
         {children}

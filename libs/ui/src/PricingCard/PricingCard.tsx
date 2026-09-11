@@ -1,14 +1,4 @@
-import {
-  Box,
-  Heading,
-  Text,
-  VStack,
-  HStack,
-  List,
-  ListItem,
-  ListIcon,
-  Button,
-} from '@chakra-ui/react'
+import { Box, Heading, Text, VStack, HStack, List, Button } from '@chakra-ui/react'
 import { forwardRef } from 'react'
 
 export interface PricingCardProps {
@@ -31,16 +21,13 @@ export interface PricingCardProps {
 }
 
 const CheckIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <path
-      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-      fill="currentColor"
-    />
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M5 12l5 5L20 7" />
   </svg>
 )
 
 /**
- * Pricing card for displaying subscription plans
+ * Pricing card using Forge card anatomy (graphite, hairline, 4px radius).
  */
 export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
   (
@@ -60,75 +47,65 @@ export const PricingCard = forwardRef<HTMLDivElement, PricingCardProps>(
       <Box
         ref={ref}
         position="relative"
-        bg={isPopular ? 'slate.800' : 'slate.900'}
-        border="1px solid"
-        borderColor={isPopular ? 'brand.500' : 'slate.800'}
-        borderRadius="2xl"
-        p={{ base: 6, md: 8 }}
-        transition="all 0.3s ease"
-        _hover={{
-          transform: 'translateY(-4px)',
-          boxShadow: isPopular
-            ? '0 20px 60px -20px rgba(139, 92, 246, 0.4)'
-            : '0 20px 40px -20px rgba(0, 0, 0, 0.3)',
-        }}
+        bg="bg.surface"
+        borderWidth="1px"
+        borderColor={isPopular ? 'ember' : 'border'}
+        borderRadius="md"
+        boxShadow="card"
+        p="6"
       >
         {isPopular && (
           <Box
             position="absolute"
-            top={-3}
+            top="-11px"
             left="50%"
             transform="translateX(-50%)"
-            bg="brand.500"
-            color="white"
-            px={4}
-            py={1}
-            borderRadius="full"
-            fontSize="xs"
-            fontWeight="700"
+            bg="ember"
+            color="ink"
+            px="2"
+            height="22px"
+            display="inline-flex"
+            alignItems="center"
+            borderRadius="sm"
+            fontFamily="mono"
+            fontSize="label-sm"
+            fontWeight="medium"
             textTransform="uppercase"
-            letterSpacing="wider"
+            letterSpacing="wide"
           >
             Most Popular
           </Box>
         )}
 
-        <VStack align="stretch" spacing={6}>
+        <VStack align="stretch" gap="6">
           <Box>
-            <Heading size="lg" color="white" mb={2}>
+            <Heading as="h3" textStyle="title-md" color="fg" mb="2">
               {name}
             </Heading>
-            <Text color="slate.400" fontSize="sm">
+            <Text color="fg.muted" textStyle="body-sm">
               {description}
             </Text>
           </Box>
 
-          <HStack align="baseline" spacing={1}>
-            <Text fontSize="4xl" fontWeight="700" color="white">
+          <HStack align="baseline" gap="1">
+            <Text fontFamily="mono" fontSize="headline-lg" fontWeight="semibold" color="fg">
               {price}
             </Text>
-            <Text color="slate.500" fontSize="lg">
+            <Text color="fg.muted" textStyle="body-md">
               {period}
             </Text>
           </HStack>
 
-          <List spacing={3}>
-            {features.map((feature, index) => (
-              <ListItem
-                key={index}
-                display="flex"
-                alignItems="center"
-                color="slate.300"
-              >
-                <ListIcon
-                  as={() => <CheckIcon />}
-                  color={isPopular ? 'brand.400' : 'success.400'}
-                  mr={3}
-                />
+          <List.Root gap="3" variant="plain">
+            {features.map((feature) => (
+              <List.Item key={feature} display="flex" alignItems="center" color="fg" textStyle="body-md">
+                <Box as="span" color="ember" mr="3" display="inline-flex">
+                  <CheckIcon />
+                </Box>
                 {feature}
-              </ListItem>
+              </List.Item>
             ))}
-          </List>
+          </List.Root>
 
           <Button
             size="lg"
