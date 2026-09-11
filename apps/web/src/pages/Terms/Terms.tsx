@@ -9,7 +9,7 @@ const LAST_UPDATED = 'August 2026'
 
 export function Terms() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo title="Terms of Service" description="Terms for using forgekit.cloud and the ForgeKit open-source tools." path="/terms" />
       <Header
         links={siteNavLinks}
@@ -19,16 +19,16 @@ export function Terms() {
         }}
       />
 
-      <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack gap={6} align="stretch" color="gray.400" fontSize="md" lineHeight="tall">
+      <Container maxW="container.md" py="section-y" px={6}>
+        <VStack gap={6} align="stretch" color="fg.muted" fontSize="md" lineHeight="tall">
           <VStack gap={2} align="flex-start">
-            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="fg">
               Terms of Service
             </Heading>
-            <Text color="gray.600" fontSize="sm">Last updated: {LAST_UPDATED}</Text>
+            <Text color="fg.muted" fontSize="sm">Last updated: {LAST_UPDATED}</Text>
           </VStack>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={2}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={2}>
             The software
           </Heading>
           <Text>
@@ -36,7 +36,7 @@ export function Terms() {
             the terms of the MIT license included in the{' '}
             <Link
               href="https://github.com/effinrich/storybook-mcp/blob/master/LICENSE"
-              color="teal.300"
+              color="accent"
               target='_blank'
               rel='noopener noreferrer'>
               repository
@@ -44,7 +44,7 @@ export function Terms() {
             . There are no license keys, no paid tiers, and no usage limits.
           </Text>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={4}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={4}>
             No warranty
           </Heading>
           <Text>
@@ -52,7 +52,7 @@ export function Terms() {
             generated output (stories, tests, docs) before committing it, same as you would any generated code.
           </Text>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={4}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={4}>
             This website
           </Heading>
           <Text>
@@ -60,7 +60,7 @@ export function Terms() {
             use it to distribute malware, and don&apos;t misrepresent your affiliation with the project.
           </Text>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={4}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={4}>
             Changes
           </Heading>
           <Text>
@@ -68,11 +68,11 @@ export function Terms() {
             updated date.
           </Text>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={4}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={4}>
             Contact
           </Heading>
           <Text>
-            Questions: <Link href="mailto:forgekit@pm.me" color="teal.300">forgekit@pm.me</Link>.
+            Questions: <Link href="mailto:forgekit@pm.me" color="accent">forgekit@pm.me</Link>.
           </Text>
         </VStack>
       </Container>

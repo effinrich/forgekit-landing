@@ -25,11 +25,11 @@ export interface PricingProps {
 }
 
 /**
- * Pricing section with monthly/annual toggle
+ * Pricing section composed from Forge cards, type, and toggle.
  */
 export const Pricing = forwardRef<HTMLDivElement, PricingProps>(
   ({ badge, headline, highlightedText, description, plans }, ref) => {
-    const [isAnnual, setIsAnnual] = useState(true)
+    const [isAnnual, setIsAnnual] = useState(false)
 
     const renderHeadline = () => {
       if (!highlightedText) return headline
@@ -46,105 +46,82 @@ export const Pricing = forwardRef<HTMLDivElement, PricingProps>(
     return (
       <Box
         ref={ref}
-        py={{ base: 16, md: 24 }}
-        bg="slate.900"
-        position="relative"
-        overflow="hidden"
+        as="section"
+        py="section-y"
+        bg="bg"
+        borderTopWidth="1px"
+        borderColor="border"
       >
-        {/* Background glow */}
-        <Box
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate(-50%, -50%)"
-          width="800px"
-          height="800px"
-          background="radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)"
-          pointerEvents="none"
-        />
-
-        <Container size="xl" position="relative" zIndex={1}>
-          <VStack gap={{ base: 12, md: 16 }}>
-            {/* Section header */}
-            <VStack gap={4} textAlign="center" maxW="2xl">
+        <Container size="xl">
+          <VStack gap={{ base: '12', md: '16' }}>
+            <VStack gap="4" textAlign="center" maxW="2xl">
               {badge && (
                 <Text
-                  color="brand.400"
-                  fontWeight="600"
-                  fontSize="sm"
-                  textTransform="uppercase"
+                  fontFamily="mono"
+                  fontSize="label-sm"
+                  fontWeight="medium"
                   letterSpacing="wider"
+                  textTransform="uppercase"
+                  color="fg.muted"
                 >
                   {badge}
                 </Text>
               )}
-              <Heading
-                fontSize={{ base: '2xl', md: '4xl' }}
-                fontWeight="700"
-                lineHeight="tight"
-              >
+              <Heading as="h2" textStyle={{ base: 'headline-lg', md: 'display-md' }} color="fg">
                 {renderHeadline()}
               </Heading>
               {description && (
-                <Text fontSize="lg" color="slate.400">
+                <Text textStyle="body-lg" color="fg.muted">
                   {description}
                 </Text>
               )}
-
-              {/* Billing toggle */}
-              <HStack gap={4} pt={4}>
-                <Text
-                  color={!isAnnual ? 'white' : 'slate.500'}
-                  fontWeight={!isAnnual ? '600' : '400'}
-                >
+              <HStack gap="3" pt="2">
+                <Text color={!isAnnual ? 'fg' : 'fg.muted'} textStyle="body-md">
                   Monthly
                 </Text>
-                <Switch
+                <Switch.Root
                   checked={isAnnual}
-                  onValueChange={() => setIsAnnual(!isAnnual)}
-                  colorPalette="brand"
-                  size="lg"
-                />
-                <HStack gap={2}>
-                  <Text
-                    color={isAnnual ? 'white' : 'slate.500'}
-                    fontWeight={isAnnual ? '600' : '400'}
-                  >
+                  onCheckedChange={(e) => setIsAnnual(e.checked)}
+                  colorPalette="ember"
+                >
+                  <Switch.HiddenInput />
+                  <Switch.Control>
+                    <Switch.Thumb />
+                  </Switch.Control>
+                </Switch.Root>
+                <HStack gap="2">
+                  <Text color={isAnnual ? 'fg' : 'fg.muted'} textStyle="body-md">
                     Annual
                   </Text>
-                  <Box
-                    bg="success.500"
-                    color="white"
-                    px={2}
-                    py={0.5}
-                    borderRadius="full"
-                    fontSize="xs"
-                    fontWeight="700"
+                  <Text
+                    fontFamily="mono"
+                    fontSize="label-sm"
+                    letterSpacing="wide"
+                    textTransform="uppercase"
+                    color="ember"
+                    borderWidth="1px"
+                    borderColor="ember"
+                    borderRadius="sm"
+                    px="2"
+                    py="0.5"
                   >
                     Save 20%
-                  </Box>
+                  </Text>
                 </HStack>
               </HStack>
             </VStack>
 
-            {/* Pricing cards */}
-            <SimpleGrid
-              columns={{ base: 1, lg: 3 }}
-              gap={{ base: 6, md: 8 }}
-              w="100%"
-              maxW="5xl"
-              mx="auto"
-            >
-              {plans.map((plan, index) => (
+            <SimpleGrid columns={{ base: 1, md: 3 }} gap="6" w="100%" maxW="5xl">
+              {plans.map((plan) => (
                 <PricingCard
-                  key={index}
+                  key={plan.name}
                   name={plan.name}
                   description={plan.description}
                   price={isAnnual ? plan.annualPrice : plan.monthlyPrice}
                   period={isAnnual ? '/mo (billed annually)' : '/month'}
                   features={plan.features}
-                  isPopular={plan.isPopular}
                   ctaText={plan.ctaText}
+                  isPopular={plan.isPopular}
                   onCtaClick={plan.onCtaClick}
                 />
               ))}
@@ -152,7 +129,7 @@ export const Pricing = forwardRef<HTMLDivElement, PricingProps>(
           </VStack>
         </Container>
       </Box>
-    );
+    )
   }
 )
 

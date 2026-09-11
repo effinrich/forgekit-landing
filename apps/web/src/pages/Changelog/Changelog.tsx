@@ -75,7 +75,7 @@ const KIND_COLOR: Record<Entry['kind'], string> = {
 
 export function Changelog() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo
         title="Changelog"
         description="Release history for forgekit-storybook-mcp — the MIT open-source Storybook MCP server."
@@ -89,19 +89,19 @@ export function Changelog() {
         }}
       />
 
-      <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
+      <Container maxW="container.md" py="section-y" px={6}>
         <VStack gap={10} align="stretch">
           <VStack gap={3} align="flex-start">
-            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="fg">
               Changelog
             </Heading>
-            <Text color="gray.400" fontSize="lg">
+            <Text color="fg.muted" fontSize="lg">
               Release history for <code>forgekit-storybook-mcp</code>. Full history, including patch releases,
               is in the repo.
             </Text>
             <Link
               href={CHANGELOG_URL}
-              color="teal.300"
+              color="accent"
               fontSize="sm"
               target='_blank'
               rel='noopener noreferrer'>
@@ -114,23 +114,23 @@ export function Changelog() {
               <Box
                 key={`${entry.version}-${i}`}
                 borderLeft="2px solid"
-                borderColor="slate.800"
+                borderColor="border"
                 pl={5}
                 py={1}
               >
                 <VStack align="flex-start" gap={1}>
                   <Box display="flex" alignItems="center" gap={3}>
-                    <Text fontWeight="700" color="white" fontFamily="mono">
+                    <Text fontWeight="700" color="fg" fontFamily="mono">
                       v{entry.version}
                     </Text>
                     <Tag.Root size="sm" colorPalette={KIND_COLOR[entry.kind]}>
                       {entry.kind}
                     </Tag.Root>
-                    <Text color="gray.600" fontSize="sm">
+                    <Text color="fg.muted" fontSize="sm">
                       {entry.date}
                     </Text>
                   </Box>
-                  <Text color="gray.400">{entry.summary}</Text>
+                  <Text color="fg.muted">{entry.summary}</Text>
                 </VStack>
               </Box>
             ))}

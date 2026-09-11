@@ -8,7 +8,7 @@ const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
 
 export function About() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo
         title="About"
         description="ForgeKit is built by Rich Tillman — a frontend engineer working on design-system tooling and MCP servers that connect Figma to code."
@@ -22,15 +22,15 @@ export function About() {
         }}
       />
 
-      <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
+      <Container maxW="container.md" py="section-y" px={6}>
         <VStack gap={8} align="stretch">
           <VStack gap={3} align="flex-start">
-            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="fg">
               About
             </Heading>
           </VStack>
 
-          <VStack gap={5} align="flex-start" color="gray.400" fontSize="lg" lineHeight="tall">
+          <VStack gap={5} align="flex-start" color="fg.muted" fontSize="lg" lineHeight="tall">
             <Text>
               ForgeKit is built by Rich Tillman, a frontend engineer who spends most of his time at the
               intersection of design systems and developer tooling — the handoff between a Figma file and the
@@ -45,7 +45,7 @@ export function About() {
             <Text>
               The broader ForgeKit idea is the same problem at monorepo scale: Nx, a shared UI library, Storybook,
               and deployment patterns that stay wired together instead of drifting apart. That part is still
-              rolling out — see the <Link href="/roadmap" color="teal.300">roadmap</Link> for what&apos;s actually
+              rolling out — see the <Link href="/roadmap" color="accent">roadmap</Link> for what&apos;s actually
               shipped versus still in progress.
             </Text>
           </VStack>

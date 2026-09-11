@@ -21,7 +21,7 @@ export interface CTAProps {
 }
 
 /**
- * Call-to-action section
+ * Call-to-action: flat ink band, hairlines, ember highlight.
  */
 export const CTA = forwardRef<HTMLDivElement, CTAProps>(
   (
@@ -51,66 +51,39 @@ export const CTA = forwardRef<HTMLDivElement, CTAProps>(
     return (
       <Box
         ref={ref}
-        py={{ base: 16, md: 24 }}
-        position="relative"
-        overflow="hidden"
+        as="section"
+        py="section-y"
+        bg="bg.surface"
+        borderTopWidth="1px"
+        borderBottomWidth="1px"
+        borderColor="border"
       >
-        {/* Background gradient */}
-        <Box
-          position="absolute"
-          inset={0}
-          bg="linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%)"
-        />
-
-        {/* Border gradient effect */}
-        <Box
-          position="absolute"
-          top={0}
-          left={0}
-          right={0}
-          height="1px"
-          bg="linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.5), transparent)"
-        />
-        <Box
-          position="absolute"
-          bottom={0}
-          left={0}
-          right={0}
-          height="1px"
-          bg="linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.5), transparent)"
-        />
-
-        <Container size="lg" position="relative" zIndex={1}>
-          <VStack gap={8} textAlign="center">
+        <Container size="lg">
+          <VStack gap="8" textAlign="center">
             <Heading
-              fontSize={{ base: '2xl', md: '4xl', lg: '5xl' }}
-              fontWeight="700"
-              lineHeight="tight"
+              as="h2"
+              textStyle={{ base: 'headline-lg', md: 'display-md' }}
+              color="fg"
               maxW="3xl"
             >
               {renderHeadline()}
             </Heading>
 
-            <Text
-              fontSize={{ base: 'lg', md: 'xl' }}
-              color="slate.400"
-              maxW="2xl"
-            >
+            <Text textStyle="body-lg" color="fg.muted" maxW="2xl">
               {description}
             </Text>
 
             <HStack
-              gap={4}
-              pt={4}
+              gap="4"
+              pt="4"
               flexDir={{ base: 'column', sm: 'row' }}
               w={{ base: '100%', sm: 'auto' }}
             >
               <Button
                 size="lg"
-                variant="accent"
+                variant="solid"
                 onClick={onPrimaryClick}
                 w={{ base: '100%', sm: 'auto' }}
-                px={8}
               >
                 {primaryCta}
               </Button>
@@ -128,7 +101,7 @@ export const CTA = forwardRef<HTMLDivElement, CTAProps>(
           </VStack>
         </Container>
       </Box>
-    );
+    )
   }
 )
 

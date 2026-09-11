@@ -8,66 +8,49 @@ export interface FeatureCardProps {
   title: string
   /** Feature description */
   description: string
-  /** Optional highlight color */
+  /** Optional highlight color (ignored — Forge uses ember only) */
   accentColor?: string
 }
 
 /**
- * Card for displaying product features
+ * Feature card: graphite surface, hairline, 4px radius, icon tile.
  */
 export const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
-  ({ icon, title, description, accentColor = 'brand.500' }, ref) => {
+  ({ icon, title, description }, ref) => {
     return (
       <Box
         ref={ref}
-        bg="slate.900"
-        border="1px solid"
-        borderColor="slate.800"
-        borderRadius="2xl"
-        p={{ base: 6, md: 8 }}
-        position="relative"
-        overflow="hidden"
-        transition="all 0.3s ease"
-        _hover={{
-          borderColor: 'slate.700',
-          transform: 'translateY(-4px)',
-          boxShadow: `0 20px 40px -20px ${accentColor}40`,
-        }}
-        _before={{
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '2px',
-          bg: accentColor,
-          opacity: 0,
-          transition: 'opacity 0.3s ease',
-        }}
-        css={{
-          '& &:hover::before': {
-            opacity: 1,
-          }
-        }}
+        bg="bg.surface"
+        borderWidth="1px"
+        borderColor="border"
+        borderRadius="md"
+        boxShadow="card"
+        p="6"
       >
-        <VStack align="start" gap={4}>
+        <VStack align="start" gap="4">
           <Box
-            p={3}
-            bg="slate.800"
-            borderRadius="xl"
-            color={accentColor}
+            w="44px"
+            h="44px"
+            display="inline-flex"
+            alignItems="center"
+            justifyContent="center"
+            borderWidth="1px"
+            borderColor="border"
+            borderRadius="md"
+            color="fg.muted"
+            _hover={{ color: 'accent', borderColor: 'accent' }}
           >
             {icon}
           </Box>
-          <Heading size="md" color="white">
+          <Heading as="h3" textStyle="title-md" color="fg">
             {title}
           </Heading>
-          <Text color="slate.400" lineHeight="tall">
+          <Text color="fg.muted" textStyle="body-md" lineHeight="relaxed">
             {description}
           </Text>
         </VStack>
       </Box>
-    );
+    )
   }
 )
 

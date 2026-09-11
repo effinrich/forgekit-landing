@@ -67,7 +67,7 @@ const footerColumns = [
 
 export function Docs() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo
         title="Documentation hub"
         description="ForgeKit documentation: Storybook MCP on docs.forgekit.cloud, npm packages, and links to GitHub. MIT open-source tools for Storybook, Figma, and Nx."
@@ -81,13 +81,13 @@ export function Docs() {
         }}
       />
 
-      <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
+      <Container maxW="container.md" py="section-y" px={6}>
         <VStack gap={10} align="stretch">
           <VStack gap={3} align="flex-start">
-            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="fg">
               Documentation
             </Heading>
-            <Text color="gray.400" fontSize="lg">
+            <Text color="fg.muted" fontSize="lg">
               ForgeKit splits docs by package. This site is the marketing home; long-form docs for Storybook MCP
               live on Mintlify at a dedicated subdomain.
             </Text>
@@ -95,32 +95,36 @@ export function Docs() {
 
           <Box
             borderWidth="1px"
-            borderColor="teal.800"
-            borderRadius="xl"
+            borderColor="border"
+            borderRadius="md"
             p={6}
-            bg="whiteAlpha.50"
+            bg="bg.surface"
           >
-            <Heading as="h2" fontSize="lg" color="white" mb={3}>
+            <Heading as="h2" fontSize="lg" color="fg" mb={3}>
               Storybook MCP — full documentation
             </Heading>
-            <Text color="gray.400" mb={4}>
+            <Text color="fg.muted" mb={4}>
               Install, MCP client setup, CLI flags, tools reference, and templates — maintained in the{' '}
               <code>storybook-mcp</code> repo and published to{' '}
               <strong>docs.forgekit.cloud</strong> when DNS is configured.
             </Text>
-            <Button
-              as={Link}
-              href={DOCS_STORYBOOK_MCP}
-              isExternal
-              colorPalette="teal"
+                        <Button
+              colorPalette="ember"
               size="md"
+              asChild
             >
-              Open docs.forgekit.cloud
+              <Link
+                href={DOCS_STORYBOOK_MCP}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open docs.forgekit.cloud
+              </Link>
             </Button>
           </Box>
 
           <Box>
-            <Heading as="h2" fontSize="lg" color="white" mb={4}>
+            <Heading as="h2" fontSize="lg" color="fg" mb={4}>
               All packages (quick links)
             </Heading>
             <VStack align="stretch" gap={3}>
@@ -128,7 +132,7 @@ export function Docs() {
                 <Link
                   key={pkg.npmName}
                   href={pkg.docsUrl}
-                  color="teal.300"
+                  color="accent"
                   fontSize="sm"
                   _hover={{ textDecoration: 'underline' }}
                   target='_blank'
@@ -141,19 +145,22 @@ export function Docs() {
                 </Link>
               ))}
             </VStack>
-            <Button
-              as={RouterLink}
-              to="/packages"
+                        <Button
               variant='plain'
-              color="gray.400"
+              color="fg.muted"
               mt={6}
               fontSize="sm"
+              asChild
             >
-              Full package catalog with integrations →
+              <RouterLink
+                to="/packages"
+              >
+                Full package catalog with integrations →
+              </RouterLink>
             </Button>
           </Box>
 
-          <Text fontSize="sm" color="gray.500">
+          <Text fontSize="sm" color="fg.muted">
             Operators: deployment steps for the docs subdomain are in the repo under{' '}
             <code>docs/DEPLOY_DOCS_FORGEKIT_CLOUD.md</code>.
           </Text>

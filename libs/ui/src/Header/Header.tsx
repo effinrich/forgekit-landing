@@ -18,7 +18,7 @@ export interface HeaderProps {
 }
 
 /**
- * Fixed header with logo and navigation
+ * Fixed header: ink bar, hairline, no blur.
  */
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
   ({ links = [], ctaText = 'Get Started', onCtaClick }, ref) => {
@@ -31,47 +31,38 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
         left={0}
         right={0}
         zIndex={100}
-        bg="rgba(2, 6, 23, 0.8)"
-        backdropFilter="blur(12px)"
-        borderBottom="1px solid"
-        borderColor="slate.800"
+        bg="bg"
+        borderBottomWidth="1px"
+        borderColor="border"
       >
         <Container size="xl">
           <HStack justify="space-between" h="16">
-            {/* Logo */}
-            <Link href="/" _hover={{ textDecoration: 'none' }}>
+            <Link href="/" _hover={{ textDecoration: 'none', color: 'fg' }} color="fg">
               <Logo size="sm" />
             </Link>
 
-            {/* Navigation */}
-            <HStack gap={8} display={{ base: 'none', md: 'flex' }}>
-              {links.map((link, index) => (
+            <HStack gap="8" display={{ base: 'none', md: 'flex' }}>
+              {links.map((link) => (
                 <Link
-                  key={index}
+                  key={link.href}
                   href={link.href}
-                  color="slate.400"
-                  fontSize="sm"
-                  fontWeight="500"
-                  _hover={{ color: 'white' }}
-                  transition="color 0.2s"
+                  color="fg.muted"
+                  textStyle="body-md"
+                  fontWeight="medium"
+                  _hover={{ color: 'fg' }}
                 >
                   {link.label}
                 </Link>
               ))}
             </HStack>
 
-            {/* CTA */}
-            <Button
-              size="sm"
-              variant="solid"
-              onClick={onCtaClick}
-            >
+            <Button size="sm" variant="solid" onClick={onCtaClick}>
               {ctaText}
             </Button>
           </HStack>
         </Container>
       </Box>
-    );
+    )
   }
 )
 

@@ -6,6 +6,7 @@ import { theme } from '@forgekit-landing/theme'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 
 import { App } from './app'
+import './styles/system.css'
 
 const root = document.getElementById('root')
 

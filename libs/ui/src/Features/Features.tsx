@@ -25,11 +25,10 @@ export interface FeaturesProps {
 }
 
 /**
- * Features section displaying product capabilities
+ * Features section: Space Grotesk title, hairline, feature cards.
  */
 export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
   ({ badge, headline, highlightedText, description, features }, ref) => {
-    // Split headline if there's highlighted text
     const renderHeadline = () => {
       if (!highlightedText) return headline
       const parts = headline.split(highlightedText)
@@ -43,56 +42,53 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
     }
 
     return (
-      <Box ref={ref} py={{ base: 16, md: 24 }} bg="slate.950">
+      <Box
+        ref={ref}
+        as="section"
+        py="section-y"
+        bg="bg"
+        borderTopWidth="1px"
+        borderColor="border"
+      >
         <Container size="xl">
-          <VStack gap={{ base: 12, md: 16 }}>
-            {/* Section header */}
-            <VStack gap={4} textAlign="center" maxW="2xl">
+          <VStack gap={{ base: '12', md: '16' }}>
+            <VStack gap="4" textAlign="center" maxW="2xl">
               {badge && (
                 <Text
-                  color="brand.400"
-                  fontWeight="600"
-                  fontSize="sm"
-                  textTransform="uppercase"
+                  fontFamily="mono"
+                  fontSize="label-sm"
+                  fontWeight="medium"
                   letterSpacing="wider"
+                  textTransform="uppercase"
+                  color="fg.muted"
                 >
                   {badge}
                 </Text>
               )}
-              <Heading
-                fontSize={{ base: '2xl', md: '4xl' }}
-                fontWeight="700"
-                lineHeight="tight"
-              >
+              <Heading as="h2" textStyle={{ base: 'headline-lg', md: 'display-md' }} color="fg">
                 {renderHeadline()}
               </Heading>
               {description && (
-                <Text fontSize="lg" color="slate.400">
+                <Text textStyle="body-lg" color="fg.muted">
                   {description}
                 </Text>
               )}
             </VStack>
 
-            {/* Features grid */}
-            <SimpleGrid
-              columns={{ base: 1, md: 2, lg: 3 }}
-              gap={{ base: 6, md: 8 }}
-              w="100%"
-            >
-              {features.map((feature, index) => (
+            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="6" w="100%">
+              {features.map((feature) => (
                 <FeatureCard
-                  key={index}
+                  key={feature.title}
                   icon={feature.icon}
                   title={feature.title}
                   description={feature.description}
-                  accentColor={feature.accentColor}
                 />
               ))}
             </SimpleGrid>
           </VStack>
         </Container>
       </Box>
-    );
+    )
   }
 )
 

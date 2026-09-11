@@ -9,7 +9,7 @@ const ISSUES_URL = 'https://github.com/effinrich/storybook-mcp/issues'
 
 export function Roadmap() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo
         title="Roadmap"
         description="What's shipped, what's in progress, and where to weigh in on ForgeKit's direction."
@@ -23,34 +23,34 @@ export function Roadmap() {
         }}
       />
 
-      <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
+      <Container maxW="container.md" py="section-y" px={6}>
         <VStack gap={8} align="stretch">
           <VStack gap={3} align="flex-start">
-            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="fg">
               Roadmap
             </Heading>
-            <Text color="gray.400" fontSize="lg">
+            <Text color="fg.muted" fontSize="lg">
               This page won&apos;t promise features that aren&apos;t built yet. Here&apos;s what&apos;s actually
               shipped versus in progress.
             </Text>
           </VStack>
 
-          <Box borderWidth="1px" borderColor="teal.800" borderRadius="xl" p={6} bg="whiteAlpha.50">
-            <Heading as="h2" fontSize="lg" color="white" mb={3}>
+          <Box borderWidth="1px" borderColor="border" borderRadius="md" p={6} bg="bg.surface">
+            <Heading as="h2" fontSize="lg" color="fg" mb={3}>
               Shipped: forgekit-storybook-mcp
             </Heading>
-            <Text color="gray.400">
+            <Text color="fg.muted">
               MIT-licensed, no feature gates. Story generation, tests, docs, sync, and Figma Code Connect are all
-              available today — see the <Link href="/changelog" color="teal.300">changelog</Link> for release
+              available today — see the <Link href="/changelog" color="accent">changelog</Link> for release
               history.
             </Text>
           </Box>
 
-          <Box borderWidth="1px" borderColor="whiteAlpha.200" borderRadius="xl" p={6} bg="whiteAlpha.50">
-            <Heading as="h2" fontSize="lg" color="white" mb={3}>
+          <Box borderWidth="1px" borderColor="border" borderRadius="md" p={6} bg="bg.surface">
+            <Heading as="h2" fontSize="lg" color="fg" mb={3}>
               In progress: the broader ForgeKit generator
             </Heading>
-            <Text color="gray.400">
+            <Text color="fg.muted">
               The Nx / app / UI / Storybook generator suite is rolling out over time — Storybook MCP was the
               first piece to reach MIT and a stable release. No fixed dates yet; this section will update as
               pieces actually ship, not before.
@@ -58,10 +58,10 @@ export function Roadmap() {
           </Box>
 
           <VStack align="flex-start" gap={2} pt={4}>
-            <Text color="gray.400">Want to weigh in or track specific work?</Text>
+            <Text color="fg.muted">Want to weigh in or track specific work?</Text>
             <Link
               href={ISSUES_URL}
-              color="teal.300"
+              color="accent"
               target='_blank'
               rel='noopener noreferrer'>
               Open an issue or check existing ones on GitHub →

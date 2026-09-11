@@ -9,7 +9,7 @@ const LAST_UPDATED = 'August 2026'
 
 export function Privacy() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo title="Privacy Policy" description="What forgekit.cloud collects and why — short version: not much." path="/privacy" />
       <Header
         links={siteNavLinks}
@@ -19,13 +19,13 @@ export function Privacy() {
         }}
       />
 
-      <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack gap={6} align="stretch" color="gray.400" fontSize="md" lineHeight="tall">
+      <Container maxW="container.md" py="section-y" px={6}>
+        <VStack gap={6} align="stretch" color="fg.muted" fontSize="md" lineHeight="tall">
           <VStack gap={2} align="flex-start">
-            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="fg">
               Privacy Policy
             </Heading>
-            <Text color="gray.600" fontSize="sm">Last updated: {LAST_UPDATED}</Text>
+            <Text color="fg.muted" fontSize="sm">Last updated: {LAST_UPDATED}</Text>
           </VStack>
 
           <Text>
@@ -34,7 +34,7 @@ export function Privacy() {
             this domain.
           </Text>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={4}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={4}>
             What is collected
           </Heading>
           <Text>
@@ -44,7 +44,7 @@ export function Privacy() {
             not ours.
           </Text>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={4}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={4}>
             The software itself
           </Heading>
           <Text>
@@ -52,7 +52,7 @@ export function Privacy() {
             your component code, design files, or project data to any server we operate. See the{' '}
             <Link
               href="https://github.com/effinrich/storybook-mcp"
-              color="teal.300"
+              color="accent"
               target='_blank'
               rel='noopener noreferrer'>
               source
@@ -60,18 +60,18 @@ export function Privacy() {
             if you want to verify that yourself.
           </Text>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={4}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={4}>
             External links
           </Heading>
           <Text>
             Links to npm, GitHub, Discord, and X take you to third-party sites with their own privacy policies.
           </Text>
 
-          <Heading as="h2" fontSize="lg" color="white" pt={4}>
+          <Heading as="h2" fontSize="lg" color="fg" pt={4}>
             Questions
           </Heading>
           <Text>
-            Email <Link href="mailto:forgekit@pm.me" color="teal.300">forgekit@pm.me</Link>.
+            Email <Link href="mailto:forgekit@pm.me" color="accent">forgekit@pm.me</Link>.
           </Text>
         </VStack>
       </Container>
