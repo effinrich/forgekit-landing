@@ -7,7 +7,7 @@ export function NotFound() {
     <Box bg="slate.950" minH="100vh" display="flex" alignItems="center">
       <Seo title="Page not found" description="This page doesn't exist." path="/404" noindex />
       <Container maxW="container.md" py={24} px={6}>
-        <VStack spacing={6} textAlign="center">
+        <VStack gap={6} textAlign="center">
           <Heading as="h1" fontSize={{ base: '4xl', md: '5xl' }} color="white">
             404
           </Heading>

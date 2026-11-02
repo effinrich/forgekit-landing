@@ -90,8 +90,8 @@ export function Changelog() {
       />
 
       <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={10} align="stretch">
-          <VStack spacing={3} align="flex-start">
+        <VStack gap={10} align="stretch">
+          <VStack gap={3} align="flex-start">
             <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
               Changelog
             </Heading>
@@ -99,12 +99,12 @@ export function Changelog() {
               Release history for <code>forgekit-storybook-mcp</code>. Full history, including patch releases,
               is in the repo.
             </Text>
-            <Link href={CHANGELOG_URL} isExternal color="teal.300" fontSize="sm">
+            <Link href={CHANGELOG_URL} color="teal.300" fontSize="sm">
               View full CHANGELOG.md on GitHub →
             </Link>
           </VStack>
 
-          <VStack spacing={6} align="stretch">
+          <VStack gap={6} align="stretch">
             {ENTRIES.map((entry, i) => (
               <Box
                 key={`${entry.version}-${i}`}
@@ -113,7 +113,7 @@ export function Changelog() {
                 pl={5}
                 py={1}
               >
-                <VStack align="flex-start" spacing={1}>
+                <VStack align="flex-start" gap={1}>
                   <Box display="flex" alignItems="center" gap={3}>
                     <Text fontWeight="700" color="white" fontFamily="mono">
                       v{entry.version}

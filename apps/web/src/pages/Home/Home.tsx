@@ -217,8 +217,8 @@ export function Home() {
 
       <Box id="open-source" py={{ base: 16, md: 24 }} scrollMarginTop="80px">
         <Container maxW="container.xl">
-          <VStack spacing={{ base: 10, md: 14 }}>
-            <VStack spacing={4} textAlign="center" maxW="3xl">
+          <VStack gap={{ base: 10, md: 14 }}>
+            <VStack gap={4} textAlign="center" maxW="3xl">
               <Text
                 color="brand.400"
                 fontWeight="600"
@@ -247,7 +247,7 @@ export function Home() {
               </Text>
             </VStack>
 
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full">
+            <SimpleGrid columns={{ base: 1, md: 2 }} gap={8} w="full">
               <Box
                 borderWidth="1px"
                 borderColor="whiteAlpha.200"
@@ -256,7 +256,7 @@ export function Home() {
                 bg="whiteAlpha.50"
                 _hover={{ borderColor: 'teal.500', transition: 'border-color 0.2s' }}
               >
-                <VStack align="stretch" spacing={4}>
+                <VStack align="stretch" gap={4}>
                   <Text fontWeight="700" color="white" fontSize="xl">
                     forgekit-storybook-mcp
                   </Text>
@@ -264,7 +264,7 @@ export function Home() {
                     The package on npm. CLI commands forgekit-storybook-mcp and storybook-mcp — same README you know,
                     zero license keys.
                   </Text>
-                  <HStack spacing={3} flexWrap="wrap">
+                  <HStack gap={3} flexWrap="wrap">
                     <Button
                       as={Link}
                       href={NPM_MCP}
@@ -298,7 +298,7 @@ export function Home() {
                 p={{ base: 6, md: 8 }}
                 bg="whiteAlpha.50"
               >
-                <VStack align="stretch" spacing={4}>
+                <VStack align="stretch" gap={4}>
                   <Text fontWeight="700" color="white" fontSize="xl">
                     ForgeKit generator
                   </Text>

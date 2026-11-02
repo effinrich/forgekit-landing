@@ -76,7 +76,7 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
             {/* Features grid */}
             <SimpleGrid
               columns={{ base: 1, md: 2, lg: 3 }}
-              spacing={{ base: 6, md: 8 }}
+              gap={{ base: 6, md: 8 }}
               w="100%"
             >
               {features.map((feature, index) => (

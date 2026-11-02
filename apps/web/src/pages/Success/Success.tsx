@@ -94,7 +94,7 @@ export function Success() {
       />
 
       <Container maxW="container.md" py={{ base: 24, md: 32 }} px={6}>
-        <VStack spacing={8} align="center" textAlign="center">
+        <VStack gap={8} align="center" textAlign="center">
           <CheckCircleIcon />
 
           <Badge
@@ -127,7 +127,7 @@ export function Success() {
             This is the same flow documented in the project README.
           </Text>
 
-          <HStack spacing={4} flexWrap="wrap" justify="center">
+          <HStack gap={4} flexWrap="wrap" justify="center">
             <Button
               as={Link}
               href={NPM_MCP}

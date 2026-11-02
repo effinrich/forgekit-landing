@@ -125,7 +125,7 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
             <Text color="slate.600" fontSize="sm">
               {copyright || `© ${currentYear} Forgekit. All rights reserved.`}
             </Text>
-            <HStack spacing={6}>
+            <HStack gap={6}>
               <Link href="/privacy" color="slate.600" fontSize="sm" _hover={{ color: 'slate.400' }}>
                 Privacy Policy
               </Link>

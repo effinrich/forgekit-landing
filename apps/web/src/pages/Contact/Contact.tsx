@@ -24,8 +24,8 @@ export function Contact() {
       />
 
       <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={8} align="stretch">
-          <VStack spacing={3} align="flex-start">
+        <VStack gap={8} align="stretch">
+          <VStack gap={3} align="flex-start">
             <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
               Contact
             </Heading>
