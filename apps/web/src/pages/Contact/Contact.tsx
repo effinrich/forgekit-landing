@@ -62,7 +62,7 @@ export function Contact() {
             </Text>
             <Button
               as={Link}
-              href="https://github.com/effinrich/storybook-mcp/issues"
+              href="https://github.com/the-single-gentlemans-club/storybook-mcp/issues"
               isExternal
               variant="outline"
               colorScheme="gray"
