@@ -5,7 +5,7 @@ import { siteNavLinks, siteFooterColumns, siteSocialLinksMeta } from '../../data
 import { TwitterIcon, GitHubIcon, DiscordIcon } from '../../components/SocialIcons'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
-const ISSUES_URL = 'https://github.com/effinrich/storybook-mcp/issues'
+const ISSUES_URL = 'https://github.com/the-single-gentlemans-club/storybook-mcp/issues'
 
 export function Roadmap() {
   return (
