@@ -52,7 +52,7 @@ const footerColumns = [
   {
     title: 'Resources',
     links: [
-      { label: 'Storybook MCP repo', href: 'https://github.com/effinrich/storybook-mcp' },
+      { label: 'Storybook MCP repo', href: 'https://github.com/the-single-gentlemans-club/storybook-mcp' },
       { label: 'npm', href: NPM_MCP },
     ],
   },
@@ -88,8 +88,7 @@ export function Docs() {
               Documentation
             </Heading>
             <Text color="gray.400" fontSize="lg">
-              ForgeKit splits docs by package. This site is the marketing home; long-form docs for Storybook MCP
-              live on Mintlify at a dedicated subdomain.
+              ForgeKit splits docs by package. This site is the marketing home; the Storybook MCP guide lives in the repository README.
             </Text>
           </VStack>
 
@@ -101,12 +100,11 @@ export function Docs() {
             bg="whiteAlpha.50"
           >
             <Heading as="h2" fontSize="lg" color="white" mb={3}>
-              Storybook MCP — full documentation
+              Storybook MCP guide
             </Heading>
             <Text color="gray.400" mb={4}>
               Install, MCP client setup, CLI flags, tools reference, and templates — maintained in the{' '}
-              <code>storybook-mcp</code> repo and published to{' '}
-              <strong>docs.forgekit.cloud</strong> when DNS is configured.
+              <code>storybook-mcp</code> repository README.
             </Text>
             <Button
               as={Link}
@@ -115,7 +113,7 @@ export function Docs() {
               colorScheme="teal"
               size="md"
             >
-              Open docs.forgekit.cloud
+              Open Storybook MCP README
             </Button>
           </Box>
 
@@ -154,8 +152,7 @@ export function Docs() {
           </Box>
 
           <Text fontSize="sm" color="gray.500">
-            Operators: deployment steps for the docs subdomain are in the repo under{' '}
-            <code>docs/DEPLOY_DOCS_FORGEKIT_CLOUD.md</code>.
+            The repository README is the current source of truth for the package.
           </Text>
         </VStack>
       </Container>
