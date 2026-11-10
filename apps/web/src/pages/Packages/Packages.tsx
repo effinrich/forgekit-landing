@@ -229,9 +229,7 @@ export function Packages() {
               </Text>{' '}
               (rename from <code>chakra-figma-mcp</code> per{' '}
               <code>docs/REPO_CONSOLIDATION_AND_NAMING.md</code>). Update npm{' '}
-              <code>repository</code> after renaming. Storybook MCP docs: follow{' '}
-              <code>docs/DEPLOY_DOCS_FORGEKIT_CLOUD.md</code> — until{' '}
-              <code>docs.forgekit.cloud</code> is live, that link may not resolve.
+              <code>repository</code> after renaming. Storybook MCP documentation currently lives in the repository README.
             </Text>
           </Box>
         </VStack>
