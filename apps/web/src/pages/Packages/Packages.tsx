@@ -74,28 +74,28 @@ const footerColumns = [
 function docTierBadge(tier: (typeof FORGEKIT_PACKAGES)[number]['docTier']) {
   switch (tier) {
     case 'mintlify-in-repo':
-      return { label: 'Mintlify in repo', colorScheme: 'teal' as const }
+      return { label: 'Mintlify in repo', variant: 'outline' as const }
     case 'readme':
-      return { label: 'README + roadmap', colorScheme: 'purple' as const }
+      return { label: 'README + roadmap', variant: 'subtle' as const }
     default:
-      return { label: 'README-first', colorScheme: 'gray' as const }
+      return { label: 'README-first', variant: 'subtle' as const }
   }
 }
 
 function integrationBadge(integration: PackageIntegration) {
   switch (integration) {
     case 'mcp-server':
-      return { label: 'Integration: MCP', colorScheme: 'cyan' as const }
+      return { label: 'Integration: MCP', variant: 'outline' as const }
     case 'nx-plugin':
-      return { label: 'Integration: Nx', colorScheme: 'orange' as const }
+      return { label: 'Integration: Nx', variant: 'subtle' as const }
     case 'node-cli':
-      return { label: 'Integration: CLI', colorScheme: 'pink' as const }
+      return { label: 'Integration: CLI', variant: 'subtle' as const }
   }
 }
 
 export function Packages() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo
         title="Packages — ForgeKit npm ecosystem"
         description="forgekit-storybook-mcp, forgekit-figma-mcp, ForgeKit Nx Storybook plugin, and CLI plugin: MCP vs Nx vs CLI integrations, npm and GitHub links."
@@ -109,11 +109,11 @@ export function Packages() {
         }}
       />
 
-      <Container maxW="container.xl" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={10} align="stretch">
-          <VStack spacing={4} textAlign="center" maxW="3xl" mx="auto">
+      <Container maxW="container.xl" py="section-y" px={6}>
+        <VStack gap={10} align="stretch">
+          <VStack gap={4} textAlign="center" maxW="3xl" mx="auto">
             <Text
-              color="brand.400"
+              color="fg.muted"
               fontWeight="600"
               fontSize="sm"
               textTransform="uppercase"
@@ -121,17 +121,17 @@ export function Packages() {
             >
               Ecosystem
             </Text>
-            <Heading as="h1" fontSize={{ base: '3xl', md: '5xl' }} color="white">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '5xl' }} color="fg">
               Packages on npm
             </Heading>
-            <Text color="gray.400" fontSize="lg">
+            <Text color="fg.muted" fontSize="lg">
               ForgeKit spans several installable packages. They are{' '}
               <strong>not</strong> drop-in duplicates: Storybook MCP vs Figma token MCP solve different problems;
               Nx plugin vs CLI plugin are different integration paths for similar automation goals.
             </Text>
           </VStack>
 
-          <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6}>
+          <SimpleGrid columns={{ base: 1, lg: 2 }} gap={6}>
             {FORGEKIT_PACKAGES.map(pkg => {
               const badge = docTierBadge(pkg.docTier)
               const intBadge = integrationBadge(pkg.integration)
@@ -139,88 +139,100 @@ export function Packages() {
                 <Box
                   key={pkg.npmName}
                   borderWidth="1px"
-                  borderColor="whiteAlpha.200"
-                  borderRadius="xl"
+                  borderColor="border"
+                  borderRadius="md"
                   p={{ base: 6, md: 8 }}
-                  bg="whiteAlpha.50"
+                  bg="bg.surface"
                 >
-                  <VStack align="stretch" spacing={4}>
+                  <VStack align="stretch" gap={4}>
                     <HStack justify="space-between" align="flex-start" flexWrap="wrap" gap={2}>
-                      <Heading as="h2" fontSize="xl" color="white">
+                      <Heading as="h2" fontSize="xl" color="fg">
                         {pkg.title}
                       </Heading>
                       <HStack flexWrap="wrap" gap={2}>
-                        <Badge colorScheme={intBadge.colorScheme} textTransform="none">
+                        <Badge variant={intBadge.variant} textTransform="none">
                           {intBadge.label}
                         </Badge>
-                        <Badge colorScheme={badge.colorScheme} textTransform="none">
+                        <Badge variant={badge.variant} textTransform="none">
                           {badge.label}
                         </Badge>
                       </HStack>
                     </HStack>
-                    <Text fontFamily="mono" fontSize="sm" color="teal.300">
+                    <Text fontFamily="mono" fontSize="sm" color="accent">
                       {pkg.npmName}
                     </Text>
-                    <Text fontSize="xs" color="gray.500" fontWeight="500">
+                    <Text fontSize="xs" color="fg.muted" fontWeight="500">
                       {pkg.integrationLabel}
                     </Text>
-                    <Text fontSize="sm" color="gray.500">
+                    <Text fontSize="sm" color="fg.muted">
                       {pkg.audience}
                     </Text>
-                    <Text color="gray.400">{pkg.description}</Text>
+                    <Text color="fg.muted">{pkg.description}</Text>
                     {pkg.lastPublishedNote && (
-                      <Text fontSize="xs" color="gray.500">
+                      <Text fontSize="xs" color="fg.muted">
                         {pkg.lastPublishedNote}
                       </Text>
                     )}
-                    <HStack spacing={3} flexWrap="wrap" pt={2}>
-                      <Button
-                        as={Link}
-                        href={pkg.npmUrl}
-                        isExternal
-                        colorScheme="teal"
+                    <HStack gap={3} flexWrap="wrap" pt={2}>
+                                            <Button
+                        colorPalette="ember"
                         size="sm"
+                        asChild
                       >
-                        npm
+                        <Link
+                          href={pkg.npmUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          npm
+                        </Link>
                       </Button>
-                      <Button
-                        as={Link}
-                        href={pkg.githubUrl}
-                        isExternal
+                                            <Button
                         variant="outline"
                         size="sm"
-                        borderColor="whiteAlpha.300"
-                        color="white"
-                        _hover={{ bg: 'whiteAlpha.100' }}
+                        borderColor="border"
+                        color="fg"
+                        _hover={{ bg: 'bg.sunken' }}
+                        asChild
                       >
-                        GitHub
+                        <Link
+                          href={pkg.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          GitHub
+                        </Link>
                       </Button>
-                      <Button
-                        as={Link}
-                        href={pkg.docsUrl}
-                        isExternal
+                                            <Button
                         variant="ghost"
                         size="sm"
-                        color="gray.300"
+                        color="fg"
+                        asChild
                       >
-                        {pkg.docsLabel}
+                        <Link
+                          href={pkg.docsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {pkg.docsLabel}
+                        </Link>
                       </Button>
                     </HStack>
                   </VStack>
                 </Box>
-              )
+              );
             })}
           </SimpleGrid>
 
           <Box
             borderWidth="1px"
-            borderColor="whiteAlpha.100"
+            borderColor="border"
             borderRadius="lg"
             p={6}
-            bg="whiteAlpha.50"
+            bg="bg.surface"
           >
-            <Text color="gray.400" fontSize="sm">
-              <Text as="span" fontWeight="600" color="gray.300">
+            <Text color="fg.muted" fontSize="sm">
+              <Text as="span" fontWeight="600" color="fg">
                 Repositories &amp; docs:
               </Text>{' '}
               GitHub links target{' '}
@@ -248,5 +260,5 @@ export function Packages() {
         ]}
       />
     </Box>
-  )
+  );
 }

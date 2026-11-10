@@ -1,106 +1,114 @@
-// Forgekit Brand Color Palette
-// Rich, distinctive, not "AI slop"
+/** Forge tokens from apps/web/DESIGN.md + apps/web/src/styles/system.css. Hexes only. */
 
-export const colors = {
-  // Primary: Deep violet with electric energy
-  primary: {
-    50: '#f5f3ff',
-    100: '#ede9fe',
-    200: '#ddd6fe',
-    300: '#c4b5fd',
-    400: '#a78bfa',
-    500: '#8b5cf6',  // Main brand color
-    600: '#7c3aed',
-    700: '#6d28d9',
-    800: '#5b21b6',
-    900: '#4c1d95',
-    950: '#2e1065',
-  },
-  // Accent: Warm coral/orange for CTAs
-  accent: {
-    50: '#fff7ed',
-    100: '#ffedd5',
-    200: '#fed7aa',
-    300: '#fdba74',
-    400: '#fb923c',
-    500: '#f97316',  // CTA color
-    600: '#ea580c',
-    700: '#c2410c',
-    800: '#9a3412',
-    900: '#7c2d12',
-  },
-  // Success: Teal green
-  success: {
-    50: '#f0fdfa',
-    100: '#ccfbf1',
-    200: '#99f6e4',
-    300: '#5eead4',
-    400: '#2dd4bf',
-    500: '#14b8a6',
-    600: '#0d9488',
-    700: '#0f766e',
-    800: '#115e59',
-    900: '#134e4a',
-  },
-  // Neutral: Warm slate, not cold gray
-  slate: {
-    50: '#f8fafc',
-    100: '#f1f5f9',
-    200: '#e2e8f0',
-    300: '#cbd5e1',
-    400: '#94a3b8',
-    500: '#64748b',
-    600: '#475569',
-    700: '#334155',
-    800: '#1e293b',
-    900: '#0f172a',
-    950: '#020617',
-  },
-  // Background gradients
-  gradient: {
-    primary: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
-    accent: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-    dark: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
-    hero: 'linear-gradient(135deg, #4c1d95 0%, #1e293b 50%, #0f172a 100%)',
-    mesh: 'radial-gradient(at 40% 20%, #8b5cf6 0px, transparent 50%), radial-gradient(at 80% 0%, #f97316 0px, transparent 50%), radial-gradient(at 0% 50%, #14b8a6 0px, transparent 50%)',
-  },
+export const forgeColors = {
+  ink: '#0B0B0C',
+  graphite: '#131315',
+  sunken: '#1B1B1E',
+  filament: '#26262A',
+  ember: '#F65A1A',
+  spark: '#FF7A38',
+  bone: '#F2F2F3',
+  ash: '#8B8B92',
+  ashSoft: '#5A5A60',
+  borderStrong: '#2F2F34',
+  error: '#E2403A',
+  success: '#4FB477',
+  edgeHighlight: 'rgba(255, 255, 255, 0.03)',
+  emberWash: 'rgba(246, 90, 26, 0.12)',
+  emberHalo: 'rgba(246, 90, 26, 0.24)',
+} as const
+
+export const forgeFonts = {
+  heading: '"Space Grotesk", "Helvetica Neue", Arial, sans-serif',
+  body: '"Inter", "Helvetica Neue", Arial, sans-serif',
+  mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace',
+} as const
+
+export const colorTokens = {
+  ink: { value: forgeColors.ink },
+  graphite: { value: forgeColors.graphite },
+  sunken: { value: forgeColors.sunken },
+  filament: { value: forgeColors.filament },
+  ember: { value: forgeColors.ember },
+  spark: { value: forgeColors.spark },
+  bone: { value: forgeColors.bone },
+  ash: { value: forgeColors.ash },
+  'ash-soft': { value: forgeColors.ashSoft },
+  'border-strong': { value: forgeColors.borderStrong },
+  error: { value: forgeColors.error },
+  success: { value: forgeColors.success },
+  'edge-highlight': { value: forgeColors.edgeHighlight },
+  'ember-wash': { value: forgeColors.emberWash },
+  'ember-halo': { value: forgeColors.emberHalo },
 }
 
-export const fonts = {
-  heading: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif',
-  body: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif',
-  mono: '"JetBrains Mono", "Fira Code", Consolas, monospace',
+export const fontTokens = {
+  heading: { value: forgeFonts.heading },
+  body: { value: forgeFonts.body },
+  mono: { value: forgeFonts.mono },
 }
 
-export const fontSizes = {
-  xs: '0.75rem',
-  sm: '0.875rem',
-  md: '1rem',
-  lg: '1.125rem',
-  xl: '1.25rem',
-  '2xl': '1.5rem',
-  '3xl': '1.875rem',
-  '4xl': '2.25rem',
+export const fontSizeTokens = {
+  'display-xl': { value: '88px' },
+  'display-lg': { value: '64px' },
+  'display-md': { value: '48px' },
+  'headline-lg': { value: '32px' },
+  'headline-md': { value: '24px' },
+  'title-md': { value: '18px' },
+  'body-lg': { value: '16px' },
+  'body-md': { value: '14px' },
+  'body-sm': { value: '13px' },
+  'label-sm': { value: '11px' },
+  'mono-sm': { value: '12px' },
 }
 
-export const space = {
-  1: '0.25rem',
-  2: '0.5rem',
-  3: '0.75rem',
-  4: '1rem',
-  5: '1.25rem',
-  6: '1.5rem',
-  8: '2rem',
-  10: '2.5rem',
-  12: '3rem',
-  16: '4rem',
+export const fontWeightTokens = {
+  normal: { value: '400' },
+  medium: { value: '500' },
+  semibold: { value: '600' },
+  bold: { value: '700' },
 }
 
-export const radii = {
-  none: '0',
-  sm: '0.125rem',
-  md: '0.375rem',
-  lg: '0.5rem',
-  xl: '0.75rem',
-  full: '9999px',
+export const lineHeightTokens = {
+  tight: { value: '1.05' },
+  snug: { value: '1.2' },
+  normal: { value: '1.45' },
+  relaxed: { value: '1.6' },
+}
+
+export const letterSpacingTokens = {
+  tight: { value: '-0.02em' },
+  normal: { value: '0' },
+  wide: { value: '0.04em' },
+  wider: { value: '0.12em' },
+}
+
+export const spacingTokens = {
+  gutter: { value: '24px' },
+  'section-y': { value: '64px' },
+}
+
+export const radiusTokens = {
+  none: { value: '0px' },
+  sm: { value: '2px' },
+  md: { value: '4px' },
+  lg: { value: '8px' },
+  full: { value: '999px' },
+}
+
+export const shadowTokens = {
+  none: { value: 'none' },
+  'inset-edge': { value: `inset 0 1px 0 ${forgeColors.edgeHighlight}` },
+  card: { value: `inset 0 1px 0 ${forgeColors.edgeHighlight}` },
+  pop: { value: '0 18px 40px -12px rgba(0,0,0,0.75), 0 2px 0 0 rgba(0,0,0,0.4)' },
+  focus: { value: `0 0 0 2px ${forgeColors.emberHalo}` },
+}
+
+export const durationTokens = {
+  fast: { value: '120ms' },
+  base: { value: '200ms' },
+}
+
+export const easingTokens = {
+  out: { value: 'cubic-bezier(0.2, 0.65, 0.25, 1)' },
 }

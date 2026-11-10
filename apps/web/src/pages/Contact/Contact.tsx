@@ -9,7 +9,7 @@ const CONTACT_EMAIL = 'forgekit@pm.me'
 
 export function Contact() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo
         title="Contact"
         description="Get in touch about ForgeKit — bugs, feature requests, or the broader generator suite."
@@ -23,77 +23,88 @@ export function Contact() {
         }}
       />
 
-      <Container maxW="container.md" py={{ base: 16, md: 24 }} px={6}>
-        <VStack spacing={8} align="stretch">
-          <VStack spacing={3} align="flex-start">
-            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="white">
+      <Container maxW="container.md" py="section-y" px={6}>
+        <VStack gap={8} align="stretch">
+          <VStack gap={3} align="flex-start">
+            <Heading as="h1" fontSize={{ base: '3xl', md: '4xl' }} color="fg">
               Contact
             </Heading>
-            <Text color="gray.400" fontSize="lg">
+            <Text color="fg.muted" fontSize="lg">
               No contact form, no ticket queue — just direct channels.
             </Text>
           </VStack>
 
-          <Box borderWidth="1px" borderColor="teal.800" borderRadius="xl" p={6} bg="whiteAlpha.50">
-            <Heading as="h2" fontSize="lg" color="white" mb={2}>
+          <Box borderWidth="1px" borderColor="border" borderRadius="md" p={6} bg="bg.surface">
+            <Heading as="h2" fontSize="lg" color="fg" mb={2}>
               Email
             </Heading>
-            <Text color="gray.400" mb={4}>
+            <Text color="fg.muted" mb={4}>
               Bugs, feature requests, or interest in the ForgeKit generator suite.
             </Text>
-            <Button
-              as={Link}
-              href={`mailto:${CONTACT_EMAIL}`}
-              colorScheme="teal"
+                        <Button
+              colorPalette="ember"
               size="md"
               _hover={{ textDecoration: 'none' }}
+              asChild
             >
-              {CONTACT_EMAIL}
+              <Link
+                href={`mailto:${CONTACT_EMAIL}`}
+              >
+                {CONTACT_EMAIL}
+              </Link>
             </Button>
           </Box>
 
-          <Box borderWidth="1px" borderColor="whiteAlpha.200" borderRadius="xl" p={6} bg="whiteAlpha.50">
-            <Heading as="h2" fontSize="lg" color="white" mb={2}>
+          <Box borderWidth="1px" borderColor="border" borderRadius="md" p={6} bg="bg.surface">
+            <Heading as="h2" fontSize="lg" color="fg" mb={2}>
               GitHub issues
             </Heading>
-            <Text color="gray.400" mb={4}>
+            <Text color="fg.muted" mb={4}>
               Bug reports and feature requests for <code>forgekit-storybook-mcp</code> — fastest way to get
               something tracked and fixed.
             </Text>
-            <Button
-              as={Link}
-              href="https://github.com/effinrich/storybook-mcp/issues"
-              isExternal
+                        <Button
               variant="outline"
-              colorScheme="gray"
-              borderColor="whiteAlpha.300"
-              color="white"
-              _hover={{ bg: 'whiteAlpha.100', textDecoration: 'none' }}
+              colorPalette="ember"
+              borderColor="border"
+              color="fg"
+              _hover={{ bg: 'bg.sunken', textDecoration: 'none' }}
               size="md"
+              asChild
             >
-              Open an issue
+              <Link
+                href="https://github.com/effinrich/storybook-mcp/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open an issue
+              </Link>
             </Button>
           </Box>
 
-          <Box borderWidth="1px" borderColor="whiteAlpha.200" borderRadius="xl" p={6} bg="whiteAlpha.50">
-            <Heading as="h2" fontSize="lg" color="white" mb={2}>
+          <Box borderWidth="1px" borderColor="border" borderRadius="md" p={6} bg="bg.surface">
+            <Heading as="h2" fontSize="lg" color="fg" mb={2}>
               Discord
             </Heading>
-            <Text color="gray.400" mb={4}>
+            <Text color="fg.muted" mb={4}>
               For quick questions and to see what others are building with it.
             </Text>
-            <Button
-              as={Link}
-              href="https://discord.gg/jqt9EhYe"
-              isExternal
+                        <Button
               variant="outline"
-              colorScheme="gray"
-              borderColor="whiteAlpha.300"
-              color="white"
-              _hover={{ bg: 'whiteAlpha.100', textDecoration: 'none' }}
+              colorPalette="ember"
+              borderColor="border"
+              color="fg"
+              _hover={{ bg: 'bg.sunken', textDecoration: 'none' }}
               size="md"
+              asChild
             >
-              Join the Discord
+              <Link
+                href="https://discord.gg/jqt9EhYe"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join the Discord
+              </Link>
             </Button>
           </Box>
         </VStack>
@@ -110,5 +121,5 @@ export function Contact() {
         ]}
       />
     </Box>
-  )
+  );
 }

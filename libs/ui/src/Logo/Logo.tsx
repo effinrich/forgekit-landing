@@ -44,20 +44,17 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
           strokeWidth="11"
           strokeLinecap="round"
         />
-        {/* Outer flame - deep orange */}
         <path
           d="M100 55 Q108 70 115 85 Q125 105 120 120 Q118 135 100 145 Q82 135 80 120 Q75 105 85 85 Q92 70 100 55Z"
-          fill="#ea580c"
+          fill="#F65A1A"
         />
-        {/* Inner flame - orange */}
         <path
           d="M100 72 Q106 82 110 92 Q116 105 112 115 Q110 125 100 132 Q90 125 88 115 Q84 105 90 92 Q94 82 100 72Z"
-          fill="#f97316"
+          fill="#FF7A38"
         />
-        {/* Core flame - yellow */}
         <path
           d="M100 88 Q104 95 106 102 Q108 112 105 118 Q103 123 100 125 Q97 123 95 118 Q92 112 94 102 Q96 95 100 88Z"
-          fill="#fbbf24"
+          fill="#F2F2F3"
         />
       </svg>
     )
@@ -71,18 +68,18 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
     }
 
     return (
-      <HStack ref={ref} spacing={gap} align="center">
+      <HStack ref={ref} gap={gap} align="center">
         <LogoIconLight />
         <Text
           fontSize={fontSize}
           fontWeight="700"
-          color="white"
-          letterSpacing="-0.02em"
+          color="fg"
+          letterSpacing="tight"
         >
-          Forge<Text as="span" color="orange.400">Kit</Text>
+          Forge<Text as="span" color="ember">Kit</Text>
         </Text>
       </HStack>
-    )
+    );
   }
 )
 

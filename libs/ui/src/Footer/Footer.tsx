@@ -5,9 +5,9 @@ import {
   HStack,
   SimpleGrid,
   Link,
-  Divider,
+  Separator,
 } from '@chakra-ui/react'
-import { forwardRef } from 'react'
+import { forwardRef, type ReactNode } from 'react'
 import { Container } from '../Container'
 
 export interface FooterLink {
@@ -22,14 +22,14 @@ export interface FooterColumn {
 
 export interface FooterProps {
   /** Logo component or text */
-  logo: React.ReactNode
+  logo: ReactNode
   /** Tagline under logo */
   tagline?: string
   /** Footer columns */
   columns: FooterColumn[]
   /** Social links */
   socialLinks?: Array<{
-    icon: React.ReactNode
+    icon: ReactNode
     href: string
     label: string
   }>
@@ -38,40 +38,45 @@ export interface FooterProps {
 }
 
 /**
- * Footer section with columns and social links
+ * Site footer: ink surface, hairline, muted labels.
  */
 export const Footer = forwardRef<HTMLDivElement, FooterProps>(
-  ({ logo, tagline, columns, socialLinks, copyright }, ref) => {
-    const currentYear = new Date().getFullYear()
-
+  (
+    {
+      logo,
+      tagline,
+      columns,
+      socialLinks,
+      copyright = `© ${new Date().getFullYear()} ForgeKit`,
+    },
+    ref
+  ) => {
     return (
-      <Box ref={ref} bg="slate.950" borderTop="1px solid" borderColor="slate.900">
-        <Container size="xl" py={{ base: 12, md: 16 }}>
-          <SimpleGrid
-            columns={{ base: 1, md: 2, lg: 5 }}
-            spacing={{ base: 8, md: 12 }}
-          >
-            {/* Brand column */}
-            <VStack align={{ base: 'center', md: 'start' }} spacing={4} gridColumn={{ lg: 'span 2' }}>
-              <Box fontSize="2xl" fontWeight="700" color="white">
-                {logo}
-              </Box>
+      <Box
+        ref={ref}
+        as="footer"
+        bg="bg"
+        borderTopWidth="1px"
+        borderColor="border"
+      >
+        <Container size="xl" py="section-y">
+          <SimpleGrid columns={{ base: 1, md: 4 }} gap={{ base: '8', md: '12' }}>
+            <VStack align={{ base: 'center', md: 'flex-start' }} gap="3">
+              {logo}
               {tagline && (
-                <Text color="slate.500" fontSize="sm" maxW="xs" textAlign={{ base: 'center', md: 'left' }}>
+                <Text color="fg.muted" textStyle="body-sm" maxW="xs" textAlign={{ base: 'center', md: 'left' }}>
                   {tagline}
                 </Text>
               )}
-              {socialLinks && (
-                <HStack spacing={4} pt={2}>
-                  {socialLinks.map((social, index) => (
+              {socialLinks && socialLinks.length > 0 && (
+                <HStack gap="4" pt="2">
+                  {socialLinks.map((social) => (
                     <Link
-                      key={index}
+                      key={social.label}
                       href={social.href}
-                      isExternal
                       aria-label={social.label}
-                      color="slate.500"
-                      _hover={{ color: 'white' }}
-                      transition="color 0.2s"
+                      color="fg.muted"
+                      _hover={{ color: 'fg' }}
                     >
                       {social.icon}
                     </Link>
@@ -80,31 +85,26 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
               )}
             </VStack>
 
-            {/* Link columns */}
-            {columns.map((column, index) => (
-              <VStack
-                key={index}
-                align={{ base: 'center', md: 'start' }}
-                spacing={4}
-              >
+            {columns.map((column) => (
+              <VStack key={column.title} align={{ base: 'center', md: 'flex-start' }} gap="4">
                 <Text
-                  fontWeight="600"
-                  color="white"
-                  fontSize="sm"
-                  textTransform="uppercase"
+                  fontFamily="mono"
+                  fontSize="label-sm"
+                  fontWeight="medium"
                   letterSpacing="wider"
+                  textTransform="uppercase"
+                  color="fg.muted"
                 >
                   {column.title}
                 </Text>
-                <VStack align={{ base: 'center', md: 'start' }} spacing={3}>
-                  {column.links.map((link, linkIndex) => (
+                <VStack align={{ base: 'center', md: 'flex-start' }} gap="2">
+                  {column.links.map((link) => (
                     <Link
-                      key={linkIndex}
+                      key={link.href}
                       href={link.href}
-                      color="slate.500"
-                      fontSize="sm"
-                      _hover={{ color: 'white' }}
-                      transition="color 0.2s"
+                      color="fg.muted"
+                      textStyle="body-sm"
+                      _hover={{ color: 'fg' }}
                     >
                       {link.label}
                     </Link>
@@ -114,22 +114,22 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
             ))}
           </SimpleGrid>
 
-          <Divider borderColor="slate.900" my={8} />
+          <Separator borderColor="border" my="8" />
 
           <HStack
             justify="space-between"
             flexDir={{ base: 'column', sm: 'row' }}
-            spacing={4}
+            gap="3"
           >
-            <Text color="slate.600" fontSize="sm">
-              {copyright || `© ${currentYear} Forgekit. All rights reserved.`}
+            <Text color="fg.muted" textStyle="body-sm">
+              {copyright}
             </Text>
-            <HStack spacing={6}>
-              <Link href="/privacy" color="slate.600" fontSize="sm" _hover={{ color: 'slate.400' }}>
-                Privacy Policy
+            <HStack gap="4">
+              <Link href="/privacy" color="fg.muted" textStyle="body-sm" _hover={{ color: 'fg' }}>
+                Privacy
               </Link>
-              <Link href="/terms" color="slate.600" fontSize="sm" _hover={{ color: 'slate.400' }}>
-                Terms of Service
+              <Link href="/terms" color="fg.muted" textStyle="body-sm" _hover={{ color: 'fg' }}>
+                Terms
               </Link>
             </HStack>
           </HStack>

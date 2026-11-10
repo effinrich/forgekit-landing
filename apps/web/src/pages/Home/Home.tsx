@@ -38,12 +38,6 @@ const CodeIcon = () => (
   </svg>
 )
 
-const TestIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M9 11l3 3L22 4" />
-    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
-  </svg>
-)
 
 const StorybookIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -96,42 +90,36 @@ const features = [
     title: 'Model Context Protocol',
     description:
       'A real MCP server for Storybook: story generation, component analysis, validation, and tools your editor can call — the same ideas as the forgekit-storybook-mcp README.',
-    accentColor: '#8b5cf6',
   },
   {
     icon: <StorybookIcon />,
     title: 'Stories, tests, docs',
     description:
       'Auto-sync on startup, templates, Vitest and Playwright-oriented output, MDX docs, and Figma Code Connect — all MIT, no feature gates.',
-    accentColor: '#f97316',
   },
   {
     icon: <CodeIcon />,
     title: 'Framework-aware',
     description:
       'Auto-detects Chakra UI, shadcn/ui, Tamagui, and Gluestack UI. Any React project works; unrecognized setups get sensible vanilla defaults.',
-    accentColor: '#14b8a6',
   },
   {
     icon: <FigmaIcon />,
     title: 'Figma in the loop',
     description:
       'Connect designs to code with Code Connect and the broader ForgeKit story — from file to components without reinventing your design system.',
-    accentColor: '#8b5cf6',
   },
   {
     icon: <SyncIcon />,
     title: 'Live sync',
     description:
       'Watch component folders, debounced rescans, and periodic catch-up so your stories stay aligned as files change.',
-    accentColor: '#14b8a6',
   },
   {
     icon: <RocketIcon />,
     title: 'ForgeKit + npm',
     description:
       'ForgeKit is the Nx / app / UI / Storybook generator suite. The package is forgekit-storybook-mcp because @forgekit on npm was taken — fully standalone, install with npm.',
-    accentColor: '#f97316',
   },
 ]
 
@@ -178,7 +166,7 @@ const navLinks = [
 
 export function Home() {
   return (
-    <Box bg="slate.950" minH="100vh">
+    <Box bg="bg" minH="100vh">
       <Seo
         title="ForgeKit · Storybook MCP (MIT)"
         description="MIT open-source ForgeKit: forgekit-storybook-mcp MCP server for Storybook — stories, tests, docs, sync, Figma Code Connect. Packages include Figma token MCP, Nx plugin, and CLI."
@@ -215,12 +203,12 @@ export function Home() {
         features={features}
       />
 
-      <Box id="open-source" py={{ base: 16, md: 24 }} scrollMarginTop="80px">
+      <Box id="open-source" py="section-y" scrollMarginTop="80px">
         <Container maxW="container.xl">
-          <VStack spacing={{ base: 10, md: 14 }}>
-            <VStack spacing={4} textAlign="center" maxW="3xl">
+          <VStack gap={{ base: 10, md: 14 }}>
+            <VStack gap={4} textAlign="center" maxW="3xl">
               <Text
-                color="brand.400"
+                color="fg.muted"
                 fontWeight="600"
                 fontSize="sm"
                 textTransform="uppercase"
@@ -231,61 +219,69 @@ export function Home() {
               <Heading
                 as="h2"
                 fontSize={{ base: '2xl', md: '4xl' }}
-                fontWeight="bold"
-                color="white"
+                fontWeight="semibold"
+                color="fg"
                 lineHeight="tight"
               >
                 Celebrate shipping:{' '}
-                <Text as="span" color="teal.400">
+                <Text as="span" color="accent">
                   npm install
                 </Text>{' '}
                 and go
               </Heading>
-              <Text color="gray.400" fontSize={{ base: 'md', md: 'lg' }}>
+              <Text color="fg.muted" fontSize={{ base: 'md', md: 'lg' }}>
                 The Storybook MCP is MIT-licensed — stories, tests, templates, sync, and Code Connect for everyone.
                 Star the repo, file issues, and share what you build.
               </Text>
             </VStack>
 
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full">
+            <SimpleGrid columns={{ base: 1, md: 2 }} gap={8} w="full">
               <Box
                 borderWidth="1px"
-                borderColor="whiteAlpha.200"
-                borderRadius="xl"
+                borderColor="border"
+                borderRadius="md"
                 p={{ base: 6, md: 8 }}
-                bg="whiteAlpha.50"
-                _hover={{ borderColor: 'teal.500', transition: 'border-color 0.2s' }}
+                bg="bg.surface"
+                _hover={{ borderColor: 'border.emphasized' }}
               >
-                <VStack align="stretch" spacing={4}>
-                  <Text fontWeight="700" color="white" fontSize="xl">
+                <VStack align="stretch" gap={4}>
+                  <Text fontWeight="700" color="fg" fontSize="xl">
                     forgekit-storybook-mcp
                   </Text>
-                  <Text color="gray.400">
+                  <Text color="fg.muted">
                     The package on npm. CLI commands forgekit-storybook-mcp and storybook-mcp — same README you know,
                     zero license keys.
                   </Text>
-                  <HStack spacing={3} flexWrap="wrap">
-                    <Button
-                      as={Link}
-                      href={NPM_MCP}
-                      isExternal
-                      colorScheme="teal"
+                  <HStack gap={3} flexWrap="wrap">
+                                        <Button
+                      colorPalette="ember"
                       size="md"
+                      asChild
                     >
-                      npm package
+                      <Link
+                        href={NPM_MCP}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        npm package
+                      </Link>
                     </Button>
-                    <Button
-                      as={Link}
-                      href={GH_MCP}
-                      isExternal
+                                        <Button
                       variant="outline"
-                      colorScheme="gray"
-                      borderColor="whiteAlpha.300"
-                      color="white"
-                      _hover={{ bg: 'whiteAlpha.100' }}
+                      colorPalette="ember"
+                      borderColor="border"
+                      color="fg"
+                      _hover={{ bg: 'bg.sunken' }}
                       size="md"
+                      asChild
                     >
-                      Source on GitHub
+                      <Link
+                        href={GH_MCP}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Source on GitHub
+                      </Link>
                     </Button>
                   </HStack>
                 </VStack>
@@ -293,26 +289,26 @@ export function Home() {
 
               <Box
                 borderWidth="1px"
-                borderColor="whiteAlpha.200"
-                borderRadius="xl"
+                borderColor="border"
+                borderRadius="md"
                 p={{ base: 6, md: 8 }}
-                bg="whiteAlpha.50"
+                bg="bg.surface"
               >
-                <VStack align="stretch" spacing={4}>
-                  <Text fontWeight="700" color="white" fontSize="xl">
+                <VStack align="stretch" gap={4}>
+                  <Text fontWeight="700" color="fg" fontSize="xl">
                     ForgeKit generator
                   </Text>
-                  <Text color="gray.400">
+                  <Text color="fg.muted">
                     The broader ForgeKit vision: Nx monorepos, Figma-driven UI libraries, Storybook, and deployment
                     patterns — rolling out over time. Want word on the generator? Say hello.
                   </Text>
                   <Button
                     onClick={handleForgeKitWaitlist}
                     variant="outline"
-                    colorScheme="gray"
-                    borderColor="whiteAlpha.300"
-                    color="white"
-                    _hover={{ bg: 'whiteAlpha.100' }}
+                    colorPalette="ember"
+                    borderColor="border"
+                    color="fg"
+                    _hover={{ bg: 'bg.sunken' }}
                     size="md"
                     alignSelf="flex-start"
                   >
@@ -350,5 +346,5 @@ export function Home() {
         ]}
       />
     </Box>
-  )
+  );
 }
