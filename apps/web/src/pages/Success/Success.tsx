@@ -17,7 +17,7 @@ import { Header, Footer, Logo } from '@forgekit-landing/ui'
 import { Seo } from '../../seo/Seo'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
-const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
+const GH_MCP = 'https://github.com/the-single-gentlemans-club/storybook-mcp'
 
 const CheckCircleIcon = () => (
   <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
