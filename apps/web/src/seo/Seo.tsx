@@ -105,7 +105,7 @@ export const homeJsonLd: Record<string, unknown>[] = [
     name: 'forgekit-storybook-mcp',
     programmingLanguage: 'TypeScript',
     license: 'https://opensource.org/licenses/MIT',
-    codeRepository: 'https://github.com/effinrich/storybook-mcp',
+    codeRepository: 'https://github.com/the-single-gentlemans-club/storybook-mcp',
     url: 'https://www.npmjs.com/package/forgekit-storybook-mcp',
     description:
       'Model Context Protocol server for Storybook story generation, tests, docs, sync, and Figma Code Connect.',
