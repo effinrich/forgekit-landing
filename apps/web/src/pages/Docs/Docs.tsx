@@ -152,7 +152,7 @@ export function Docs() {
           </Box>
 
           <Text fontSize="sm" color="gray.500">
-            The repository README is the current source of truth for the package.
+            The repository README is the current guide for the package.
           </Text>
         </VStack>
       </Container>
