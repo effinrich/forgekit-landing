@@ -39,14 +39,12 @@ export const FORGEKIT_PACKAGES: ForgekitPackageMeta[] = [
     integrationLabel: 'MCP server (stdio) · CLI: forgekit-storybook-mcp, storybook-mcp',
     audience: 'Cursor, Claude Desktop, Windsurf, any MCP-capable editor',
     description:
-      'Model Context Protocol server for Storybook: generate and sync stories, tests, MDX, Figma Code Connect, health checks, and file watching. Uses stdio JSON-RPC with your IDE — not an Nx plugin. Full documentation is hosted separately from this marketing site (see Documentation link).',
+      'Model Context Protocol server for Storybook: generate and sync stories, tests, MDX, Figma Code Connect, health checks, and file watching. Uses stdio JSON-RPC with your IDE — not an Nx plugin. The working guide lives in the repository README.',
     npmUrl: 'https://www.npmjs.com/package/forgekit-storybook-mcp',
-    githubUrl: 'https://github.com/effinrich/storybook-mcp',
+    githubUrl: 'https://github.com/the-single-gentlemans-club/storybook-mcp',
     docsUrl: DOCS_STORYBOOK_MCP,
-    docsLabel: 'Documentation (docs.forgekit.cloud)',
-    docTier: 'mintlify-in-repo',
-    lastPublishedNote:
-      'Deploy Mintlify to this URL per docs/DEPLOY_DOCS_FORGEKIT_CLOUD.md — until DNS is live, the link may not resolve.',
+    docsLabel: 'README (full guide)',
+    docTier: 'readme',
   },
   {
     npmName: 'forgekit-figma-mcp',
