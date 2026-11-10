@@ -20,7 +20,7 @@ import {
 import { Seo, homeJsonLd } from '../../seo/Seo'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
-const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
+const GH_MCP = 'https://github.com/the-single-gentlemans-club/storybook-mcp'
 
 // Icons as simple SVG components
 const FigmaIcon = () => (
@@ -144,8 +144,8 @@ const footerColumns = [
   {
     title: 'Product',
     links: [
-      { label: 'Features', href: '#features' },
-      { label: 'Open source', href: '#open-source' },
+      { label: 'Features', href: '/#features' },
+      { label: 'Open source', href: '/#open-source' },
       { label: 'Changelog', href: '/changelog' },
       { label: 'Roadmap', href: '/roadmap' },
     ],
@@ -170,10 +170,10 @@ const footerColumns = [
 ]
 
 const navLinks = [
-  { label: 'Features', href: '#features' },
+  { label: 'Features', href: '/#features' },
   { label: 'Packages', href: '/packages' },
   { label: 'Docs', href: '/docs' },
-  { label: 'Open source', href: '#open-source' },
+  { label: 'Open source', href: '/#open-source' },
 ]
 
 export function Home() {
