@@ -70,7 +70,7 @@ export function Docs() {
     <Box bg="slate.950" minH="100vh">
       <Seo
         title="Documentation hub"
-        description="ForgeKit documentation: Storybook MCP on docs.forgekit.cloud, npm packages, and links to GitHub. MIT open-source tools for Storybook, Figma, and Nx."
+        description="ForgeKit documentation: the Storybook MCP repository guide, npm packages, and links to GitHub. MIT open-source tools for Storybook, Figma, and Nx."
         path="/docs"
       />
       <Header
@@ -163,7 +163,7 @@ export function Docs() {
         columns={footerColumns}
         socialLinks={[
           { icon: <TwitterIcon />, href: 'https://x.com/forgekitdev', label: 'X' },
-          { icon: <GitHubIcon />, href: 'https://github.com/effinrich/storybook-mcp', label: 'GitHub' },
+          { icon: <GitHubIcon />, href: 'https://github.com/the-single-gentlemans-club/storybook-mcp', label: 'GitHub' },
           { icon: <DiscordIcon />, href: 'https://discord.gg/jqt9EhYe', label: 'Discord' },
         ]}
       />
