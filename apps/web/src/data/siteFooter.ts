@@ -1,7 +1,7 @@
 import { SITE_ORIGIN } from '../seo/site'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
-const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
+const GH_MCP = 'https://github.com/the-single-gentlemans-club/storybook-mcp'
 
 export const siteNavLinks = [
   { label: 'Home', href: '/' },
