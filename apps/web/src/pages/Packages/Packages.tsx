@@ -18,7 +18,7 @@ import {
 } from '../../data/forgekitPackages'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
-const GH_MCP = 'https://github.com/effinrich/storybook-mcp'
+const GH_MCP = 'https://github.com/the-single-gentlemans-club/storybook-mcp'
 
 const TwitterIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
