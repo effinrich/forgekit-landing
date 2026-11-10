@@ -7,7 +7,7 @@ export const SITE_OG_IMAGE_WIDTH = 1200
 export const SITE_OG_IMAGE_HEIGHT = 630
 
 /** Mintlify docs for Storybook MCP (see docs/DEPLOY_DOCS_FORGEKIT_CLOUD.md). */
-export const DOCS_STORYBOOK_MCP = 'https://docs.forgekit.cloud'
+export const DOCS_STORYBOOK_MCP = 'https://github.com/the-single-gentlemans-club/storybook-mcp#readme'
 
 export function absoluteUrl(path: string): string {
   if (path.startsWith('http')) return path
