@@ -94,7 +94,7 @@ export const homeJsonLd: Record<string, unknown>[] = [
     description:
       'Open-source ForgeKit tooling: Storybook MCP, Figma token MCP, and Nx/CLI plugins for design-system workflows.',
     sameAs: [
-      'https://github.com/effinrich/storybook-mcp',
+      'https://github.com/the-single-gentlemans-club/storybook-mcp',
       'https://www.npmjs.com/package/forgekit-storybook-mcp',
       'https://x.com/forgekitdev',
     ],
