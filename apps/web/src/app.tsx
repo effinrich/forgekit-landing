@@ -1,21 +1,24 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { MainLayout } from './layouts/MainLayout'
-import { Home } from './pages/Home'
-import { Success } from './pages/Success'
-import { Packages } from './pages/Packages'
-import { Docs } from './pages/Docs'
-import { Changelog } from './pages/Changelog'
-import { Roadmap } from './pages/Roadmap'
-import { About } from './pages/About'
-import { Contact } from './pages/Contact'
-import { Privacy } from './pages/Privacy'
-import { Terms } from './pages/Terms'
-import { NotFound } from './pages/NotFound'
+
+const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })))
+const Success = lazy(() => import('./pages/Success').then(m => ({ default: m.Success })))
+const Packages = lazy(() => import('./pages/Packages').then(m => ({ default: m.Packages })))
+const Docs = lazy(() => import('./pages/Docs').then(m => ({ default: m.Docs })))
+const Changelog = lazy(() => import('./pages/Changelog').then(m => ({ default: m.Changelog })))
+const Roadmap = lazy(() => import('./pages/Roadmap').then(m => ({ default: m.Roadmap })))
+const About = lazy(() => import('./pages/About').then(m => ({ default: m.About })))
+const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })))
+const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })))
+const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })))
+const NotFound = lazy(() => import('./pages/NotFound').then(m => ({ default: m.NotFound })))
 
 export function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <Suspense fallback={null}>
+        <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/packages" element={<Packages />} />
@@ -29,7 +32,8 @@ export function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-      </Routes>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }
