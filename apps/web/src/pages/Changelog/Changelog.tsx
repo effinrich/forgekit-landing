@@ -5,7 +5,7 @@ import { siteNavLinks, siteFooterColumns, siteSocialLinksMeta } from '../../data
 import { TwitterIcon, GitHubIcon, DiscordIcon } from '../../components/SocialIcons'
 
 const NPM_MCP = 'https://www.npmjs.com/package/forgekit-storybook-mcp'
-const CHANGELOG_URL = 'https://github.com/effinrich/storybook-mcp/blob/master/CHANGELOG.md'
+const CHANGELOG_URL = 'https://github.com/the-single-gentlemans-club/storybook-mcp/blob/master/CHANGELOG.md'
 
 type Entry = {
   version: string
