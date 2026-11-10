@@ -14,7 +14,7 @@ if (root) {
     <StrictMode>
       <HelmetProvider>
         <SpeedInsights />
-        <ChakraProvider theme={theme}>
+        <ChakraProvider value={theme}>
           <App />
         </ChakraProvider>
       </HelmetProvider>

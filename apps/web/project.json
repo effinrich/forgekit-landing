@@ -6,7 +6,7 @@
   "tags": ["type:app", "scope:web"],
   "targets": {
     "test": {
-      "executor": "@nx/vite:test",
+      "executor": "@nx/vitest:test",
       "outputs": ["{workspaceRoot}/coverage/apps/web"],
       "options": {
         "config": "apps/web/vite.config.ts",

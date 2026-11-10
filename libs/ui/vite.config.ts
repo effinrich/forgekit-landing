@@ -1,14 +1,14 @@
 import react from '@vitejs/plugin-react'
 
 import { defineConfig } from 'vite'
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
+import tsconfigPaths from 'vite-tsconfig-paths'
 import { resolve } from 'path'
 
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/libs/ui',
 
-  plugins: [react(), nxViteTsPaths()],
+  plugins: [react(), tsconfigPaths()],
 
   build: {
     outDir: '../../dist/libs/ui',
@@ -19,7 +19,7 @@ export default defineConfig({
       fileName: 'index',
       formats: ['es'],
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
   },

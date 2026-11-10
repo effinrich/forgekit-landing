@@ -45,9 +45,9 @@ export const Features = forwardRef<HTMLDivElement, FeaturesProps>(
     return (
       <Box ref={ref} py={{ base: 16, md: 24 }} bg="slate.950">
         <Container size="xl">
-          <VStack spacing={{ base: 12, md: 16 }}>
+          <VStack gap={{ base: 12, md: 16 }}>
             {/* Section header */}
-            <VStack spacing={4} textAlign="center" maxW="2xl">
+            <VStack gap={4} textAlign="center" maxW="2xl">
               {badge && (
                 <Text
                   color="brand.400"
